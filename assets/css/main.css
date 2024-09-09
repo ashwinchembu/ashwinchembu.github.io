@@ -25,6 +25,8 @@ section, summary, time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;}
 
+
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
@@ -2983,3 +2985,21 @@ input, select, textarea {
 						}
 
 	}
+
+	#nav ul li a {
+		color: black; /* Changes the text color to black */
+		padding: 0.5em 1em; /* Adds padding to make the border more visible */
+		border-radius: 0.35em; /* Rounds the border corners */
+		text-decoration: none; /* Removes underline from links */
+	}
+	
+	#nav ul li a:hover {
+		color: darkred; /* Optionally change the text color on hover */
+		border-color: darkred; /* Optionally change border color on hover */
+	}
+	
+	#nav ul {
+		background-color: rgba(220, 220, 220, 0.5); /* Gainsboro color with 50% opacity */
+	}
+	
+	
