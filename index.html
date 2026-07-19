@@ -101,7 +101,7 @@
               <div class="product-topbar"><div><span></span><span></span><span></span></div><b>LUME</b><small>Project Brain · Live</small></div>
               <div class="lume-layout">
                 <aside class="meeting-panel"><p>Design review</p><small>24:18 · 4 people</small><div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="speaker"><b>AC</b><span><i></i><i></i></span></div><div class="speaker"><b>JL</b><span><i></i><i></i></span></div></aside>
-                <div class="brain-panel"><p class="brain-label">Ask across this project</p><h4>What decision did we make about onboarding?</h4><div class="ai-answer"><span>✦</span><p>The team chose a guided setup with progressive disclosure, starting with the document-import step.</p></div><div class="citation-row"><span>Transcript · 18:42</span><span>Brief.pdf · p.3</span></div></div>
+                <div class="brain-panel"><p class="brain-label">Ask across this project</p><h4>What decision did we make about onboarding?</h4><div class="context-map" aria-hidden="true"><span>Meeting 12</span><i></i><span>Onboarding</span><i></i><span>Brief.pdf</span></div><div class="ai-answer"><span>✦</span><p>The team chose a guided setup with progressive disclosure, starting with the document-import step.</p></div><div class="citation-row"><span>Transcript · 18:42</span><span>Brief.pdf · p.3</span></div></div>
               </div>
             </div>
           </div>
@@ -109,35 +109,47 @@
             <p class="project-index">01 · AI / Meeting intelligence</p>
             <h3>Lume</h3>
             <p class="project-role">Full-stack AI platform · 2025—Now</p>
-            <p>A meeting intelligence platform that captures, stores, and queries conversations. Its Project Brain learns terminology and relationships from transcripts and files, then returns document-grounded answers with evidence.</p>
+            <p>A meeting-intelligence workspace that turns conversations and project files into reusable context. Project Brain connects terminology, decisions, and evidence across transcripts so teams can ask better questions without losing the source.</p>
             <div class="tech-list"><span>React 18</span><span>Node.js</span><span>MongoDB</span><span>AWS S3</span><span>WebSockets</span><span>RAG</span></div>
-            <a class="text-link" href="https://github.com/ashwinchembu" target="_blank" rel="noopener">Explore my GitHub <span>↗</span></a>
+            <details class="project-more" id="lume-details">
+              <summary>Architecture &amp; product details</summary>
+              <div class="project-more-body"><p>The React 18 client and Node/Express services capture, store, and query meeting content through MongoDB, AWS S3, and live WebSocket updates.</p><ul><li>Built a RAG question-answering flow with vector embeddings, intent routing, evidence extraction, and a multi-pass generator/critic pipeline.</li><li>Modeled a Project Brain that learns project-specific language and relationships from transcripts, uploaded files, and seeded context.</li><li>Designed transcript-aware search and citation-backed answers so every useful output remains traceable to its source.</li></ul></div>
+            </details>
+            <p class="source-note">Private source repository · product architecture shown above</p>
           </div>
         </article>
 
         <div class="project-grid">
           <article class="project project-small reveal">
             <div class="project-visual echo-system-visual">
-              <div class="echo-camera"><div class="scan-corners"><span></span><span></span><span></span><span></span><b>AC</b><i></i></div><p>Face match · 98.7%</p></div><div class="proof-path"><i></i><i></i><i></i></div><div class="proof-card"><span>IDENTITY PROOF</span><b>Verified</b><small>ResilientDB · block 03AF</small><div><i></i><i></i><i></i><i></i></div></div>
+              <div class="echo-camera"><div class="scan-corners"><span></span><span></span><span></span><span></span><b>AC</b><i></i><em>ML face vector</em></div><p>Face match · 98.7% · media encrypted</p></div><div class="proof-path"><span>proof</span><i></i><i></i><i></i></div><div class="proof-card"><span>IDENTITY PROOF</span><b>Verified</b><small>ResilientDB · block 03AF</small><div><i></i><i></i><i></i><i></i></div><p>camera → S3 → API → ledger</p></div>
             </div>
             <div class="project-copy">
               <p class="project-index">02 · Identity / Distributed systems</p>
               <h3>Echo</h3>
-              <p>A biometric digital-verification platform connecting facial detection, secure media workflows, and a research blockchain stack. Winner of HackMIT’s Interactive Media track and Solana prize.</p>
+              <p>A biometric identity-verification platform built with Professor Mohammad Sadoghi’s research group. Echo connects facial matching and secure image storage to a distributed identity proof, with clear states for capture, verification, and persistence.</p>
               <div class="tech-list"><span>React</span><span>ResilientDB</span><span>Flask</span><span>MongoDB</span><span>AWS S3</span></div>
-              <a class="text-link" href="https://engineering.ucdavis.edu/news/student-wins-hackmit" target="_blank" rel="noopener">Read the feature <span>↗</span></a>
+              <details class="project-more">
+                <summary>System &amp; research details</summary>
+                <div class="project-more-body"><p>The platform combined a React/Node interface with MongoDB, Express, Flask, and Python services, while Multer and AWS S3 handled secure media uploads.</p><ul><li>Integrated facial-detection APIs into a guided verification flow with user-readable success, retry, and proof states.</li><li>Explored blockchain-based identity proof creation and persistence with ResilientDB.</li><li>Recognized at HackMIT for the Interactive Media track and a Solana prize.</li></ul></div>
+              </details>
+              <div class="project-links"><a class="text-link" href="https://github.com/ashwinchembu/echo.github.io" target="_blank" rel="noopener">Frontend repo <span>↗</span></a><a class="text-link" href="https://github.com/ashwinchembu/echobe.github.io" target="_blank" rel="noopener">API repo <span>↗</span></a><a class="text-link" href="https://engineering.ucdavis.edu/news/student-wins-hackmit" target="_blank" rel="noopener">UC Davis feature <span>↗</span></a></div>
             </div>
           </article>
           <article class="project project-small reveal delay-1">
             <div class="project-visual filesystem-visual">
-              <div class="fs-window"><div class="fs-title"><span>ecs150-fs</span><b>mounted</b></div><div class="fs-body"><div class="file-tree"><p>/ virtual_disk</p><span>├── reports</span><span>│ &nbsp; └── data.bin</span><span>├── notes.txt</span><span>└── index.db</span></div><div class="fat-panel"><p>File Allocation Table</p><div class="fat-grid"><i class="used"></i><i class="used"></i><i></i><i class="linked"></i><i class="linked"></i><i></i><i class="used"></i><i></i><i></i><i class="used"></i><i class="used"></i><i></i></div><small>12 blocks · 7 allocated</small></div></div><div class="fs-terminal"><b>$</b> mount disk.img <span>filesystem ready</span></div></div>
+              <div class="fs-window"><div class="fs-title"><span>ecs150-fs</span><b>mounted</b></div><div class="fs-status"><span>FAT</span><span>4 KB blocks</span><span>read / write</span></div><div class="fs-body"><div class="file-tree"><p>/ virtual_disk</p><span>├── reports</span><span>│ &nbsp; └── data.bin</span><span>├── notes.txt</span><span>└── index.db</span></div><div class="fat-panel"><p>File Allocation Table</p><div class="fat-grid"><i class="used" data-block="00"></i><i class="used" data-block="01"></i><i data-block="02"></i><i class="linked" data-block="03"></i><i class="linked" data-block="04"></i><i data-block="05"></i><i class="used" data-block="06"></i><i data-block="07"></i><i data-block="08"></i><i class="used" data-block="09"></i><i class="used" data-block="10"></i><i data-block="11"></i></div><small>12 blocks · 7 allocated · chain 03 → 04</small></div></div><div class="fs-terminal"><b>$</b> mount disk.img <span>filesystem ready</span></div></div>
             </div>
             <div class="project-copy">
               <p class="project-index">03 · Systems programming</p>
               <h3>ECS150-FS</h3>
-              <p>A File Allocation Table file system with virtual-disk emulation, persistent metadata, descriptors, mounting, allocation, and complete file operations.</p>
+              <p>A File Allocation Table file system built in C over a virtual disk. It manages persistent metadata, free-block allocation, descriptors, directory state, and complete read/write behavior across mount cycles.</p>
               <div class="tech-list"><span>C</span><span>FAT</span><span>Virtual disk</span><span>Systems debugging</span></div>
-              <a class="text-link" href="https://github.com/ashwinchembu" target="_blank" rel="noopener">View code profile <span>↗</span></a>
+              <details class="project-more">
+                <summary>Implementation details</summary>
+                <div class="project-more-body"><p>Implemented mount and unmount, file and directory creation, deletion, descriptor handling, seeking, and persistent reads and writes against a disk abstraction.</p><ul><li>Kept FAT entries, directory metadata, and file data synchronized through allocation and deletion paths.</li><li>Tested concurrent access, large files, overwrite behavior, filesystem limits, and error handling.</li><li>Debugged edge cases in block chaining, persistence, and memory ownership at the systems boundary.</li></ul></div>
+              </details>
+              <div class="project-links"><a class="text-link" href="https://github.com/ashwinchembu/cse150_p3" target="_blank" rel="noopener">File-system repo <span>↗</span></a></div>
             </div>
           </article>
         </div>
@@ -153,27 +165,27 @@
             <article class="timeline-item reveal">
               <div class="timeline-date">2025 — Now</div>
               <div class="timeline-title"><span class="company-mark zs-mark"><img src="assets/logos/zs.svg" alt="ZS logo" /></span><div><h3>ZS</h3><p class="timeline-role">Business Technology Solutions Associate</p></div></div>
-              <ul class="experience-bullets"><li>Built enterprise AI/RAG assistants and backend services with React, FastAPI, AWS data services, Redis, and document-ingestion workflows.</li><li>Developed Snowflake SQL pipelines for master-data extraction, identifier matching, reconciliation, and quality reporting across 327K+ records.</li><li>Designed layered ETL/MDM architecture, data-quality checks, and production-ready requirements and technical documentation.</li></ul>
+              <div class="timeline-detail"><ul class="experience-bullets"><li>Built enterprise AI/RAG assistants and backend services with React, FastAPI, AWS data services, Redis, and document-ingestion workflows.</li><li>Developed Snowflake SQL pipelines for master-data extraction, identifier matching, reconciliation, and quality reporting across 327K+ records.</li></ul><details class="experience-more"><summary>More scope &amp; impact</summary><div><ul class="experience-bullets"><li>Reconciled 67K+ healthcare entities and licenses using NPI, DEA, HIN, 340B, state-license data, and fuzzy search.</li><li>Designed layered landing, staging, transformation, canonical, and publishing flows with delta processing, history, and data-quality controls.</li><li>Translated delivery into requirements, source-to-target mappings, decision logs, executive decks, and MDM/CRM process documentation.</li></ul><div class="detail-tags"><span>Snowflake</span><span>ETL / MDM</span><span>Entity matching</span><span>Applied AI</span></div></div></details></div>
             </article>
             <article class="timeline-item reveal">
               <div class="timeline-date">2024</div>
               <div class="timeline-title"><span class="company-mark zs-mark"><img src="assets/logos/zs.svg" alt="ZS logo" /></span><div><h3>ZS</h3><p class="timeline-role">Technology Intern</p></div></div>
-              <ul class="experience-bullets"><li>Built Python and Flask endpoints plus AWS S3 and Smartsheet integrations for automated document-management workflows.</li><li>Contributed to RAG evaluation and model workflows using FastAPI, Uvicorn, pytest, and enterprise AI tooling.</li></ul>
+              <div class="timeline-detail"><ul class="experience-bullets"><li>Built Python and Flask endpoints plus AWS S3 and Smartsheet integrations for automated document-management workflows.</li><li>Contributed to RAG evaluation and model workflows using FastAPI, Uvicorn, pytest, and enterprise AI tooling.</li></ul><details class="experience-more"><summary>More scope &amp; stack</summary><div><p>Connected API services, cloud storage, and workflow tools so teams could ingest, organize, and evaluate documents with less manual coordination.</p><div class="detail-tags"><span>Python</span><span>FastAPI</span><span>AWS S3</span><span>Smartsheet API</span><span>pytest</span></div></div></details></div>
             </article>
             <article class="timeline-item reveal">
               <div class="timeline-date">2023 — 2024</div>
               <div class="timeline-title"><span class="company-mark t4g-mark"><img src="assets/logos/tech4good.png" alt="Tech4Good Lab logo" /></span><div><h3>Tech4Good Lab</h3><p class="timeline-role">Lead Developer</p></div></div>
-              <ul class="experience-bullets"><li>Led a FigJam Chat Widget and CSV Importer Plugin using JavaScript, React, Node.js, Python, and Pandas for nearly 4,000 users.</li><li>Built real-time collaboration, structured-import, and research analytics workflows with Python, R, SQL, and Power BI.</li><li>Mentored developers while improving product usability and data-processing efficiency.</li></ul>
+              <div class="timeline-detail"><ul class="experience-bullets"><li>Led a FigJam Chat Widget and CSV Importer Plugin using JavaScript, React, Node.js, Python, and Pandas for nearly 4,000 users.</li><li>Built real-time collaboration and structured-import workflows that made research data easier to bring into FigJam.</li></ul><details class="experience-more"><summary>More scope &amp; impact</summary><div><ul class="experience-bullets"><li>Used Python, Pandas, NumPy, R, SQL, and Power BI to analyze product and research data.</li><li>Mentored developers and improved product usability, contributing to 40% higher engagement and 25% better processing efficiency.</li></ul><div class="detail-tags"><span>Figma API</span><span>React</span><span>Node.js</span><span>Pandas</span><span>Power BI</span></div></div></details></div>
             </article>
             <article class="timeline-item reveal">
-              <div class="timeline-date">2023 — 2024</div>
+              <div class="timeline-date">2023 — Now</div>
               <div class="timeline-title"><span class="company-mark tally-mark"><img src="assets/logos/tallyrus.png" alt="Tallyrus logo" /></span><div><h3>Tallyrus</h3><p class="timeline-role">Founder &amp; Lead Developer</p></div></div>
-              <ul class="experience-bullets"><li>Built NLP and retrieval-augmented essay feedback with Python, LangChain, Pinecone, OpenAI, and educator-defined rubrics.</li><li>Developed Flask, MongoDB, and S3 backend services alongside React interfaces and iterative user-feedback loops.</li><li>Led product planning, user testing, fundraising, and delivery from initial concept through adoption.</li></ul>
+              <div class="timeline-detail"><ul class="experience-bullets"><li>Built NLP and retrieval-augmented essay feedback with Python, LangChain, Pinecone, OpenAI, and educator-defined rubrics.</li><li>Developed Flask, MongoDB, and S3 services alongside React grading workflows and iterative educator feedback loops.</li></ul><details class="experience-more"><summary>More product &amp; founder details</summary><div><ul class="experience-bullets"><li>Improved data handling, security, and backend response times by 30% while keeping scoring consistent and feedback actionable.</li><li>Led product planning, user testing, fundraising, and delivery from concept through adoption, raising five figures.</li></ul><div class="detail-tags"><span>RAG</span><span>LangChain</span><span>Pinecone</span><span>Flask</span><span>MongoDB</span></div><a class="text-link detail-link" href="https://tallyrus.com" target="_blank" rel="noopener">Visit Tallyrus <span>↗</span></a></div></details></div>
             </article>
             <article class="timeline-item reveal">
               <div class="timeline-date">2023</div>
               <div class="timeline-title"><span class="company-mark echo-mark"><img src="assets/logos/uc-davis.svg" alt="UC Davis logo" /></span><div><h3>Echo · UC Davis</h3><p class="timeline-role">Software Engineer &amp; Research Collaborator</p></div></div>
-              <ul class="experience-bullets"><li>Collaborated with Professor Mohammad Sadoghi’s research group on digital identity authentication and secure-media workflows.</li><li>Integrated facial-detection APIs, AWS S3/Multer storage, MongoDB, Express, Flask, and Python SDK services.</li><li>Connected verification flows to ResilientDB for identity-proof creation and persistence.</li></ul>
+              <div class="timeline-detail"><ul class="experience-bullets"><li>Collaborated with Professor Mohammad Sadoghi’s research group on digital identity authentication and secure-media workflows.</li><li>Integrated facial-detection APIs, AWS S3/Multer storage, MongoDB, Express, Flask, and Python SDK services.</li></ul><details class="experience-more"><summary>More engineering details</summary><div><ul class="experience-bullets"><li>Built React and Node interfaces around capture, matching, proof creation, and verification states.</li><li>Connected the end-to-end workflow to ResilientDB for identity-proof creation and persistence.</li></ul><div class="detail-tags"><span>React</span><span>Flask</span><span>AWS S3</span><span>ResilientDB</span></div><div class="project-links"><a class="text-link detail-link" href="https://github.com/ashwinchembu/echo.github.io" target="_blank" rel="noopener">Frontend repo <span>↗</span></a><a class="text-link detail-link" href="https://github.com/ashwinchembu/echobe.github.io" target="_blank" rel="noopener">API repo <span>↗</span></a></div></div></details></div>
             </article>
           </div>
           <div class="experience-actions reveal">
@@ -198,7 +210,7 @@
           <p class="mono-label">Core capabilities</p>
           <div class="capability"><span>01</span><div><h3>Product engineering</h3><p>React, Next.js, TypeScript, Node.js, responsive interfaces, end-to-end product delivery</p></div></div>
           <div class="capability"><span>02</span><div><h3>Applied AI</h3><p>RAG, vector search, evaluation pipelines, LangChain, OpenAI, AWS Bedrock</p></div></div>
-          <div class="capability"><span>03</span><div><h3>Backend & data</h3><p>Python, FastAPI, Flask, SQL, MongoDB, Snowflake, ETL, AWS</p></div></div>
+          <div class="capability"><span>03</span><div><h3>Backend &amp; data</h3><p>Python, FastAPI, Flask, SQL, MongoDB, Snowflake, ETL, AWS</p></div></div>
         </div>
       </section>
 
