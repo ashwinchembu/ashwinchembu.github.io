@@ -61,7 +61,7 @@ const rolePresets = Object.freeze({
     experienceIntro: 'Product delivery spanning React, Python, Node.js, APIs, cloud services, data workflows, and stakeholder needs.',
     about: 'I’m a UC Davis computer science graduate who likes owning the path from an ambiguous product need to a tested interface, service, data model, and deployment.',
     chips: ['React', 'TypeScript', 'FastAPI'],
-    matches: ['sylk', 'lume', 'educationai', 'commerce'],
+    matches: ['sylk', 'lume', 'tech4good', 'educationai', 'commerce'],
   },
   ai: {
     short: 'Applied AI',
@@ -112,7 +112,7 @@ const rolePresets = Object.freeze({
     experienceIntro: 'Snowflake, layered ETL/MDM, identifier matching, reconciliation, data-quality controls, and stakeholder-ready evidence across healthcare technology programs.',
     about: 'I’m a UC Davis computer science graduate who likes turning messy records and ambiguous business rules into traceable pipelines, quality checks, reconciliation logic, and useful review workflows.',
     chips: ['Snowflake', 'ETL / MDM', 'Data quality'],
-    matches: ['mdm', 'forge', 'dashboard', 'lume'],
+    matches: ['mdm', 'tech4good', 'forge', 'dashboard', 'lume'],
   },
   frontend: {
     short: 'Frontend',
@@ -124,12 +124,12 @@ const rolePresets = Object.freeze({
     cta: 'See frontend work',
     ctaTarget: '#work',
     workHeading: 'Interfaces with depth and intent.',
-    workIntro: 'Explore responsive product interfaces spanning interactive commerce, healthcare workflow design, and role-aware multi-tenant supply-chain software.',
+    workIntro: 'Explore collaborative FigJam tools, interactive commerce, and role-aware multi-tenant supply-chain software built with responsive, reusable interfaces.',
     experienceHeading: 'Frontend work grounded in real workflows.',
     experienceIntro: 'Building React interfaces and collaborative tools around enterprise data, educator feedback, and research and classroom workflows.',
     about: 'I’m a UC Davis computer science graduate who enjoys translating complicated workflows into responsive interfaces that feel direct, coherent, and worth using.',
     chips: ['React', 'TypeScript', 'Three.js'],
-    matches: ['commerce', 'dashboard', 'sylk', 'lume'],
+    matches: ['tech4good', 'commerce', 'dashboard', 'sylk', 'lume'],
   },
   solutions: {
     short: 'Solutions / FDE',
@@ -169,22 +169,22 @@ const rolePresets = Object.freeze({
 
 const roleProjectSelections = Object.freeze({
   general: ['filedrop', 'lume', 'sylk'],
-  fullstack: ['sylk', 'lume', 'educationai'],
+  fullstack: ['sylk', 'lume', 'tech4good'],
   ai: ['lume', 'educationai', 'ragpoc'],
   backend: ['filedrop', 'sylk', 'lume'],
-  data: ['mdm', 'forge', 'dashboard'],
-  frontend: ['commerce', 'dashboard', 'sylk'],
+  data: ['mdm', 'tech4good', 'forge'],
+  frontend: ['tech4good', 'commerce', 'sylk'],
   solutions: ['crm', 'filedrop', 'automation'],
   salesforce: ['crm', 'mdm', 'dashboard'],
 });
 
 const roleStackPresets = Object.freeze({
   general: ['React · TypeScript', 'Python · FastAPI · Node.js · Express', 'MongoDB · Firebase · Snowflake · AWS', 'RAG · Vector search · Evidence grounding', 'REST APIs · OpenAPI · MCP · Webhooks', 'pytest · Vitest · Playwright · Render'],
-  fullstack: ['React 19 · TypeScript · Responsive UI', 'Node.js · Express · FastAPI · Cloud Functions', 'MongoDB · Firestore · Firebase Storage · AWS S3', 'RAG · LangChain · OpenAI', 'REST APIs · WebSockets · OAuth · RBAC', 'Vitest · Firebase emulators · Playwright'],
+  fullstack: ['React 19 · TypeScript · Responsive UI', 'Node.js · Express · FastAPI · Cloud Functions', 'MongoDB · Firestore · Firebase Storage · AWS S3', 'RAG · LangChain · OpenAI', 'REST APIs · WebSockets · Figma API · OAuth · RBAC', 'Vitest · Firebase emulators · Playwright'],
   ai: ['React · Evidence and review interfaces', 'Python · FastAPI · Node.js', 'MongoDB · S3 · Vector stores', 'RAG · LangChain · Pinecone · FAISS', 'Ingestion · Intent routing · Citations', 'Evaluation · pytest · Human review'],
   backend: ['Typed clients · Admin workflows', 'Python · FastAPI · Node.js · Express', 'MongoDB · Redis · S3-compatible storage', 'AI-ready services · Retrieval APIs', 'REST · OpenAPI · MCP · Signed webhooks', 'Validation · Auth · Rate limiting · pytest'],
-  data: ['React · Vue · Review dashboards', 'Python · SQL · FastAPI · PySpark', 'Snowflake · MongoDB · AWS Glue · Redshift', 'Entity resolution · Fuzzy matching', 'ETL layers · APIs · Scheduled ingestion', 'DQ checks · Reconciliation · Audit outputs'],
-  frontend: ['React 18/19 · TypeScript · Three.js', 'Node.js · Express · API integration', 'MongoDB · Firebase · Client state', 'AI results · Citation and feedback UI', 'Responsive systems · Forms · Real-time UI', 'Testing Library · Vitest · Playwright'],
+  data: ['React · Vue · Review dashboards', 'Python · SQL · FastAPI · PySpark', 'Snowflake · MongoDB · AWS Glue · Redshift', 'Entity resolution · Fuzzy matching', 'ETL layers · Figma imports · Scheduled ingestion', 'DQ checks · Reconciliation · Audit outputs'],
+  frontend: ['React 18/19 · TypeScript · Three.js', 'Node.js · Express · Figma API integration', 'MongoDB · Firebase · Client state', 'Real-time widgets · Collaborative UI', 'Responsive systems · Forms · Auto-layout', 'Testing Library · Vitest · Playwright'],
   solutions: ['React · Vue · Workflow interfaces', 'Python · FastAPI · Node.js', 'Snowflake · MongoDB · AWS', 'RAG · Bedrock · Evidence extraction', 'Requirements · APIs · UAT · Handoffs', 'Decision logs · Human approval · Deployment'],
   salesforce: ['React/Vite · CRM workflow UI', 'Metadata inspection · Mock adapters', 'Snowflake · Healthcare reference data', 'Data quality · Entity resolution', 'UAT · Acceptance criteria · Backlogs', 'User guides · Decision logs · Executive decks'],
 });
@@ -219,6 +219,25 @@ const projectCatalog = Object.freeze({
     links: [],
     sourceNote: 'Private organization code; source, deployments, customer data, and credentials are intentionally not published.',
     visual: '<div class="project-visual sylk-visual" aria-hidden="true"><div class="sylk-shell"><div class="sylk-top"><b>SYLK</b><span>synthetic workflow view</span><i>role scoped</i></div><div class="sylk-body"><aside><span class="active">Retailer admin</span><span>Factory viewer</span><span>Staff</span></aside><section><div class="sylk-shipment"><span>Demo shipment</span><b>In fulfillment</b></div><div class="sylk-lines"><p><i></i>Line-item materials <b>Ready</b></p><p><i></i>Factory updates <b>Scoped</b></p><p><i></i>Files and messages <b>Linked</b></p></div><div class="sylk-flow"><span>Created</span><i>→</i><span>Factory</span><i>→</i><span>Tracking</span></div></section></div></div></div>',
+  },
+  tech4good: {
+    title: 'Tech4Good FigJam Toolkit',
+    category: 'Collaborative tools / Figma platform',
+    role: 'Tech4Good Lab · Collaborative work · Nearly 4,000 users',
+    summaries: {
+      general: 'A family of FigJam widgets and plugins for chat, polling, carousels, radar and Likert responses, text entry, and structured spreadsheet import and export across research and classroom workflows.',
+      fullstack: 'TypeScript FigJam widgets and plugin integrations backed by Figma APIs, esbuild, React-oriented modules, Node.js services, and structured spreadsheet workflows with ExcelJS and SheetJS/XLSX.',
+      frontend: 'Collaborative FigJam interfaces combining dynamic styling, auto-layout, chat, polling, carousels, radar and Likert responses, text entry, tooltips, and structured imports for nearly 4,000 users.',
+      data: 'Research and classroom tooling that joins FigJam collaboration with structured spreadsheet import/export, message and poll logs, Python/Pandas analysis, SQL, and Power BI.',
+    },
+    flow: [['Problem', 'Research and classroom teams needed richer participation and structured data workflows inside a shared FigJam canvas.'], ['Approach', 'Build focused widgets for conversation, polling, visual response, text entry, and spreadsheet exchange.'], ['Engineering', 'TypeScript, Figma and FigJam APIs, esbuild, React-oriented modules, Node.js, ExcelJS, SheetJS/XLSX, Python, and Pandas.'], ['Outcome', 'A collaborative toolkit used by nearly 4,000 users across research and classroom workflows.']],
+    tech: ['TypeScript', 'Figma API', 'FigJam widgets', 'Node.js', 'ExcelJS / XLSX', 'Python / Pandas'],
+    detailsTitle: 'Widget system & data workflow details',
+    detailsIntro: 'The toolkit combines collaborative interface modules with structured data movement and analysis while preserving the project’s collaborative research ownership.',
+    bullets: ['Led collaborative FigJam tooling spanning chat, polling, carousel, radar, Likert, text-entry, tooltip, and structured spreadsheet import/export workflows.', 'Built TypeScript widgets and plugin integrations using Figma APIs, esbuild, dynamic styling, auto-layout, and React-oriented interface modules.', 'Connected spreadsheet and research workflows through ExcelJS, SheetJS/XLSX, Node.js services, Python, Pandas, SQL, and Power BI.'],
+    links: [],
+    sourceNote: 'Collaborative Tech4Good research/classroom work; private source and research records are not published.',
+    visual: '<div class="project-visual figjam-tools-visual" aria-hidden="true"><div class="figjam-tools-shell"><div class="figjam-tools-top"><b>FIGJAM TOOLKIT</b><span>research + classroom collaboration</span><i>nearly 4,000 users</i></div><div class="figjam-tools-board"><section class="figjam-chat"><small>CHAT</small><p><i></i><span>Capture the idea</span></p><p><i></i><span>Build on it</span></p><p><i></i><span>Share the result</span></p></section><section class="figjam-poll"><small>POLL + LIKERT</small><b>Which direction?</b><p><span style="--vote:82%"></span></p><p><span style="--vote:58%"></span></p><div><i></i><i></i><i></i><i></i><i></i></div></section><section class="figjam-import"><small>STRUCTURED IMPORT</small><div><b>CSV</b><span>Question</span><span>Response</span><span>Theme</span></div><p>Import → canvas → export</p></section></div><div class="figjam-tools-foot"><span>Chat</span><span>Carousel</span><span>Radar</span><span>Text entry</span><span>XLSX</span></div></div></div>',
   },
   automation: {
     title: 'Human-in-the-Loop Job Operations',
