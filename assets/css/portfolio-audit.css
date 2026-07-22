@@ -1,0 +1,56 @@
+.case-study-flow{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);margin:28px 0 4px}
+.case-study-flow>div{min-width:0;padding:14px 15px}
+.case-study-flow>div:nth-child(2n){border-left:1px solid var(--line)}
+.case-study-flow>div:nth-child(n+3){border-top:1px solid var(--line)}
+.case-study-flow span,.technology-map-grid span,.support-index,.earlier-list span{display:block;font:500 8px DM Mono,monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.case-study-flow p{margin:7px 0 0;font-size:11px;line-height:1.5;color:#555a53}
+.case-study-flow.compact{grid-template-columns:1fr;margin-top:24px}
+.case-study-flow.compact>div{border-left:0}
+.case-study-flow.compact>div+div{border-top:1px solid var(--line)}
+
+.technology-map{display:grid;grid-template-columns:.6fr 1.4fr;gap:52px;margin-top:110px;padding:52px;border:1px solid var(--line);background:rgba(127,127,127,.035)}
+.technology-map-intro h3,.subsection-heading h3{font-size:clamp(30px,4vw,48px);line-height:1.05;letter-spacing:-.045em;margin:18px 0 0}
+.technology-map-grid{display:grid;grid-template-columns:1fr 1fr}
+.technology-map-grid>div{padding:16px 18px;border-top:1px solid var(--line)}
+.technology-map-grid>div:nth-child(2n){border-left:1px solid var(--line)}
+.technology-map-grid strong{display:block;margin-top:7px;font-size:12px;line-height:1.45}
+
+.supporting-work,.earlier-work{margin-top:120px}
+.subsection-heading{display:grid;grid-template-columns:.65fr 1.35fr;gap:52px;align-items:end;margin-bottom:42px}
+.subsection-heading .eyebrow{margin:0}
+.support-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.support-card{position:relative;display:flex;min-height:330px;flex-direction:column;padding:26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .2s,border-color .2s}
+.support-card.role-match{background:rgba(255,105,66,.06);box-shadow:inset 3px 0 0 var(--orange)}
+.provenance-label{align-self:flex-start;padding:7px 9px;border:1px solid currentColor;border-radius:99px;color:#8e321e;font:600 8px DM Mono,monospace;text-transform:uppercase;letter-spacing:.05em}
+.support-index{margin:28px 0 10px}
+.support-card h4{font-size:28px;letter-spacing:-.035em;margin:0 0 14px}
+.support-card>p:not(.support-index){font-size:13px;line-height:1.65;color:#555a53;margin-bottom:22px}
+.support-tech{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);font:500 9px/1.55 DM Mono,monospace;color:var(--muted)}
+.support-card>.text-link,.support-card>.project-links{margin-top:20px}
+
+.earlier-list{border-top:1px solid var(--line)}
+.earlier-list a{display:grid;grid-template-columns:.7fr 1fr 1.35fr;gap:28px;align-items:center;padding:23px 4px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none;transition:padding .2s,background .2s}
+.earlier-list a:hover{padding-inline:14px;background:rgba(127,127,127,.05)}
+.earlier-list strong{font-size:15px}
+.earlier-list em{color:var(--muted);font-size:12px;line-height:1.5;font-style:normal}
+
+html[data-theme="dark"] .case-study-flow p,html[data-theme="dark"] .support-card>p:not(.support-index){color:#b9bcb5}
+html[data-theme="dark"] .technology-map{background:#171a16}
+html[data-theme="dark"] .provenance-label{color:#ff9c82}
+html[data-theme="dark"] .support-card.role-match{background:rgba(255,105,66,.09)}
+
+@media(max-width:900px){
+  .technology-map,.subsection-heading{grid-template-columns:1fr;gap:22px}
+  .technology-map{padding:34px;margin-top:80px}
+  .supporting-work,.earlier-work{margin-top:90px}
+}
+@media(max-width:680px){
+  .case-study-flow{grid-template-columns:1fr}
+  .case-study-flow>div:nth-child(2n){border-left:0}
+  .case-study-flow>div+div{border-top:1px solid var(--line)}
+  .technology-map{padding:24px 18px}
+  .technology-map-grid,.support-grid{grid-template-columns:1fr}
+  .technology-map-grid>div:nth-child(2n){border-left:0}
+  .support-card{min-height:0}
+  .earlier-list a{grid-template-columns:1fr;gap:8px;padding-block:20px}
+}

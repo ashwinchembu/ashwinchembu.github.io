@@ -9,3 +9,14 @@
 
 html[data-theme="dark"] .filedrop-visual,html[data-theme="dark"] .commerce-visual{filter:saturate(.94) brightness(.92)}
 @media(max-width:650px){.filedrop-visual{padding:25px;grid-template-columns:1fr}.drop-lock{display:none}.commerce-visual{padding:20px}.commerce-body{grid-template-columns:1fr}.customizer{display:none}.jacket-stage{min-height:250px}.drop-channel span{font-size:5px}}
+
+/* Forge: abstracted product view using synthetic signals only—no personal health records. */
+.forge-visual{display:grid;place-items:center;padding:34px;background:linear-gradient(135deg,#d8ff4f 0,#8ddc79 50%,#3b8c67 100%);color:#111}
+.forge-shell{width:100%;max-width:560px;border:1px solid #111;background:#f3f5eb;box-shadow:13px 13px 0 rgba(11,13,12,.24)}
+.forge-top{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:11px 13px;border-bottom:1px solid #111;background:#111;color:#f3f5eb;font:7px DM Mono,monospace;text-transform:uppercase;letter-spacing:.08em}
+.forge-top b{font-size:10px;color:#d8ff4f}.forge-top span{color:#aeb7aa}.forge-top i{font-style:normal;color:#81df93}
+.forge-score{display:grid;grid-template-columns:1fr auto;align-items:center;padding:22px 22px 18px;border-bottom:1px solid #a4aa9f}.forge-score>span{font:500 8px DM Mono,monospace;text-transform:uppercase;color:#555c54}.forge-score>strong{grid-row:1/3;grid-column:2;font-size:54px;line-height:.8;letter-spacing:-.08em}.forge-score>small{font:500 8px DM Mono,monospace;color:#555c54}
+.forge-signals{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#a4aa9f;border-bottom:1px solid #a4aa9f}.forge-signals>div{display:grid;gap:7px;padding:15px;background:#f3f5eb}.forge-signals span{font:500 7px DM Mono,monospace;text-transform:uppercase;color:#5d655c}.forge-signals b{font-size:11px;text-transform:uppercase}.forge-signals i{position:relative;height:4px;background:#c8cec3}.forge-signals i:after{content:"";position:absolute;inset:0 auto 0 0;width:var(--fill);background:#3b8c67}
+.forge-flow{display:flex;align-items:center;gap:7px;padding:14px 16px;overflow:hidden}.forge-flow span{padding:5px 7px;border:1px solid #7a8178;font:6px DM Mono,monospace;white-space:nowrap}.forge-flow i{font-size:9px;font-style:normal;color:#6b726a}.forge-flow b{margin-left:auto;font:500 6px DM Mono,monospace;color:#326f54;white-space:nowrap}
+html[data-theme="dark"] .forge-visual{filter:saturate(.9) brightness(.88)}
+@media(max-width:650px){.forge-visual{padding:20px}.forge-signals{grid-template-columns:1fr}.forge-flow b{display:none}.forge-score>strong{font-size:46px}}
