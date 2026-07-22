@@ -40,12 +40,17 @@ html[data-theme="dark"] .technology-map{background:#171a16}
 html[data-theme="dark"] .provenance-label{color:#ff9c82}
 html[data-theme="dark"] .support-card.role-match{background:rgba(255,105,66,.09)}
 
-.project-showcase{min-height:900px}.project-showcase .project{transition:opacity .18s ease}.project-summary{min-height:4.9em}.noscript-projects{padding:20px;border:1px solid var(--line);font-size:13px;line-height:1.7}.noscript-projects a{color:inherit}.experience-view-lens{margin:0 0 12px;padding:9px 11px;border-left:2px solid var(--orange);background:rgba(255,105,66,.08);color:#e3e5df;font:500 9px/1.6 DM Mono,monospace}
+.project-showcase{min-height:900px}.project-showcase .project{transition:opacity .18s ease}.project,.project>*{min-width:0}.project-copy{min-width:0;max-width:100%;overflow-wrap:anywhere}.project-index{display:flex;flex-wrap:wrap;align-items:center;gap:7px 9px;margin:0;line-height:1.5}.project-index .role-match-badge{flex:none;margin-left:0;white-space:nowrap}.project-copy h3{max-width:100%;line-height:1.05;overflow-wrap:anywhere}.project-role,.project-summary{max-width:100%;overflow-wrap:anywhere}.project-summary{min-height:4.9em}.case-study-flow{max-width:100%}.noscript-projects{padding:20px;border:1px solid var(--line);font-size:13px;line-height:1.7}.noscript-projects a{color:inherit}.experience-view-lens{margin:0 0 12px;padding:9px 11px;border-left:2px solid var(--orange);background:rgba(255,105,66,.08);color:#e3e5df;font:500 9px/1.6 DM Mono,monospace}
 
 @media(max-width:900px){
   .technology-map,.subsection-heading{grid-template-columns:1fr;gap:22px}
   .technology-map{padding:34px;margin-top:80px}
   .supporting-work,.earlier-work{margin-top:90px}
+  .project-featured{gap:28px}
+  .project-copy{padding:6px 0 0}
+  .project-copy h3{font-size:clamp(34px,8vw,42px);margin:17px 0 7px}
+  .project-copy>p:not(.project-index):not(.project-role){font-size:14px;line-height:1.65}
+  .case-study-flow{margin-top:22px}
 }
 @media(max-width:680px){
   .case-study-flow{grid-template-columns:1fr}
@@ -56,5 +61,5 @@ html[data-theme="dark"] .support-card.role-match{background:rgba(255,105,66,.09)
   .technology-map-grid>div:nth-child(2n){border-left:0}
   .support-card{min-height:0}
   .earlier-list a{grid-template-columns:1fr;gap:8px;padding-block:20px}
-  .project-showcase{min-height:0}.project-summary{min-height:0}
+  .project-showcase{min-height:0}.project-summary{min-height:0}.project-copy h3{font-size:clamp(30px,10vw,36px)}
 }
