@@ -718,16 +718,32 @@ themeButton?.addEventListener('click', () => {
   storeTheme(nextTheme);
 });
 
-menuButton?.addEventListener('click', () => {
-  const open = navigation.classList.toggle('open');
+function setMenuOpen(open) {
+  if (!menuButton || !navigation) return;
+  navigation.classList.toggle('open', open);
   menuButton.setAttribute('aria-expanded', String(open));
+  menuButton.textContent = open ? 'Close' : 'Menu';
+}
+
+menuButton?.addEventListener('click', () => {
+  setMenuOpen(!navigation.classList.contains('open'));
 });
 
 navigation?.querySelectorAll('a').forEach((link) => {
   link.addEventListener('click', () => {
-    navigation.classList.remove('open');
-    menuButton?.setAttribute('aria-expanded', 'false');
+    setMenuOpen(false);
   });
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && navigation?.classList.contains('open')) {
+    setMenuOpen(false);
+    menuButton?.focus();
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900 && navigation?.classList.contains('open')) setMenuOpen(false);
 });
 
 const observer = new IntersectionObserver((entries) => {

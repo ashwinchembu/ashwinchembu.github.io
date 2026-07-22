@@ -44,7 +44,21 @@ html.js:not([data-preference-saved="true"]),html.js:not([data-preference-saved="
 
 html[data-theme="dark"] .preference-trigger{border-color:#50534d}html[data-theme="dark"] .personalization-note{color:#b9bcb5}
 
+@media(min-width:901px){
+  .preference-dialog{width:min(1180px,100%);padding:18px 24px 20px}
+  .preference-topline{padding-bottom:12px}
+  .preference-intro{grid-template-columns:minmax(0,1.1fr) minmax(260px,.7fr);gap:38px;padding:18px 0}
+  .preference-kicker{margin:0 0 -21px}
+  .preference-intro h2{font-size:clamp(42px,4.6vw,58px)}
+  .preference-form{gap:14px}
+  .preference-form legend{margin-bottom:8px}
+  .role-options{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .option-copy{min-height:76px;padding:10px 34px 10px 12px}
+  .option-copy:after{top:12px;right:12px}
+  .option-copy small{margin-bottom:5px}
+  .option-copy em{margin-top:4px}
+}
 @media(max-width:900px){.preference-dialog{padding:22px}.preference-intro{grid-template-columns:1fr;gap:18px}.preference-kicker{grid-column:auto;margin:0 0 -6px}.audience-options,.role-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.preference-gate{padding:0;place-items:stretch}.preference-dialog{width:100%;max-height:100dvh;min-height:100dvh;padding:18px 16px 22px;border:0;border-radius:0}.preference-topline{padding-bottom:14px}.preference-intro{padding:22px 0 20px}.preference-intro h2{font-size:43px}.preference-intro>p:last-child{font-size:12px}.preference-form{gap:19px}.audience-options,.role-options{grid-template-columns:1fr 1fr;gap:7px}.option-copy{min-height:100px;padding:12px 30px 11px 11px}.option-copy strong{font-size:11px}.option-copy em{font-size:9px}.preference-actions{align-items:stretch;flex-direction:column;gap:12px}.preference-continue{width:100%;min-width:0}.preference-general{align-self:flex-start}.preference-trigger{width:38px;padding:0;justify-content:center}.preference-trigger-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}.personalization-note{font-size:9px}}
-@media(max-width:380px){.preference-intro h2{font-size:38px}.audience-options,.role-options{grid-template-columns:1fr}.option-copy{min-height:0}.preference-dialog{padding-inline:14px}}
+@media(max-width:340px){.preference-intro h2{font-size:38px}.audience-options,.role-options{grid-template-columns:1fr}.option-copy{min-height:0}.preference-dialog{padding-inline:14px}}
 @media(prefers-reduced-motion:reduce){.option-copy{transition:none}}
