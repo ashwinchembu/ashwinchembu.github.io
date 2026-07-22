@@ -11,7 +11,7 @@
     <script>
       document.documentElement.classList.add('js');
       try {
-        if (window.localStorage.getItem('portfolio-preferences-v1')) {
+        if (window.localStorage.getItem('portfolio-preferences-v2')) {
           document.documentElement.dataset.preferenceSaved = 'true';
         } else {
           document.documentElement.dataset.preferencePending = 'true';
@@ -23,8 +23,8 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/portfolio.css?v=2" />
     <link rel="stylesheet" href="assets/css/experience.css?v=2" />
-    <link rel="stylesheet" href="assets/css/project-visuals.css?v=2" />
-    <link rel="stylesheet" href="assets/css/portfolio-audit.css?v=1" />
+    <link rel="stylesheet" href="assets/css/project-visuals.css?v=3" />
+    <link rel="stylesheet" href="assets/css/portfolio-audit.css?v=2" />
     <link rel="stylesheet" href="assets/css/personalization.css?v=2" />
   </head>
   <body>
@@ -36,9 +36,9 @@
           <button class="preference-close" id="preference-close" type="button" aria-label="Close personalization options" hidden>×</button>
         </div>
         <div class="preference-intro">
-          <p class="preference-kicker">Two quick choices</p>
+          <p class="preference-kicker">Shape the portfolio</p>
           <h2 id="preference-title">What should I show you?</h2>
-          <p id="preference-description">Tell me who you are and the kind of role you have in mind. I’ll bring the most relevant engineering evidence forward.</p>
+          <p id="preference-description">Tell me who you are and the role you have in mind. I’ll change the project lineup, technical emphasis, and supporting evidence around what matters to you.</p>
         </div>
         <form class="preference-form" id="preference-form">
           <fieldset>
@@ -150,90 +150,14 @@
           <p id="work-intro">Three public, inspectable projects spanning secure handoffs, retrieval-grounded product work, and personal data integration.</p>
         </div>
 
-        <article class="project project-featured reveal" id="filedrop-case-study" data-project="filedrop">
-          <div class="project-visual filedrop-visual">
-            <div class="drop-console"><div class="drop-top"><span>PRIVATE FILEDROP</span><b>secure</b></div><div class="drop-file"><i>PDF</i><div><b>product-brief.pdf</b><small>v4 · project/design</small></div><em>✓</em></div><div class="drop-file"><i>CSV</i><div><b>research-data.csv</b><small>tagged · 2 versions</small></div><em>✓</em></div><div class="drop-channel"><span>REST / OpenAPI</span><span>MCP tools</span><span>Signed webhooks</span></div></div><div class="drop-lock"><span></span><b>HMAC</b><small>S3-compatible storage</small></div>
+        <div class="project-showcase" id="project-showcase" aria-live="polite" aria-label="Projects selected for this portfolio view">
+          <article class="project project-featured reveal" data-project-slot="0"></article>
+          <div class="project-grid">
+            <article class="project project-small reveal" data-project-slot="1"></article>
+            <article class="project project-small reveal delay-1" data-project-slot="2"></article>
           </div>
-          <div class="project-copy">
-            <p class="project-index">01 · Backend / AI-ready infrastructure <span class="role-match-badge" hidden>Relevant to this view</span></p>
-            <h3>Private Filedrop</h3>
-            <p class="project-role">Public repository · Deployed on Render</p>
-            <p>A password-protected file-exchange service for moving files between computers and AI sessions without exposing operational data or credentials.</p>
-            <div class="case-study-flow" aria-label="Private Filedrop case study summary">
-              <div><span>Problem</span><p>Cross-device and AI-session file handoffs were slow and easy to lose.</p></div>
-              <div><span>Approach</span><p>Unify browser uploads, APIs, MCP tools, versioning, and messages.</p></div>
-              <div><span>Engineering</span><p>Node.js, Express, OpenAPI, S3-compatible storage, and signed webhooks.</p></div>
-              <div><span>Outcome</span><p>A durable bridge with explicit boundaries between automation and human control.</p></div>
-            </div>
-            <div class="tech-list"><span>Node.js</span><span>Express</span><span>S3</span><span>OpenAPI</span><span>MCP</span><span>HMAC</span></div>
-            <details class="project-more">
-              <summary>Architecture &amp; security details</summary>
-              <div class="project-more-body"><p>The service exposes REST, OpenAPI, and MCP interfaces over local or S3-compatible storage, with shared channels for cross-session coordination.</p><ul><li>Implemented categories, tags, project paths, version history, unguessable downloads, and storage migration tooling.</li><li>Added API-key access, timing-safe credential checks, upload validation, and HMAC-SHA256 signed webhooks.</li><li>Documented browser, API, AI-client, storage-migration, and deployment workflows without publishing secrets or user data.</li></ul></div>
-            </details>
-            <div class="project-links"><a class="text-link" href="https://github.com/ashwinchembu/render-filedrop" target="_blank" rel="noopener">View source <span>↗</span></a></div>
-          </div>
-        </article>
-
-        <div class="project-grid">
-          <article class="project project-small reveal" id="lume-case-study" data-project="lume">
-            <div class="project-visual lume-visual">
-              <div class="product-window lume-window">
-                <div class="product-topbar"><div><span></span><span></span><span></span></div><b>LUME</b><small>Project Brain · RAG</small></div>
-                <div class="lume-layout">
-                  <aside class="meeting-panel"><p>Design review</p><small>24:18 · 4 people</small><div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="speaker"><b>AC</b><span><i></i><i></i></span></div><div class="speaker"><b>JL</b><span><i></i><i></i></span></div></aside>
-                  <div class="brain-panel"><p class="brain-label">Ask across this project</p><h4>What decision did we make about onboarding?</h4><div class="context-map" aria-hidden="true"><span>Meeting 12</span><i></i><span>Onboarding</span><i></i><span>Brief.pdf</span></div><div class="ai-answer"><span>✦</span><p>The team chose a guided setup with progressive disclosure, starting with the document-import step.</p></div><div class="citation-row"><span>Transcript · 18:42</span><span>Brief.pdf · p.3</span></div></div>
-                </div>
-              </div>
-            </div>
-            <div class="project-copy">
-              <p class="project-index">02 · AI / Meeting intelligence <span class="role-match-badge" hidden>Relevant to this view</span></p>
-              <h3>Lume</h3>
-              <p class="project-role">Full-stack AI product · Dec 2025—Present</p>
-              <p>An AI-powered meeting intelligence product for transcription, search, task extraction, and contextual recall across meetings and uploaded project files.</p>
-              <div class="case-study-flow compact" aria-label="Lume case study summary">
-                <div><span>Problem</span><p>Decisions and context disappear across meetings and files.</p></div>
-                <div><span>Approach</span><p>Build reusable project memory around retrieval and evidence.</p></div>
-                <div><span>Engineering</span><p>React, Node/Express, MongoDB, S3, WebSockets, and vector search.</p></div>
-                <div><span>Outcome</span><p>Searchable context, extracted tasks, and source-backed answers.</p></div>
-              </div>
-              <div class="tech-list"><span>React</span><span>Node.js</span><span>MongoDB</span><span>AWS S3</span><span>WebSockets</span><span>RAG</span></div>
-              <details class="project-more" id="lume-details">
-                <summary>Architecture &amp; product details</summary>
-                <div class="project-more-body"><p>The React client and Node/Express services capture, store, and query meeting content through MongoDB, AWS S3, and live WebSocket updates.</p><ul><li>Built a RAG question-answering flow with vector embeddings, intent routing, evidence extraction, and multi-pass refinement.</li><li>Modeled a Project Brain that learns project-specific language and relationships from transcripts, files, and seeded context.</li><li>Designed transcript-aware search and citation-backed answers so useful outputs remain traceable to source material.</li></ul></div>
-              </details>
-              <div class="project-links"><a class="text-link" href="https://lume-app.onrender.com" target="_blank" rel="noopener">Open preview <span>↗</span></a><a class="text-link" href="https://github.com/ashwinchembu/work-helper" target="_blank" rel="noopener">View source <span>↗</span></a></div>
-            </div>
-          </article>
-
-          <article class="project project-small reveal delay-1" id="forge-case-study" data-project="forge">
-            <div class="project-visual forge-visual">
-              <div class="forge-shell">
-                <div class="forge-top"><b>FORGE</b><span>daily intelligence</span><i>synced</i></div>
-                <div class="forge-score"><span>Today</span><strong>84</strong><small>program alignment</small></div>
-                <div class="forge-signals"><div><span>Workout</span><b>hit</b><i style="--fill:88%"></i></div><div><span>Nutrition</span><b>close</b><i style="--fill:72%"></i></div><div><span>Recovery</span><b>ready</b><i style="--fill:81%"></i></div></div>
-                <div class="forge-flow"><span>Hevy</span><i>→</i><span>Apple Health</span><i>→</i><span>Oura</span><b>FastAPI + MongoDB</b></div>
-              </div>
-            </div>
-            <div class="project-copy">
-              <p class="project-index">03 · Data integration / Backend APIs <span class="role-match-badge" hidden>Relevant to this view</span></p>
-              <h3>Forge</h3>
-              <p class="project-role">Personal fitness intelligence backend · 2026</p>
-              <p>A private-data-aware backend that joins workout, nutrition, sleep, heart-rate, and recovery signals into daily analysis and program-aware recommendations.</p>
-              <div class="case-study-flow compact" aria-label="Forge case study summary">
-                <div><span>Problem</span><p>Training, nutrition, and recovery lived in separate systems.</p></div>
-                <div><span>Approach</span><p>Normalize source data and compare it with a structured program.</p></div>
-                <div><span>Engineering</span><p>FastAPI, MongoDB Atlas, scheduled ingestion, APIs, and webhooks.</p></div>
-                <div><span>Outcome</span><p>One daily view of adherence, trends, and next-step adjustments.</p></div>
-              </div>
-              <div class="tech-list"><span>Python</span><span>FastAPI</span><span>MongoDB</span><span>Webhooks</span><span>Scheduled sync</span><span>Render</span></div>
-              <details class="project-more">
-                <summary>Data pipeline &amp; analysis details</summary>
-                <div class="project-more-body"><p>Forge unifies Hevy, Oura, and Apple Health-derived data without exposing personal records or live credentials.</p><ul><li>Implemented six-hour synchronization, on-demand refresh, health-data webhooks, and CSV ingestion workflows.</li><li>Modeled workouts, nutrition, recovery, and body metrics in MongoDB for daily and weekly analysis.</li><li>Built an analysis engine that compares actual performance with a 12-week hypertrophy plan and scores adherence across training, nutrition, and recovery.</li></ul></div>
-              </details>
-              <div class="project-links"><a class="text-link" href="https://github.com/ashwinchembu/forge" target="_blank" rel="noopener">View source <span>↗</span></a></div>
-            </div>
-          </article>
         </div>
+        <noscript><p class="noscript-projects">JavaScript powers the tailored project view. Browse the public repositories directly: <a href="https://github.com/ashwinchembu/render-filedrop">Private Filedrop</a>, <a href="https://github.com/ashwinchembu/work-helper">Lume</a>, <a href="https://github.com/ashwinchembu/forge">Forge</a>, <a href="https://github.com/ashwinchembu/E-commerceWebsiteDesign">3D Commerce</a>, and <a href="https://github.com/ashwinchembu/RAGpoc">Azure RAG POC</a>.</p></noscript>
 
         <section class="technology-map reveal" aria-labelledby="technology-map-heading">
           <div class="technology-map-intro"><p class="eyebrow">Technology map</p><h3 id="technology-map-heading">A compact view of the stack.</h3></div>
@@ -249,10 +173,12 @@
 
         <section class="supporting-work reveal" aria-labelledby="supporting-work-heading">
           <div class="subsection-heading"><p class="eyebrow">Supporting work</p><h3 id="supporting-work-heading">Prototypes and collaborations, labeled clearly.</h3></div>
-          <div class="support-grid">
+          <div class="support-grid" id="support-grid">
             <article class="support-card" data-project="commerce"><span class="provenance-label">Figma-originated UI prototype</span><p class="support-index">Frontend · Three.js</p><h4>3D Commerce Experience</h4><p>Implemented a responsive varsity-jacket storefront and GLB/Draco product configurator with independent material, color, and placement controls.</p><div class="support-tech">React · TypeScript · Three.js · Vite</div><div class="project-links"><a class="text-link" href="https://ecommerce-website-design.onrender.com/jacket-builder" target="_blank" rel="noopener">Open preview <span>↗</span></a><a class="text-link" href="https://github.com/ashwinchembu/E-commerceWebsiteDesign" target="_blank" rel="noopener">Source <span>↗</span></a></div></article>
             <article class="support-card" data-project="dashboard"><span class="provenance-label">Figma-originated UI prototype</span><p class="support-index">Frontend · Healthcare workflows</p><h4>Enterprise Healthcare Dashboard</h4><p>Translated account hierarchies, trial progress, follow-ups, barriers, and task-editing workflows into reusable React/TypeScript and Vue interface patterns.</p><div class="support-tech">React · TypeScript · Vue · Tailwind</div><a class="text-link" href="https://github.com/ashwinchembu/Enterprisehealthcaredashboarddesign" target="_blank" rel="noopener">View source <span>↗</span></a></article>
-            <article class="support-card" data-project="ablegrade"><span class="provenance-label">Co-built · HackDavis 2024</span><p class="support-index">Collaboration · Education technology</p><h4>AbleGrade</h4><p>Co-built a MERN and GPT-4 writing-support prototype for ESL learners with PDF parsing, structured feedback, and writing-progress workflows.</p><div class="support-tech">MongoDB · Express · React · Node.js</div></article>
+            <article class="support-card" data-project="educationai"><span class="provenance-label">Founder product + HackDavis collaboration</span><p class="support-index">Education AI · Clearly attributed</p><h4>Tallyrus + AbleGrade</h4><p>Tallyrus applies RAG and educator-defined rubrics to essay feedback; AbleGrade was a separate co-built HackDavis 2024 prototype for ESL writing support, PDF parsing, and progress tracking.</p><div class="support-tech">Python · LangChain · Pinecone · MERN · GPT-4</div><div class="project-links"><a class="text-link" href="https://tallyrus.com" target="_blank" rel="noopener">Visit Tallyrus <span>↗</span></a></div><p class="source-note">Both repositories are private; no source link is published.</p></article>
+            <article class="support-card" data-project="ragpoc"><span class="provenance-label">Public repository</span><p class="support-index">Applied AI · Document search</p><h4>Azure RAG Document Search</h4><p>Built multi-format ingestion, chunking, Azure OpenAI embeddings, FAISS retrieval, source citation, and interactive Q&amp;A across a 30+ document corpus.</p><div class="support-tech">Python · Azure OpenAI · LangChain · FAISS</div><a class="text-link" href="https://github.com/ashwinchembu/RAGpoc" target="_blank" rel="noopener">View source <span>↗</span></a></article>
+            <article class="support-card" data-project="novasonic"><span class="provenance-label">Public repository · Inspect before reuse</span><p class="support-index">Voice AI · AWS data workflows</p><h4>Nova Sonic Assistant</h4><p>Built real-time voice sessions, browser and iPad clients, transcript and tool-log interfaces, plus S3, Glue, Redshift, and call-analysis workflows.</p><div class="support-tech">Node.js · Vue · WebSockets · Bedrock · S3 · Glue</div><a class="text-link" href="https://github.com/ashwinchembu/wokring-novasonic-demo" target="_blank" rel="noopener">View source <span>↗</span></a></article>
             <article class="support-card" data-project="echo"><span class="provenance-label">Collaborative research work</span><p class="support-index">UC Davis · Digital verification</p><h4>Echo</h4><p>Collaborated on identity-authentication and secure-media workflows using React, Node, Flask, MongoDB, AWS S3, and a research blockchain stack.</p><div class="support-tech">React · Flask · MongoDB · AWS S3</div></article>
           </div>
         </section>
@@ -264,6 +190,8 @@
             <a href="https://github.com/ashwinchembu/ECS-140" target="_blank" rel="noopener"><span>Coursework · Programming languages</span><strong>ECS 140 Project Set</strong><em>Java, Haskell, Prolog, and Erlang ↗</em></a>
             <a href="https://github.com/ashwinchembu/AggieWorks-Take-Home" target="_blank" rel="noopener"><span>Take-home project · C++</span><strong>Six Degrees Application</strong><em>Crow backend and React/TypeScript interface ↗</em></a>
             <a href="https://github.com/ashwinchembu/retroarcade" target="_blank" rel="noopener"><span>Early web experiment</span><strong>Retro Arcade</strong><em>Browser game loops, state, collision, and scoring ↗</em></a>
+            <a href="https://github.com/ashwinchembu/my-rideshare-app" target="_blank" rel="noopener"><span>Frontend prototype · Maps</span><strong>Rideshare Map Interface</strong><em>React routing and Google Maps components ↗</em></a>
+            <a href="https://github.com/ashwinchembu/Projects" target="_blank" rel="noopener"><span>Fundamentals archive</span><strong>Algorithms &amp; Data Structures</strong><em>C++, C, Python, assembly, hash tables, and systems exercises ↗</em></a>
           </div>
         </section>
       </section>
@@ -278,7 +206,7 @@
             <article class="timeline-item reveal">
               <div class="timeline-date">Jun 2024—Present</div>
               <div class="timeline-title timeline-title-detailed"><span class="company-mark zs-mark"><img src="assets/logos/zs.svg" alt="ZS logo" /></span><div><h3>ZS Associates</h3><p class="timeline-role">Business Technology Solutions Associate</p></div></div>
-              <div class="timeline-detail"><ul class="experience-bullets"><li>Built enterprise AI/RAG assistants and backend services with React, FastAPI, AWS data services, Redis, and document-ingestion workflows.</li><li>Developed Snowflake SQL pipelines for master-data extraction, identifier matching, reconciliation, and quality reporting across 327K+ records.</li></ul><details class="experience-more"><summary>More scope &amp; impact</summary><div><ul class="experience-bullets"><li>Designed entity-matching and license-reconciliation frameworks across 67K+ records using healthcare identifiers and fuzzy-search signals for stewardship review.</li><li>Defined layered ETL/MDM flows with landing, staging, transformation, canonical, and publication layers, including delta logic, history, and data-quality controls.</li><li>Translated ambiguous stakeholder requirements into testable rules, API integrations, source-to-target mappings, decision logs, executive decks, and delivery documentation.</li><li>Built Python and Flask endpoints plus AWS S3 and Smartsheet API integrations for automated document-management workflows.</li><li>Contributed to RAG evaluation and model workflows using FastAPI, Uvicorn, pytest, and enterprise AI tooling.</li></ul><div class="detail-tags"><span>Python</span><span>FastAPI</span><span>Snowflake</span><span>AWS</span><span>ETL / MDM</span><span>Applied AI</span></div></div></details></div>
+              <div class="timeline-detail"><p class="experience-view-lens" id="zs-view-lens">Cross-functional scope across AI/RAG services, Snowflake and MDM, API integrations, CRM validation, and delivery documentation.</p><ul class="experience-bullets"><li>Built enterprise AI/RAG assistants and backend services with React, FastAPI, AWS data services, Redis, and document-ingestion workflows.</li><li>Developed Snowflake SQL pipelines for master-data extraction, identifier matching, reconciliation, and quality reporting across 327K+ records.</li></ul><details class="experience-more"><summary>More scope &amp; impact</summary><div><ul class="experience-bullets"><li>Designed entity-matching and license-reconciliation frameworks across 67K+ records using healthcare identifiers and fuzzy-search signals for stewardship review.</li><li>Defined layered ETL/MDM flows with landing, staging, transformation, canonical, and publication layers, including delta logic, history, and data-quality controls.</li><li>Translated ambiguous stakeholder requirements into testable rules, API integrations, source-to-target mappings, decision logs, executive decks, and delivery documentation.</li><li>Built Python and Flask endpoints plus AWS S3 and Smartsheet API integrations for automated document-management workflows.</li><li>Contributed to RAG evaluation and model workflows using FastAPI, Uvicorn, pytest, and enterprise AI tooling.</li></ul><div class="detail-tags"><span>Python</span><span>FastAPI</span><span>Snowflake</span><span>AWS</span><span>ETL / MDM</span><span>Applied AI</span></div></div></details></div>
             </article>
             <article class="timeline-item reveal">
               <div class="timeline-date">Jun 2023 — Now</div>
@@ -347,6 +275,6 @@
         </div>
       </section>
     </main>
-    <script src="assets/js/portfolio.js?v=6"></script>
+    <script src="assets/js/portfolio.js?v=7"></script>
   </body>
 </html>

@@ -3,7 +3,7 @@ const navigation = document.querySelector('#site-nav');
 const themeButton = document.querySelector('.theme-toggle');
 const themeLabel = document.querySelector('.theme-label');
 
-const PREFERENCE_KEY = 'portfolio-preferences-v1';
+const PREFERENCE_KEY = 'portfolio-preferences-v2';
 
 const audiencePresets = Object.freeze({
   hiring: {
@@ -150,6 +150,182 @@ const rolePresets = Object.freeze({
   },
 });
 
+const roleProjectSelections = Object.freeze({
+  general: ['filedrop', 'lume', 'forge'],
+  fullstack: ['lume', 'educationai', 'commerce'],
+  ai: ['lume', 'educationai', 'ragpoc'],
+  backend: ['filedrop', 'forge', 'lume'],
+  data: ['novasonic', 'forge', 'dashboard'],
+  frontend: ['commerce', 'dashboard', 'lume'],
+  solutions: ['filedrop', 'lume', 'novasonic'],
+});
+
+const roleStackPresets = Object.freeze({
+  general: ['React · TypeScript', 'Python · FastAPI · Node.js · Express', 'MongoDB · Firebase · Snowflake · AWS', 'RAG · Vector search · Evidence grounding', 'REST APIs · OpenAPI · MCP · Webhooks', 'pytest · Vitest · Playwright · Render'],
+  fullstack: ['React · TypeScript · Three.js', 'Node.js · Express · FastAPI · Flask', 'MongoDB · Firebase · AWS S3', 'RAG · LangChain · OpenAI', 'REST APIs · WebSockets · OAuth', 'Vitest · Playwright · pytest'],
+  ai: ['React · Evidence and review interfaces', 'Python · FastAPI · Node.js', 'MongoDB · S3 · Vector stores', 'RAG · LangChain · Pinecone · FAISS', 'Ingestion · Intent routing · Citations', 'Evaluation · pytest · Human review'],
+  backend: ['Typed clients · Admin workflows', 'Python · FastAPI · Node.js · Express', 'MongoDB · Redis · S3-compatible storage', 'AI-ready services · Retrieval APIs', 'REST · OpenAPI · MCP · Signed webhooks', 'Validation · Auth · Rate limiting · pytest'],
+  data: ['React · Vue · Review dashboards', 'Python · SQL · FastAPI · PySpark', 'Snowflake · MongoDB · AWS Glue · Redshift', 'Entity resolution · Fuzzy matching', 'ETL layers · APIs · Scheduled ingestion', 'DQ checks · Reconciliation · Audit outputs'],
+  frontend: ['React 18/19 · TypeScript · Three.js', 'Node.js · Express · API integration', 'MongoDB · Firebase · Client state', 'AI results · Citation and feedback UI', 'Responsive systems · Forms · Real-time UI', 'Testing Library · Vitest · Playwright'],
+  solutions: ['React · Vue · Workflow interfaces', 'Python · FastAPI · Node.js', 'Snowflake · MongoDB · AWS', 'RAG · Bedrock · Evidence extraction', 'Requirements · APIs · UAT · Handoffs', 'Decision logs · Validation · Deployment'],
+});
+
+const zsLensPresets = Object.freeze({
+  general: 'Cross-functional scope across AI/RAG services, Snowflake and MDM, API integrations, CRM validation, and delivery documentation.',
+  fullstack: 'Full-stack lens · React and FastAPI services, cloud integrations, document workflows, testing, and end-to-end delivery.',
+  ai: 'Applied AI lens · RAG assistants, document ingestion, evidence-oriented evaluation, FastAPI services, Redis, and enterprise AI tooling.',
+  backend: 'Backend lens · Python and Flask endpoints, FastAPI services, AWS S3, Redis, Smartsheet integrations, and quality-controlled APIs.',
+  data: 'Data lens · Snowflake SQL across 327K+ records, entity matching across 67K+ records, layered ETL/MDM, reconciliation, and stewardship review.',
+  frontend: 'Frontend lens · React interfaces connecting enterprise AI, data, document, and CRM workflows to clear user-facing experiences.',
+  solutions: 'Solutions lens · Ambiguous requirements translated into testable rules, integrations, UAT items, decision logs, user guides, and delivery plans.',
+});
+
+const projectCatalog = Object.freeze({
+  filedrop: {
+    title: 'Private Filedrop',
+    category: 'Backend / AI-ready infrastructure',
+    role: 'Public repository · Deployed on Render · 2026',
+    summaries: {
+      general: 'A secure file-exchange service for moving files between computers and AI sessions through browser uploads, APIs, MCP tools, versioning, and messages.',
+      backend: 'A backend platform with authenticated REST and OpenAPI contracts, MCP tools, local and S3-compatible storage, migration tooling, version history, and signed webhooks.',
+      solutions: 'A concrete workflow problem turned into a deployable bridge across browsers, computers, and AI clients—with human control, auditable state, and documented handoffs.',
+    },
+    flow: [['Problem', 'Cross-device and AI-session file handoffs were slow and easy to lose.'], ['Approach', 'Unify browser uploads, APIs, MCP tools, versioning, and messages.'], ['Engineering', 'Node.js, Express, OpenAPI, S3-compatible storage, validation, and HMAC webhooks.'], ['Outcome', 'A durable handoff layer with explicit boundaries between automation and human control.']],
+    tech: ['Node.js', 'Express', 'AWS SDK', 'OpenAPI', 'MCP', 'HMAC'],
+    detailsTitle: 'Architecture & security details',
+    detailsIntro: 'The service exposes REST, OpenAPI, and MCP interfaces over local or S3-compatible storage, with shared mailboxes and channels for cross-session coordination.',
+    bullets: ['Implemented categories, tags, project paths, file metadata, version history, unguessable downloads, and storage migration tooling.', 'Added password and API-key access, timing-safe credential checks, upload validation, rate limiting, and HMAC-SHA256 signed webhooks.', 'Documented browser, API, AI-client, cloud-storage, ChatGPT Action, MCP, and Render deployment workflows without publishing secrets or user data.'],
+    links: [['View source', 'https://github.com/ashwinchembu/render-filedrop']],
+    visual: '<div class="project-visual filedrop-visual" aria-hidden="true"><div class="drop-console"><div class="drop-top"><span>PRIVATE FILEDROP</span><b>secure</b></div><div class="drop-file"><i>PDF</i><div><b>product-brief.pdf</b><small>v4 · project/design</small></div><em>✓</em></div><div class="drop-file"><i>CSV</i><div><b>research-data.csv</b><small>tagged · 2 versions</small></div><em>✓</em></div><div class="drop-channel"><span>REST / OpenAPI</span><span>MCP tools</span><span>Signed webhooks</span></div></div><div class="drop-lock"><span></span><b>HMAC</b><small>S3-compatible storage</small></div></div>',
+  },
+  lume: {
+    title: 'Lume',
+    category: 'AI meeting intelligence / Full-stack product',
+    role: 'Public repository · Dec 2025—Present',
+    summaries: {
+      general: 'A full-stack meeting intelligence platform for capturing, storing, searching, and querying meetings and uploaded project files with reusable context.',
+      fullstack: 'An end-to-end React and Node/Express product connecting MongoDB, AWS S3, WebSockets, transcription, search, task extraction, and responsive project workflows.',
+      ai: 'A retrieval-grounded product with vector embeddings, intent routing, evidence extraction, citations, transcript-aware search, and multi-pass generator/critic refinement.',
+      backend: 'A Node/Express, MongoDB, S3, and WebSocket system for durable meeting ingestion, real-time updates, project-scoped retrieval, and document-backed answers.',
+      frontend: 'A responsive React experience for transcripts, live updates, project context, task extraction, semantic search, and source-backed answer exploration.',
+      solutions: 'A product built around a common team failure mode: context disappearing across meetings and files, then recovered through reusable project memory and traceable answers.',
+    },
+    flow: [['Problem', 'Decisions and context disappear across meetings and files.'], ['Approach', 'Build reusable Project Brain memory around retrieval and evidence.'], ['Engineering', 'React, Node/Express, MongoDB, S3, WebSockets, vector embeddings, and RAG.'], ['Outcome', 'Searchable context, extracted tasks, document-grounded responses, and cited answers.']],
+    tech: ['React', 'Node.js', 'MongoDB', 'AWS S3', 'WebSockets', 'RAG'],
+    detailsTitle: 'Architecture & product details',
+    detailsIntro: 'The React client and Node/Express services capture, store, and query meeting content through MongoDB, AWS S3, vector retrieval, and live WebSocket updates.',
+    bullets: ['Built a RAG question-answering flow with vector embeddings, intent routing, evidence extraction, and multi-pass generator/critic refinement.', 'Modeled reusable Project Brain knowledge bases that learn project-specific language and relationships from transcripts, files, and seeded context.', 'Designed transcript-aware search and citation-backed answers so useful outputs remain traceable to meetings and source documents.'],
+    links: [['Open preview', 'https://lume-app.onrender.com'], ['View source', 'https://github.com/ashwinchembu/work-helper']],
+    visual: '<div class="project-visual lume-visual" aria-hidden="true"><div class="product-window lume-window"><div class="product-topbar"><div><span></span><span></span><span></span></div><b>LUME</b><small>Project Brain · RAG</small></div><div class="lume-layout"><aside class="meeting-panel"><p>Design review</p><small>24:18 · 4 people</small><div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="speaker"><b>AC</b><span><i></i><i></i></span></div></aside><div class="brain-panel"><p class="brain-label">Ask across this project</p><h4>What decision did we make about onboarding?</h4><div class="context-map"><span>Meeting 12</span><i></i><span>Onboarding</span><i></i><span>Brief.pdf</span></div><div class="ai-answer"><span>✦</span><p>The team chose a guided setup with progressive disclosure, starting with document import.</p></div><div class="citation-row"><span>Transcript · 18:42</span><span>Brief.pdf · p.3</span></div></div></div></div></div>',
+  },
+  forge: {
+    title: 'Forge',
+    category: 'Data integration / Backend APIs',
+    role: 'Public repository · Personal fitness intelligence · 2026',
+    summaries: {
+      general: 'A personal fitness-intelligence backend that unifies strength training, nutrition, sleep, heart-rate, and recovery data into program-aware analysis.',
+      backend: 'A FastAPI and MongoDB Atlas service with Hevy and Oura integrations, Apple Health webhooks, six-hour scheduled synchronization, on-demand refresh, and CSV ingestion.',
+      data: 'A multi-source data pipeline that normalizes training, nutrition, sleep, heart-rate, and recovery signals before comparing them with a structured 12-week program.',
+    },
+    flow: [['Problem', 'Training, nutrition, recovery, and health signals lived in separate systems.'], ['Approach', 'Normalize source data and compare it with a structured hypertrophy plan.'], ['Engineering', 'FastAPI, MongoDB Atlas, APIs, webhooks, scheduled sync, and CSV ingestion.'], ['Outcome', 'Daily and weekly views of adherence, nutrition compliance, recovery quality, and next actions.']],
+    tech: ['Python', 'FastAPI', 'MongoDB Atlas', 'Webhooks', 'Scheduled sync', 'Render'],
+    detailsTitle: 'Data pipeline & analysis details',
+    detailsIntro: 'Forge unifies Hevy, Oura, MyFitnessPal-derived Apple Health data, and Health Auto Export webhooks without publishing personal records or credentials.',
+    bullets: ['Implemented six-hour synchronization, on-demand refresh, health-data webhooks, and CSV ingestion workflows.', 'Modeled workouts, nutrition, sleep, heart-rate, recovery, and body metrics in MongoDB for daily and weekly analysis.', 'Built an analysis engine that compares actual performance with a 12-week hypertrophy plan and scores workout adherence, nutrition compliance, and recovery quality.'],
+    links: [['View source', 'https://github.com/ashwinchembu/forge']],
+    visual: '<div class="project-visual forge-visual" aria-hidden="true"><div class="forge-shell"><div class="forge-top"><b>FORGE</b><span>daily intelligence</span><i>synced</i></div><div class="forge-score"><span>Today</span><strong>84</strong><small>program alignment</small></div><div class="forge-signals"><div><span>Workout</span><b>hit</b><i style="--fill:88%"></i></div><div><span>Nutrition</span><b>close</b><i style="--fill:72%"></i></div><div><span>Recovery</span><b>ready</b><i style="--fill:81%"></i></div></div><div class="forge-flow"><span>Hevy</span><i>→</i><span>Apple Health</span><i>→</i><span>Oura</span><b>FastAPI + MongoDB</b></div></div></div>',
+  },
+  educationai: {
+    title: 'Tallyrus + AbleGrade',
+    category: 'Education AI / Product engineering',
+    role: 'Tallyrus founder product · AbleGrade co-built at HackDavis 2024',
+    summaries: {
+      general: 'Two clearly attributed education-AI builds: the ongoing Tallyrus essay-feedback product and AbleGrade, a separate HackDavis collaboration for ESL writing support.',
+      fullstack: 'Two full-stack education workflows spanning React, TypeScript, Express, Flask, MongoDB, S3, OAuth, protected routes, PDF parsing, and educator-facing feedback interfaces.',
+      ai: 'Two practical writing-feedback systems combining educator-defined rubrics, retrieval-augmented grading, LangChain, Pinecone, OpenAI, GPT-4, PDF parsing, and human review.',
+      solutions: 'Product work shaped around educator and learner workflows, including user testing, rubric design, iterative feedback, fundraising, and a separately attributed hackathon collaboration.',
+    },
+    flow: [['Problem', 'Educators and language learners need timely feedback without losing rubric consistency.'], ['Approach', 'Build two distinct, clearly attributed tools around feedback, review, and progress.'], ['Engineering', 'Python, LangChain, Pinecone, Flask, MongoDB, S3, MERN, GPT-4, and PDF parsing.'], ['Outcome', 'Tallyrus raised five figures for continued development; AbleGrade demonstrated actionable ESL writing support.']],
+    tech: ['Python', 'LangChain', 'Pinecone', 'React', 'MongoDB', 'GPT-4'],
+    detailsTitle: 'Product, AI & attribution details',
+    detailsIntro: 'Tallyrus and AbleGrade address related education problems but are separate projects with different ownership and timelines.',
+    bullets: ['Founded and led Tallyrus, building RAG-style essay feedback, educator-defined rubric workflows, Flask and MongoDB services, S3 storage, React interfaces, and secure Express application flows.', 'Led Tallyrus product planning, educator feedback, user testing, iterative delivery, and fundraising, raising five figures for product development.', 'Co-built AbleGrade with Gautham Pandian at HackDavis 2024 using the MERN stack and GPT-4 for ESL feedback, progress tracking, PDF upload, and parsing.'],
+    links: [['Visit Tallyrus', 'https://tallyrus.com']],
+    sourceNote: 'Tallyrus and AbleGrade repositories are private; no GitHub source link is published.',
+    visual: '<div class="project-visual education-ai-visual" aria-hidden="true"><div class="education-split"><section><span>Founder product · Ongoing</span><b>Tallyrus</b><p>Rubric-grounded essay feedback</p><div><i>RAG</i><i>Pinecone</i><i>Review</i></div></section><section><span>Co-built · HackDavis 2024</span><b>AbleGrade</b><p>ESL writing support and progress</p><div><i>GPT-4</i><i>PDF</i><i>MERN</i></div></section></div><div class="education-loop"><span>Writing</span><i>→</i><span>Evidence + rubric</span><i>→</i><span>Actionable feedback</span></div></div>',
+  },
+  commerce: {
+    title: '3D Commerce Experience',
+    category: 'Frontend / Interactive product UI',
+    role: 'Public repository · Figma-originated UI prototype',
+    summaries: {
+      general: 'An interactive varsity-jacket storefront with product discovery, cart, checkout, account, search, content pages, and a responsive Three.js configurator.',
+      fullstack: 'A React and TypeScript commerce product connecting reusable components, navigation, cart and checkout flows, account pages, and a Three.js product builder.',
+      frontend: 'A responsive component system and GLB/Draco-powered Three.js configurator with independent garment, color, material, and placement controls.',
+    },
+    flow: [['Problem', 'Static product pages cannot explain a highly configurable garment.'], ['Approach', 'Combine familiar commerce flows with an interactive 3D builder.'], ['Engineering', 'React, TypeScript, Three.js, GLB assets, Draco decoding, Tailwind, Radix UI, and Material UI.'], ['Outcome', 'A production-build-verified storefront with reusable responsive components and detailed configuration controls.']],
+    tech: ['React', 'TypeScript', 'Three.js', 'Vite', 'Tailwind', 'Radix UI'],
+    detailsTitle: '3D interaction & interface details',
+    detailsIntro: 'The prototype covers both the broader shopping journey and the specialized interaction needed to configure a varsity jacket.',
+    bullets: ['Built product discovery, cart, checkout, account, search, and content pages as reusable responsive flows.', 'Developed a Three.js product builder using GLB assets and Draco decoding.', 'Implemented independent garment customization, color configuration, placement adjustments, modals, product cards, navigation, and consent flows.'],
+    links: [['Open preview', 'https://ecommerce-website-design.onrender.com/jacket-builder'], ['View source', 'https://github.com/ashwinchembu/E-commerceWebsiteDesign']],
+    sourceNote: 'Interface concept originated in Figma; implementation and repository evidence are linked.',
+    visual: '<div class="project-visual commerce-visual" aria-hidden="true"><div class="commerce-window"><div class="commerce-top"><span>VARSITY LAB</span><b>3D BUILDER</b></div><div class="commerce-body"><div class="jacket-stage"><div class="jacket"><span class="sleeve left"></span><span class="sleeve right"></span><span class="jacket-body"></span><i>AC</i></div><small>Drag to rotate · GLB + Draco</small></div><div class="customizer"><p>Build your jacket</p><label>Body color</label><div class="swatches"><i></i><i></i><i></i><i></i></div><label>Sleeves</label><div class="swatches alt"><i></i><i></i><i></i></div><span class="config-button">Apply configuration</span></div></div></div></div>',
+  },
+  dashboard: {
+    title: 'Enterprise Healthcare Dashboard',
+    category: 'Frontend / Healthcare workflow design',
+    role: 'Public repository · Figma-originated UI prototype',
+    summaries: {
+      general: 'A reusable dashboard prototype for healthcare account hierarchies, trial progress, follow-ups, barriers, site progression, tasks, and detail workflows.',
+      data: 'A data-dense review surface that translates account hierarchy, progress metrics, trials, follow-ups, barriers, and site progression into scannable operational context.',
+      frontend: 'A React/TypeScript and Vue interface system with metric cards, hierarchy views, progress steppers, follow-up queues, barrier summaries, and detail and edit modals.',
+    },
+    flow: [['Problem', 'Complex healthcare account and trial workflows are difficult to scan and act on.'], ['Approach', 'Turn hierarchy, progress, follow-up, and barrier data into reusable interface patterns.'], ['Engineering', 'React, TypeScript, Vue, Vite, Tailwind, metric cards, steppers, queues, and modals.'], ['Outcome', 'A component-based prototype suitable for stakeholder demos and workflow validation.']],
+    tech: ['React', 'TypeScript', 'Vue', 'Vite', 'Tailwind', 'UI systems'],
+    detailsTitle: 'Workflow & component details',
+    detailsIntro: 'The prototype explores how dense healthcare operations data can become a coherent decision surface without publishing any private employer or client material.',
+    bullets: ['Designed account hierarchy, progress metrics, ongoing trial, pending follow-up, AI-barrier, and site-progression views.', 'Built reusable metric cards, progress steppers, task queues, barrier summaries, trial-detail modals, and editing patterns.', 'Implemented the design in both React/TypeScript and Vue to validate reusable component structure.'],
+    links: [['View source', 'https://github.com/ashwinchembu/Enterprisehealthcaredashboarddesign']],
+    sourceNote: 'Synthetic Figma-originated prototype; no employer/client data or screenshots are published.',
+    visual: '<div class="project-visual dashboard-visual" aria-hidden="true"><div class="dashboard-shell"><div class="dashboard-top"><b>ACCOUNT INTELLIGENCE</b><span>Trial portfolio · Q3</span></div><div class="dashboard-metrics"><div><small>Active sites</small><strong>18</strong></div><div><small>Follow-ups</small><strong>07</strong></div><div><small>Progress</small><strong>72%</strong></div></div><div class="dashboard-main"><div class="dashboard-steps"><span class="done">Account</span><span class="done">Trial</span><span class="active">Site</span><span>Review</span></div><div class="dashboard-queue"><p><i></i>Enrollment barrier review <b>Today</b></p><p><i></i>Site document follow-up <b>2d</b></p><p><i></i>Account hierarchy update <b>4d</b></p></div></div></div></div>',
+  },
+  ragpoc: {
+    title: 'Azure RAG Document Search',
+    category: 'Applied AI / Retrieval prototype',
+    role: 'Public repository · 30+ document corpus',
+    summaries: {
+      general: 'A document-search proof of concept with multi-format loading, chunking, Azure OpenAI embeddings, FAISS retrieval, source citation, and interactive Q&A.',
+      ai: 'A focused RAG implementation showing the complete path from PDF, TXT, and Markdown ingestion through chunking, embeddings, FAISS similarity search, retrieval, citations, and chat answers.',
+    },
+    flow: [['Problem', 'Teams need grounded answers across a mixed-format document corpus.'], ['Approach', 'Create a local vector index with retrievable chunks and cited sources.'], ['Engineering', 'Python, LangChain, Azure OpenAI embeddings and chat deployments, FAISS, and notebook workflows.'], ['Outcome', 'Interactive Q&A with source citation across a documented corpus of 30+ files.']],
+    tech: ['Python', 'Azure OpenAI', 'LangChain', 'FAISS', 'Embeddings', 'PDF ingestion'],
+    detailsTitle: 'Retrieval pipeline details',
+    detailsIntro: 'The proof of concept isolates the mechanics of a grounded document-search pipeline so each ingestion and retrieval step is visible and inspectable.',
+    bullets: ['Loaded PDF, TXT, and Markdown sources, then chunked text for embedding and retrieval.', 'Built a FAISS similarity index with Azure OpenAI embeddings and interactive Q&A.', 'Returned source citations and documented configuration for separate Azure embedding and chat-model deployments.'],
+    links: [['View source', 'https://github.com/ashwinchembu/RAGpoc']],
+    visual: '<div class="project-visual rag-visual" aria-hidden="true"><div class="rag-shell"><div class="rag-docs"><span>PDF</span><span>TXT</span><span>MD</span></div><i>→</i><div class="rag-stage"><b>CHUNKS</b><small>embed · index</small></div><i>→</i><div class="rag-stage accent"><b>FAISS</b><small>similarity search</small></div><i>→</i><div class="rag-answer"><span>Answer</span><p>Grounded in the retrieved document context.</p><small>Source · page 3</small></div></div></div>',
+  },
+  novasonic: {
+    title: 'Nova Sonic Voice & Data Assistant',
+    category: 'Voice AI / AWS data integration',
+    role: 'Public repository · Real-time browser and iPad clients',
+    summaries: {
+      general: 'A real-time voice assistant integrating AWS Nova Sonic and Bedrock with WebSocket sessions, Vue interfaces, call analysis, cloud data tools, and mobile-browser recovery.',
+      data: 'A voice-and-data workflow connecting live sessions and structured tool use with S3 uploads, AWS Glue refreshes, Redshift-oriented adapters, Python data pipelines, and observable status interfaces.',
+      solutions: 'A customer-facing AI demo surface combining real-time audio, transcripts, tool logs, call history, database status, prompt and session management, deployment, and mobile recovery documentation.',
+    },
+    flow: [['Problem', 'Voice interactions need real-time feedback and dependable access to structured data tools.'], ['Approach', 'Join bidirectional audio sessions with visible transcripts, tool logs, history, and cloud refresh controls.'], ['Engineering', 'Node.js, Vue, WebSockets, AWS Bedrock/Nova Sonic, S3, Glue, Redshift, and Python pipelines.'], ['Outcome', 'A browser and iPad-ready assistant with observable voice, tool, and data workflows.']],
+    tech: ['Node.js', 'Vue', 'WebSockets', 'AWS Bedrock', 'S3', 'Glue'],
+    detailsTitle: 'Voice session & data workflow details',
+    detailsIntro: 'The public repository combines real-time voice interaction with data-oriented tooling and operational interfaces for demos and debugging.',
+    bullets: ['Built WebSocket session management and browser/iPad interfaces for AWS Nova Sonic and Bedrock voice interaction.', 'Created audio visualization, transcript, tool-log, call-history, database-status, and structured JSON inspection views.', 'Integrated call-recording analysis, prompt and session management, S3 upload, AWS Glue refresh, cloud adapters, deployment, and mobile-browser recovery documentation.'],
+    links: [['View source', 'https://github.com/ashwinchembu/wokring-novasonic-demo']],
+    sourceNote: 'Public demo repository; enterprise-oriented implementation context should be reviewed before reuse.',
+    visual: '<div class="project-visual voice-visual" aria-hidden="true"><div class="voice-shell"><div class="voice-top"><b>NOVA SONIC</b><span>live · websocket</span></div><div class="voice-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="voice-transcript"><span>USER</span><p>Show the latest account signals.</p><span>ASSISTANT</span><p>I found the data refresh and summarized the result.</p></div><div class="voice-tools"><span>S3 upload</span><span>Glue refresh</span><span>Database status</span></div></div></div>',
+  },
+});
+
 const preferenceGate = document.querySelector('#preference-gate');
 const preferenceDialog = document.querySelector('.preference-dialog');
 const preferenceForm = document.querySelector('#preference-form');
@@ -174,6 +350,11 @@ const experienceIntro = document.querySelector('#experience-intro');
 const aboutSummary = document.querySelector('#about-summary');
 const contactHeading = document.querySelector('#contact-heading');
 const metaDescription = document.querySelector('meta[name="description"]');
+const projectShowcase = document.querySelector('#project-showcase');
+const projectSlots = [...document.querySelectorAll('[data-project-slot]')];
+const stackValues = [...document.querySelectorAll('.technology-map-grid strong')];
+const zsViewLens = document.querySelector('#zs-view-lens');
+const supportingWorkHeading = document.querySelector('#supporting-work-heading');
 
 let activePreferences = null;
 let lastFocusedElement = null;
@@ -217,6 +398,54 @@ function syncPreferenceForm(preferences) {
   updatePreferenceButton();
 }
 
+function renderProjectShowcase(role, audienceKey) {
+  const selected = roleProjectSelections[role] || roleProjectSelections.general;
+  const audienceLabels = {
+    hiring: 'Hiring signal',
+    engineering: 'Technical deep dive',
+    product: 'Product signal',
+    exploring: 'Recommended for this view',
+  };
+  const badge = audienceLabels[audienceKey] || audienceLabels.exploring;
+
+  selected.forEach((projectKey, index) => {
+    const slot = projectSlots[index];
+    const project = projectCatalog[projectKey];
+    if (!slot || !project) return;
+    const summary = project.summaries[role] || project.summaries.general || Object.values(project.summaries)[0];
+    const flowClass = index === 0 ? 'case-study-flow' : 'case-study-flow compact';
+    const flow = project.flow.map(([label, copy]) => `<div><span>${label}</span><p>${copy}</p></div>`).join('');
+    const tech = project.tech.map((item) => `<span>${item}</span>`).join('');
+    const bullets = project.bullets.map((item) => `<li>${item}</li>`).join('');
+    const links = project.links.map(([label, href]) => `<a class="text-link" href="${href}" target="_blank" rel="noopener">${label} <span>↗</span></a>`).join('');
+    const sourceNote = project.sourceNote ? `<p class="source-note">${project.sourceNote}</p>` : '';
+
+    slot.id = `${projectKey}-case-study`;
+    slot.dataset.project = projectKey;
+    slot.setAttribute('aria-labelledby', `${projectKey}-title`);
+    slot.innerHTML = `${project.visual}<div class="project-copy"><p class="project-index">0${index + 1} · ${project.category} <span class="role-match-badge">${badge}</span></p><h3 id="${projectKey}-title">${project.title}</h3><p class="project-role">${project.role}</p><p class="project-summary">${summary}</p><div class="${flowClass}" aria-label="${project.title} case study summary">${flow}</div><div class="tech-list">${tech}</div><details class="project-more"><summary>${project.detailsTitle}</summary><div class="project-more-body"><p>${project.detailsIntro}</p><ul>${bullets}</ul></div></details><div class="project-links">${links}</div>${sourceNote}</div>`;
+  });
+
+  if (projectShowcase) projectShowcase.setAttribute('aria-label', `Three projects selected for the ${rolePresets[role]?.short || 'general'} view`);
+
+  document.querySelectorAll('#support-grid [data-project]').forEach((card) => {
+    const isFeatured = selected.includes(card.dataset.project);
+    card.hidden = isFeatured;
+    card.classList.toggle('role-match', !isFeatured && (rolePresets[role]?.matches || []).includes(card.dataset.project));
+  });
+
+  if (supportingWorkHeading) {
+    supportingWorkHeading.textContent = `More verified work beyond the ${rolePresets[role]?.short || 'general'} view.`;
+  }
+}
+
+function renderRoleStack(role) {
+  const values = roleStackPresets[role] || roleStackPresets.general;
+  stackValues.forEach((element, index) => {
+    if (values[index]) element.textContent = values[index];
+  });
+}
+
 function applyPreferences(preferences) {
   const audience = audiencePresets[preferences.audience] || audiencePresets.exploring;
   const preset = rolePresets[preferences.role] || rolePresets.general;
@@ -255,12 +484,9 @@ function applyPreferences(preferences) {
     }));
   }
 
-  document.querySelectorAll('[data-project]').forEach((project) => {
-    const matches = preset.matches.includes(project.dataset.project);
-    project.classList.toggle('role-match', matches);
-    const badge = project.querySelector('.role-match-badge');
-    if (badge) badge.hidden = !matches;
-  });
+  renderProjectShowcase(preferences.role, preferences.audience);
+  renderRoleStack(preferences.role);
+  if (zsViewLens) zsViewLens.textContent = zsLensPresets[preferences.role] || zsLensPresets.general;
 
   syncPreferenceForm(activePreferences);
 }
@@ -311,6 +537,9 @@ function useGeneralView() {
   storePreferences(preferences);
   closePreferenceGate();
 }
+
+renderProjectShowcase('general', 'exploring');
+renderRoleStack('general');
 
 const savedTheme = getStoredTheme();
 setTheme(savedTheme || 'dark');
