@@ -12,8 +12,7 @@ function storeTheme(theme) {
 }
 
 const savedTheme = getStoredTheme();
-const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-const initialTheme = savedTheme || preferredTheme;
+const initialTheme = savedTheme || 'dark';
 
 function setTheme(theme) {
   const dark = theme === 'dark';
