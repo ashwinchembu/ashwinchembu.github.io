@@ -32,15 +32,15 @@ const rolePresets = Object.freeze({
   general: {
     short: 'General',
     eyebrow: 'Full-stack, AI & data',
-    title: 'I build thoughtful software where <em>product, AI,</em> and <em>data</em> meet.',
+    title: 'From messy context<br />to working software.',
     titlePlain: 'Full-Stack & Applied AI Engineer',
     lede: 'I build practical AI-enabled products, backend systems, and thoughtful user experiences—from document intelligence and automation to real-time, data-driven applications.',
     note: 'Showing a balanced view of secure integrations, retrieval-grounded products, data pipelines, and clearly labeled supporting work.',
     cta: 'See selected work',
     ctaTarget: '#work',
-    workHeading: 'Practical systems, built end to end.',
+    workHeading: 'Selected work.',
     workIntro: 'Three representative case studies spanning secure handoffs, retrieval-grounded product work, and multi-tenant SaaS delivery.',
-    experienceHeading: 'Engineering across the stack.',
+    experienceHeading: 'Built in good company.',
     experienceIntro: 'Building at the intersection of technology, operations, and user needs.',
     about: 'I’m a UC Davis computer science graduate based in Fremont, California. I like untangling hard technical problems, but I care just as much about whether the result feels intuitive and earns its place in someone’s workflow.',
     chips: ['Python', 'Data platforms', 'Applied AI'],
@@ -504,6 +504,7 @@ function setTheme(theme) {
   themeButton?.setAttribute('aria-pressed', String(dark));
   themeButton?.setAttribute('aria-label', `Switch to ${dark ? 'light' : 'dark'} mode`);
   if (themeLabel) themeLabel.textContent = dark ? 'Light' : 'Dark';
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#171918' : '#f5f5f0');
 }
 
 function syncPreferenceForm(preferences) {
@@ -515,8 +516,22 @@ function syncPreferenceForm(preferences) {
   updatePreferenceButton();
 }
 
+function renderProjectVisual(projectKey, project) {
+  if (projectKey === 'filedrop') {
+    return '<div class="project-visual handoff-art" aria-hidden="true"><p class="art-heading">Private Filedrop / Developer tools</p><div class="handoff-files"><span></span><span></span><span>↗</span></div><p class="art-footnote">Browser uploads. APIs. MCP tools.</p></div>';
+  }
+  if (projectKey === 'lume') {
+    return '<div class="project-visual retrieval-art" aria-hidden="true"><p class="art-heading">Lume / Meeting intelligence</p><div class="retrieval-flow"><span>Meetings<br />&amp; files</span><i>→</i><span>Searchable<br />context</span><i>→</i><span>Cited<br />answers</span></div><p class="art-footnote">Architecture sketch</p></div>';
+  }
+  return project.visual;
+}
+
 function renderProjectShowcase(role, audienceKey) {
-  const selected = roleProjectSelections[role] || roleProjectSelections.general;
+  const featured = roleProjectSelections[role] || roleProjectSelections.general;
+  const additional = [...(rolePresets[role]?.matches || []), 'forge', 'commerce', 'tech4good', 'ragpoc', 'filedrop']
+    .filter((projectKey, index, candidates) => projectCatalog[projectKey] && !featured.includes(projectKey) && candidates.indexOf(projectKey) === index)
+    .slice(0, 2);
+  const selected = [...featured, ...additional];
   const audienceLabels = {
     hiring: 'Hiring signal',
     engineering: 'Technical deep dive',
@@ -540,10 +555,24 @@ function renderProjectShowcase(role, audienceKey) {
     slot.id = `${projectKey}-case-study`;
     slot.dataset.project = projectKey;
     slot.setAttribute('aria-labelledby', `${projectKey}-title`);
-    slot.innerHTML = `${project.visual}<div class="project-copy"><p class="project-index">0${index + 1} · ${project.category} <span class="role-match-badge">${badge}</span></p><h3 id="${projectKey}-title">${project.title}</h3><p class="project-role">${project.role}</p><p class="project-summary">${summary}</p><div class="${flowClass}" aria-label="${project.title} case study summary">${flow}</div><div class="tech-list">${tech}</div><details class="project-more"><summary>${project.detailsTitle}</summary><div class="project-more-body"><p>${project.detailsIntro}</p><ul>${bullets}</ul></div></details><div class="project-links">${links}</div>${sourceNote}</div>`;
+    slot.innerHTML = `${renderProjectVisual(projectKey, project)}<div class="project-copy"><p class="project-index">${project.category} <span class="role-match-badge">${badge}</span></p><h3 id="${projectKey}-title">${project.title}</h3><p class="project-role">${project.role}</p><p class="project-summary">${summary}</p><div class="${flowClass}" aria-label="${project.title} case study summary">${flow}</div><div class="tech-list">${tech}</div><details class="project-more"><summary>${project.detailsTitle}</summary><div class="project-more-body"><p>${project.detailsIntro}</p><ul>${bullets}</ul></div></details><div class="project-links">${links}</div>${sourceNote}</div>`;
+    const visual = slot.querySelector('.project-visual');
+    if (visual) {
+      const frame = document.createElement('div');
+      frame.className = 'visual-frame';
+      visual.before(frame);
+      frame.append(visual);
+      const expand = document.createElement('button');
+      expand.className = 'expand-visual';
+      expand.type = 'button';
+      expand.textContent = 'Expand ↗';
+      expand.setAttribute('aria-label', `Expand ${project.title} illustration`);
+      expand.dataset.projectKey = projectKey;
+      frame.append(expand);
+    }
   });
 
-  if (projectShowcase) projectShowcase.setAttribute('aria-label', `Three projects selected for the ${rolePresets[role]?.short || 'general'} view`);
+  if (projectShowcase) projectShowcase.setAttribute('aria-label', `Five projects selected for the ${rolePresets[role]?.short || 'general'} view`);
 
   document.querySelectorAll('#support-grid [data-project]').forEach((card) => {
     const isFeatured = selected.includes(card.dataset.project);
@@ -659,7 +688,7 @@ renderProjectShowcase('general', 'exploring');
 renderRoleStack('general');
 
 const savedTheme = getStoredTheme();
-setTheme(savedTheme || 'dark');
+setTheme(savedTheme || 'light');
 
 const savedPreferences = getStoredPreferences();
 if (savedPreferences) {
@@ -669,11 +698,11 @@ if (savedPreferences) {
   document.documentElement.dataset.preferenceSaved = 'true';
   preferenceGate?.setAttribute('aria-hidden', 'true');
 } else {
-  if (preferenceGate) preferenceGate.hidden = false;
-  document.documentElement.removeAttribute('data-preference-saved');
+  applyPreferences({ audience: 'exploring', role: 'general' });
+  if (preferenceGate) preferenceGate.hidden = true;
+  document.documentElement.dataset.preferenceSaved = 'true';
   document.documentElement.removeAttribute('data-preference-pending');
-  setPageInert(true);
-  window.requestAnimationFrame(() => preferenceForm?.querySelector('input')?.focus());
+  preferenceGate?.setAttribute('aria-hidden', 'true');
 }
 
 preferenceForm?.addEventListener('change', updatePreferenceButton);
@@ -748,14 +777,50 @@ window.addEventListener('resize', () => {
   if (window.innerWidth > 900 && navigation?.classList.contains('open')) setMenuOpen(false);
 });
 
-const observer = new IntersectionObserver((entries) => {
+const observer = typeof IntersectionObserver === 'function' ? new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.08 }) : null;
 
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+document.querySelectorAll('.reveal').forEach((element) => {
+  if (observer) observer.observe(element);
+  else element.classList.add('visible');
+});
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+const visualDialog = document.querySelector('.visual-dialog');
+projectShowcase?.addEventListener('click', (event) => {
+  const expand = event.target.closest('.expand-visual');
+  if (!expand || !visualDialog) return;
+  const visual = expand.closest('.visual-frame')?.querySelector('.project-visual');
+  const project = projectCatalog[expand.dataset.projectKey];
+  if (!visual || !project) return;
+  visualDialog.querySelector('#visual-dialog-title').textContent = project.title;
+  visualDialog.querySelector('.visual-dialog-content').replaceChildren(visual.cloneNode(true));
+  visualDialog.showModal();
+});
+document.querySelector('.visual-dialog-close')?.addEventListener('click', () => visualDialog.close());
+visualDialog?.addEventListener('click', (event) => {
+  if (event.target === visualDialog) visualDialog.close();
+});
+
+const skillsStrip = document.querySelector('.practice-strip');
+const skillsTrack = document.querySelector('.practice-track');
+const skillsGroup = document.querySelector('.practice-group');
+const skillsToggle = document.querySelector('.skills-toggle');
+if (skillsGroup && skillsTrack && skillsStrip) {
+  const duplicate = skillsGroup.cloneNode(true);
+  duplicate.setAttribute('aria-hidden', 'true');
+  skillsTrack.append(duplicate);
+  skillsStrip.classList.add('scrolling');
+}
+skillsToggle?.addEventListener('click', () => {
+  const paused = skillsToggle.getAttribute('aria-pressed') !== 'true';
+  skillsToggle.setAttribute('aria-pressed', String(paused));
+  skillsToggle.textContent = paused ? 'Resume scrolling' : 'Pause scrolling';
+  skillsStrip?.classList.toggle('paused', paused);
+});

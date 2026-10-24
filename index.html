@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Ashwin Chembu is a full-stack engineer building applied AI products, reliable backend systems, and thoughtful user experiences in the Bay Area." />
-    <meta name="theme-color" content="#0b0d0c" />
+    <meta name="theme-color" content="#f5f5f0" />
     <meta property="og:title" content="Ashwin Chembu — Full-Stack &amp; Applied AI Engineer" />
     <meta property="og:description" content="Applied AI products, reliable backend systems, and thoughtful user experiences—from document intelligence to real-time, data-driven applications." />
     <title>Ashwin Chembu — Full-Stack &amp; Applied AI Engineer</title>
@@ -13,10 +13,9 @@
       try {
         if (window.localStorage.getItem('portfolio-preferences-v3')) {
           document.documentElement.dataset.preferenceSaved = 'true';
-        } else {
-          document.documentElement.dataset.preferencePending = 'true';
         }
-      } catch { document.documentElement.dataset.preferencePending = 'true'; }
+      } catch {}
+      document.documentElement.dataset.preferenceSaved = 'true';
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,8 +25,10 @@
     <link rel="stylesheet" href="assets/css/project-visuals.css?v=6" />
     <link rel="stylesheet" href="assets/css/portfolio-audit.css?v=3" />
     <link rel="stylesheet" href="assets/css/personalization.css?v=3" />
+    <link rel="stylesheet" href="assets/css/redesign.css?v=2" />
   </head>
   <body id="top">
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="noise" aria-hidden="true"></div>
     <div class="preference-gate" id="preference-gate" role="dialog" aria-modal="true" aria-labelledby="preference-title" aria-describedby="preference-description" aria-hidden="false" hidden>
       <section class="preference-dialog">
@@ -91,11 +92,13 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="hero shell">
+        <div class="hero-topline"><p><span class="status-dot" aria-hidden="true"></span> Full-stack &amp; applied AI engineer</p><p>Fremont, California<br />Building across product, AI &amp; data.</p></div>
+        <h1 class="nameplate">ASHWIN <span>CHEMBU.</span></h1>
         <div class="hero-copy reveal">
           <p class="eyebrow" id="hero-eyebrow"><span class="status-dot"></span> Bay Area · Open to building what matters</p>
-          <h1 id="hero-title">I build thoughtful software where <em>product, AI,</em> and <em>data</em> meet.</h1>
+          <h2 id="hero-title">From messy context<br />to working software.</h2>
           <p class="hero-lede" id="hero-lede">I build practical AI-enabled products, backend systems, and thoughtful user experiences—from document intelligence and automation to real-time, data-driven applications.</p>
           <p class="personalization-note" id="personalization-note">Showing a balanced view of secure integrations, retrieval-grounded products, data pipelines, and clearly labeled supporting work.</p>
           <div class="hero-actions">
@@ -134,6 +137,11 @@
         </aside>
       </section>
 
+      <section class="skills-section shell" aria-label="Engineering focus">
+        <div class="skills-controls"><p>Across the stack</p><button class="skills-toggle" type="button" aria-pressed="false">Pause scrolling</button></div>
+        <div class="practice-strip" tabindex="0" aria-label="Scrolling skills. Hover or focus to pause."><div class="practice-track"><div class="practice-group"><p><strong>Product</strong>React / TypeScript</p><p><strong>Services</strong>Python / Node.js</p><p><strong>Applied AI</strong>Retrieval / Grounding</p><p><strong>Data</strong>Snowflake / MongoDB</p><p><strong>Cloud</strong>AWS / Firebase / S3</p><p><strong>Integrations</strong>OpenAPI / MCP / Webhooks</p><p><strong>Collaboration</strong>Figma API / WebSockets</p><p><strong>Quality</strong>Playwright / Vitest / pytest</p></div></div></div>
+      </section>
+
       <section class="signal-bar" aria-label="Core technologies">
         <div class="ticker-track">
           <div class="ticker-group">
@@ -147,7 +155,7 @@
 
       <section id="work" class="section shell">
         <div class="section-heading reveal">
-          <div><p class="eyebrow">01 / Featured case studies</p><h2 id="work-heading">Practical systems, built end to end.</h2></div>
+          <div><p class="eyebrow">Featured case studies</p><h2 id="work-heading">Selected work.</h2></div>
           <p id="work-intro">Three representative case studies spanning secure handoffs, retrieval-grounded product work, and multi-tenant SaaS delivery.</p>
         </div>
 
@@ -157,6 +165,8 @@
             <article class="project project-small reveal" data-project-slot="1"></article>
             <article class="project project-small reveal delay-1" data-project-slot="2"></article>
           </div>
+          <div class="explore-heading"><h3>More to explore.</h3><p>More engineering, interactive interfaces, and collaborative tools.</p></div>
+          <div class="project-grid additional-projects"><article class="project project-small" data-project-slot="3"></article><article class="project project-small" data-project-slot="4"></article></div>
         </div>
         <noscript><p class="noscript-projects">JavaScript powers the tailored project view. Browse the public repositories directly: <a href="https://github.com/ashwinchembu/render-filedrop">Private Filedrop</a>, <a href="https://github.com/ashwinchembu/work-helper">Lume</a>, <a href="https://github.com/ashwinchembu/forge">Forge</a>, <a href="https://github.com/ashwinchembu/E-commerceWebsiteDesign">3D Commerce</a>, and <a href="https://github.com/ashwinchembu/RAGpoc">Azure RAG POC</a>.</p></noscript>
 
@@ -205,7 +215,7 @@
       <section id="experience" class="section section-dark">
         <div class="shell">
           <div class="section-heading reveal">
-            <div><p class="eyebrow">02 / Experience</p><h2 id="experience-heading">Engineering across the stack.</h2></div>
+            <div><p class="eyebrow">Experience</p><h2 id="experience-heading">Built in good company.</h2></div>
             <p id="experience-intro">Building at the intersection of technology, operations, and user needs.</p>
           </div>
           <div class="timeline" id="all-experience">
@@ -239,7 +249,7 @@
 
       <section id="about" class="section shell about-grid">
         <div class="about-copy reveal">
-          <p class="eyebrow">03 / About</p>
+          <p class="eyebrow">About</p>
           <h2>Curious by default.<br />Practical by design.</h2>
           <p id="about-summary">I’m a UC Davis computer science graduate based in Fremont, California. I like untangling hard technical problems, but I care just as much about whether the result feels intuitive and earns its place in someone’s workflow.</p>
           <p>My work spans product engineering, grounded AI applications, secure backend integrations, and data systems. The common thread is simple: make complex technology useful, testable, and clear.</p>
@@ -271,7 +281,7 @@
 
       <section class="contact-section">
         <div class="shell reveal">
-          <p class="eyebrow">04 / Get in touch</p>
+          <p class="eyebrow">Get in touch</p>
           <h2 id="contact-heading">Have a hard problem<br />worth solving?</h2>
           <a class="contact-link" href="mailto:ashchembu@gmail.com">ashchembu@gmail.com <span>↗</span></a>
           <div class="footer-row">
@@ -282,6 +292,7 @@
         </div>
       </section>
     </main>
-    <script src="assets/js/portfolio.js?v=13"></script>
+    <dialog class="visual-dialog" aria-labelledby="visual-dialog-title" aria-describedby="visual-dialog-description"><div class="visual-dialog-toolbar"><div><h2 id="visual-dialog-title">Project illustration</h2><p id="visual-dialog-description">Illustrative view of the project, not a production screenshot.</p></div><button class="visual-dialog-close" type="button" aria-label="Close expanded illustration">Close ×</button></div><div class="visual-dialog-content"></div></dialog>
+    <script src="assets/js/portfolio.js?v=15"></script>
   </body>
 </html>
