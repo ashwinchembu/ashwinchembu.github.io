@@ -197,6 +197,8 @@ html[data-theme="dark"] .technology-map { background: transparent; }
 .publication-year, html[data-theme="dark"] .publication-year { font: 600 1rem/1.5 Manrope, Arial, sans-serif; color: var(--accent); }
 .publication-card h2 { font-size: 25px; letter-spacing: -.025em; }
 .publication-card p { font-size: 14px; }
+.publication-card + .publication-card { margin-top: var(--space-3); }
+.publication-card .publication-authors { margin-top: 12px; line-height: 1.65; }
 .publication-card > a, html[data-theme="dark"] .publication-card > a { background: var(--ink); color: var(--paper); }
 .contact-section { background: #2449db; color: #fff; padding: var(--space-10) 0 var(--space-4); }
 .contact-section .eyebrow, .contact-section h2, .contact-link, .footer-row, .footer-row a,
@@ -366,3 +368,9 @@ html[data-theme="dark"] .contact-link, html[data-theme="dark"] .footer-row, html
   .practice-group[aria-hidden="true"] { display: none; }
   .skills-toggle { display: none; }
 }
+
+/* Broader project evidence stays behind a native, keyboard-accessible disclosure. */
+.project-archive > summary { cursor: pointer; padding: 24px 0; font-size: 20px; font-weight: 700; border-top: 1px solid var(--line); min-height: 44px; }
+.project-archive[open] > summary { margin-bottom: 24px; }
+.recognition { padding-top: 64px; }
+.recognition h3 { font-size: 20px; line-height: 1.4; }

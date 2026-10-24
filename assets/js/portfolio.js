@@ -39,10 +39,10 @@ const rolePresets = Object.freeze({
     cta: 'See selected work',
     ctaTarget: '#work',
     workHeading: 'Selected work.',
-    workIntro: 'Three representative case studies spanning secure handoffs, retrieval-grounded product work, and multi-tenant SaaS delivery.',
+    workIntro: 'Five selected projects spanning secure handoffs, grounded AI, multi-tenant products and reliable workflows.',
     experienceHeading: 'Built in good company.',
     experienceIntro: 'Building at the intersection of technology, operations, and user needs.',
-    about: 'I’m a UC Davis computer science graduate based in Fremont, California. I like untangling hard technical problems, but I care just as much about whether the result feels intuitive and earns its place in someone’s workflow.',
+    about: 'I’m a UC Davis computer science graduate based in San Francisco, California. I like untangling hard technical problems, but I care just as much about whether the result feels intuitive and earns its place in someone’s workflow.',
     chips: ['Python', 'Data platforms', 'Applied AI'],
     matches: [],
   },
@@ -78,7 +78,7 @@ const rolePresets = Object.freeze({
     experienceIntro: 'Building AI/RAG services and document workflows alongside the APIs, data platforms, quality checks, and interfaces that make them useful.',
     about: 'I’m a UC Davis computer science graduate focused on applied AI systems that remain grounded in source evidence, fit real workflows, and preserve meaningful human review.',
     chips: ['RAG', 'FastAPI', 'AWS'],
-    matches: ['lume', 'educationai', 'ragpoc', 'filedrop'],
+    matches: ['lume', 'educationai', 'ragpoc', 'novasonic', 'automation'],
   },
   backend: {
     short: 'Backend',
@@ -180,9 +180,9 @@ const roleResumeFiles = Object.freeze({
 
 const roleProjectSelections = Object.freeze({
   general: ['filedrop', 'lume', 'sylk'],
-  fullstack: ['sylk', 'lume', 'tech4good'],
+  fullstack: ['sylk', 'automation', 'lume'],
   ai: ['lume', 'educationai', 'ragpoc'],
-  backend: ['filedrop', 'sylk', 'lume'],
+  backend: ['filedrop', 'automation', 'forge'],
   data: ['mdm', 'tech4good', 'forge'],
   frontend: ['tech4good', 'commerce', 'sylk'],
   solutions: ['crm', 'filedrop', 'automation'],
@@ -190,11 +190,11 @@ const roleProjectSelections = Object.freeze({
 });
 
 const roleStackPresets = Object.freeze({
-  general: ['React · TypeScript', 'Python · FastAPI · Node.js · Express', 'MongoDB · Firebase · Snowflake · AWS', 'RAG · Vector search · Evidence grounding', 'REST APIs · OpenAPI · MCP · Webhooks', 'pytest · Vitest · Playwright · Render'],
+  general: ['React · TypeScript', 'Python · FastAPI · Node.js · Express', 'MongoDB · Firebase · Snowflake · Cloudflare D1', 'RAG · Vector search · Evidence grounding', 'REST APIs · OpenAPI · MCP · Webhooks', 'pytest · Vitest · Playwright · Render'],
   fullstack: ['React 19 · TypeScript · Responsive UI', 'Node.js · Express · FastAPI · Cloud Functions', 'MongoDB · Firestore · Firebase Storage · AWS S3', 'RAG · LangChain · OpenAI', 'REST APIs · WebSockets · Figma API · OAuth · RBAC', 'Vitest · Firebase emulators · Playwright'],
-  ai: ['React · Evidence and review interfaces', 'Python · FastAPI · Node.js', 'MongoDB · S3 · Vector stores', 'RAG · LangChain · Pinecone · FAISS', 'Ingestion · Intent routing · Citations', 'Evaluation · pytest · Human review'],
+  ai: ['React · Evidence and review interfaces', 'Python · FastAPI · Node.js', 'MongoDB · S3 · Vector stores', 'RAG · LangChain · FAISS · Transformers · LangSmith', 'Ingestion · Intent routing · Citations', 'Evaluation · pytest · Human review'],
   backend: ['Typed clients · Admin workflows', 'Python · FastAPI · Node.js · Express', 'MongoDB · Redis · S3-compatible storage', 'AI-ready services · Retrieval APIs', 'REST · OpenAPI · MCP · Signed webhooks', 'Validation · Auth · Rate limiting · pytest'],
-  data: ['React · Vue · Review dashboards', 'Python · SQL · FastAPI · PySpark', 'Snowflake · MongoDB · AWS Glue · Redshift', 'Entity resolution · Fuzzy matching', 'ETL layers · Figma imports · Scheduled ingestion', 'DQ checks · Reconciliation · Audit outputs'],
+  data: ['React · Vue · Review dashboards', 'Python · SQL · FastAPI · PySpark', 'Snowflake · MongoDB · AWS Glue · Redshift', 'Entity resolution · Fuzzy matching', 'ETL layers · Figma imports · Scheduled ingestion', 'Pandas · Power BI · Tableau · Data quality'],
   frontend: ['React 18/19 · TypeScript · Three.js', 'Node.js · Express · Figma API integration', 'MongoDB · Firebase · Client state', 'Real-time widgets · Collaborative UI', 'Responsive systems · Forms · Auto-layout', 'Testing Library · Vitest · Playwright'],
   solutions: ['React · Vue · Workflow interfaces', 'Python · FastAPI · Node.js', 'Snowflake · MongoDB · AWS', 'RAG · Bedrock · Evidence extraction', 'Requirements · APIs · UAT · Handoffs', 'Decision logs · Human approval · Deployment'],
   salesforce: ['React/Vite · CRM workflow UI', 'Metadata inspection · Mock adapters', 'Snowflake · Healthcare reference data', 'Data quality · Entity resolution', 'UAT · Acceptance criteria · Backlogs', 'User guides · Decision logs · Executive decks'],
@@ -212,246 +212,969 @@ const zsLensPresets = Object.freeze({
 });
 
 const projectCatalog = Object.freeze({
-  sylk: {
-    title: 'Sylk',
-    category: 'Android application / Multi-tenant supply chain',
-    role: 'Private organization product · 2025—Present',
-    summaries: {
-      general: 'A complete React/Capacitor Android supply-chain application spanning organization onboarding, authentication, line-item shipments, fulfillment, inventory, billing, file collaboration, team access, and real-time messaging.',
-      fullstack: 'A React 19 and TypeScript Android application backed by Firebase Auth, Firestore, Storage, Cloud Functions, native-safe routing, phone-specific workflows, real-time chat, layered testing, and Capacitor packaging.',
-      backend: 'A Firebase-backed multi-tenant system with organization-scoped Firestore and Storage rules, constrained fulfillment transitions, Cloud Functions, and emulator-tested authorization boundaries.',
-      frontend: 'Phone-ready React interfaces for retailer administrators, factory viewers, and staff across onboarding, authentication, shipments, fulfillment, inventory, billing, files, chat, team access, drawers, and stacked list/detail workflows.',
+  "sylk": {
+    "title": "Sylk",
+    "category": "Android application / Multi-tenant supply chain",
+    "role": "Private organization product · 2025—Present",
+    "summaries": {
+      "general": "A complete React/Capacitor Android supply-chain application spanning organization onboarding, authentication, line-item shipments, fulfillment, inventory, billing, file collaboration, team access, and real-time messaging.",
+      "fullstack": "A React 19 and TypeScript Android application backed by Firebase Auth, Firestore, Storage, Cloud Functions, native-safe routing, phone-specific workflows, real-time chat, layered testing, and Capacitor packaging.",
+      "backend": "A Firebase-backed multi-tenant system with organization-scoped Firestore and Storage rules, constrained fulfillment transitions, Cloud Functions, and emulator-tested authorization boundaries.",
+      "frontend": "Phone-ready React interfaces for retailer administrators, factory viewers, and staff across onboarding, authentication, shipments, fulfillment, inventory, billing, files, chat, team access, drawers, and stacked list/detail workflows."
     },
-    flow: [['Problem', 'Retailers, factories, and staff need shared shipment visibility without exposing private organization data.'], ['Approach', 'Model organization-scoped roles and adapt the complete workflow for phone-sized use.'], ['Engineering', 'React 19, TypeScript, Firebase, Capacitor Android, native-safe routing, WebView compatibility, and layered testing.'], ['Outcome', 'A packaged Android application with tenant isolation, complete mobile workflows, real-time collaboration, and a validated debug APK.']],
-    tech: ['React 19', 'TypeScript', 'Firebase', 'Capacitor', 'Android', 'Security rules', 'Playwright'],
-    detailsTitle: 'Android delivery, multi-tenancy & testing',
-    detailsIntro: 'The complete React/Firebase product is packaged as a Capacitor Android application, with organization and role boundaries enforced at both the interface and Firebase security-rule layers.',
-    bullets: ['Adapted onboarding, authentication, retailer/manufacturer workflows, orders, inventory, billing, chat, files, team access, drawers, and list/detail navigation for phone-sized use.', 'Implemented native-safe routing, Capacitor Firebase Authentication, safe-area handling, legacy Android WebView/CSS fallbacks, and mobile file-picker compatibility.', 'Enforced organization isolation and least-privilege Firestore and Storage rules, including retailer-only financial data and constrained factory fulfillment updates.', 'Designed unit and component tests, emulator-backed security-rule tests, and Playwright journeys covering organization creation through shipment, fulfillment, and chat; produced a working com.sylk.app debug APK.'],
-    links: [],
-    sourceNote: 'Private organization code; source, deployments, customer data, and credentials are intentionally not published. Android debug packaging is verified; Google Play publication is not claimed.',
-    visual: '<div class="project-visual sylk-visual" aria-hidden="true"><div class="sylk-shell"><div class="sylk-top"><b>SYLK</b><span>Capacitor Android app</span><i>phone ready</i></div><div class="sylk-body"><aside><span class="active">Retailer admin</span><span>Factory viewer</span><span>Staff</span></aside><section><div class="sylk-shipment"><span>Mobile order</span><b>In fulfillment</b></div><div class="sylk-lines"><p><i></i>Orders and inventory <b>Ready</b></p><p><i></i>Chat and files <b>Linked</b></p><p><i></i>Billing and team <b>Scoped</b></p></div><div class="sylk-flow"><span>Onboard</span><i>→</i><span>Fulfill</span><i>→</i><span>Track</span></div></section></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Retailers, factories, and staff need shared shipment visibility without exposing private organization data."
+      ],
+      [
+        "Approach",
+        "Model organization-scoped roles and adapt the complete workflow for phone-sized use."
+      ],
+      [
+        "Engineering",
+        "React 19, TypeScript, Firebase, Capacitor Android, native-safe routing, WebView compatibility, and layered testing."
+      ],
+      [
+        "Outcome",
+        "A packaged Android application with tenant isolation, complete mobile workflows, real-time collaboration, and a validated debug APK."
+      ]
+    ],
+    "tech": [
+      "React 19",
+      "TypeScript",
+      "Firebase",
+      "Capacitor",
+      "Android",
+      "Security rules",
+      "Playwright"
+    ],
+    "detailsTitle": "Android delivery, multi-tenancy & testing",
+    "detailsIntro": "The complete React/Firebase product is packaged as a Capacitor Android application, with organization and role boundaries enforced at both the interface and Firebase security-rule layers.",
+    "bullets": [
+      "Adapted onboarding, authentication, retailer/manufacturer workflows, orders, inventory, billing, chat, files, team access, drawers, and list/detail navigation for phone-sized use.",
+      "Implemented native-safe routing, Capacitor Firebase Authentication, safe-area handling, legacy Android WebView/CSS fallbacks, and mobile file-picker compatibility.",
+      "Enforced organization isolation and least-privilege Firestore and Storage rules, including retailer-only financial data and constrained factory fulfillment updates.",
+      "Designed unit and component tests, emulator-backed security-rule tests, and Playwright journeys covering organization creation through shipment, fulfillment, and chat; produced a working com.sylk.app debug APK.",
+      "Maintained cross-platform integration with an iOS project scaffold; signed builds, TestFlight and App Store release are not established."
+    ],
+    "links": [],
+    "sourceNote": "Private organization product. Android debug packaging is established; store releases and a shipped iOS application are not claimed.",
+    "visual": "<div class=\"project-visual sylk-visual\" aria-hidden=\"true\"><div class=\"sylk-shell\"><div class=\"sylk-top\"><b>SYLK</b><span>Capacitor Android app</span><i>phone ready</i></div><div class=\"sylk-body\"><aside><span class=\"active\">Retailer admin</span><span>Factory viewer</span><span>Staff</span></aside><section><div class=\"sylk-shipment\"><span>Mobile order</span><b>In fulfillment</b></div><div class=\"sylk-lines\"><p><i></i>Orders and inventory <b>Ready</b></p><p><i></i>Chat and files <b>Linked</b></p><p><i></i>Billing and team <b>Scoped</b></p></div><div class=\"sylk-flow\"><span>Onboard</span><i>→</i><span>Fulfill</span><i>→</i><span>Track</span></div></section></div></div></div>"
   },
-  tech4good: {
-    title: 'Tech4Good FigJam Toolkit',
-    category: 'Collaborative tools / Figma platform',
-    role: 'Tech4Good Lab · 158 GitHub commits · 6 public resources',
-    summaries: {
-      general: 'A collaborative FigJam platform whose team-published library includes six public Community resources with 12K+ aggregate uses. My 158 attributed commits span chat, text entry, polling, carousel, radar, Likert, tooltip, spreadsheet export, and shared services.',
-      fullstack: 'TypeScript FigJam workflows backed by Figma APIs, esbuild, Node.js, Express, MongoDB, and structured Excel/XLSX data movement, with 158 attributed commits across the collaborator-owned repository.',
-      frontend: 'Collaborative FigJam interfaces for threaded chat, anonymous responses, multi-select polling, vote changes, text entry, carousels, radar and Likert input, tooltips, admin controls, and responsive layouts.',
-      backend: 'Node.js, Express, and MongoDB services supporting chat persistence, text-entry response management, poll creation and grouping, logs, refresh, reveal, edit, and delete workflows.',
-      data: 'Research and classroom tooling that joins FigJam collaboration with Excel/XLSX exchange and Python/Pandas analysis over 43K+ anonymized interaction records.',
-      solutions: 'A research-facing toolkit shaped through iterative delivery: synchronized collaboration widgets, configurable admin controls, structured exports, analytics, and a responsive Angular career-exploration component.',
+  "tech4good": {
+    "title": "Tech4Good FigJam Toolkit",
+    "category": "Collaborative tools / Figma platform",
+    "role": "Collaborative research tools · Mar 2023—Jun 2025",
+    "summaries": {
+      "general": "Team-developed FigJam collaboration tools for threaded chat, anonymous responses, polling and research-ready spreadsheet exports.",
+      "fullstack": "TypeScript/Figma interfaces backed by Node.js, Express and MongoDB change streams, connecting shared response state to structured Excel/XLSX exports.",
+      "frontend": "Collaborative FigJam interfaces for threaded chat, anonymous responses, multi-select polling, vote changes, text entry, carousels, radar and Likert input, tooltips, admin controls, and responsive layouts.",
+      "backend": "Node.js, Express, and MongoDB services supporting chat persistence, text-entry response management, poll creation and grouping, logs, refresh, reveal, edit, and delete workflows.",
+      "data": "Python/Pandas analysis of 43,340 anonymized interaction rows across 2,805 sessions, alongside Power BI and Tableau research dashboards.",
+      "solutions": "A research-facing toolkit shaped through iterative delivery: synchronized collaboration widgets, configurable admin controls, structured exports, analytics, and a responsive Angular career-exploration component."
     },
-    flow: [['Problem', 'Research and classroom teams needed richer participation and structured data workflows inside a shared FigJam canvas.'], ['Approach', 'Build focused widgets for conversation, polling, visual response, text entry, administration, and spreadsheet exchange.'], ['Engineering', 'TypeScript, Figma APIs, esbuild, Node.js, Express, MongoDB, Excel/XLSX, Python, and Pandas.'], ['Outcome', '158 attributed GitHub commits; six team-published Figma Community resources with approximately 12.2K aggregate uses.']],
-    tech: ['TypeScript', 'Figma API', 'FigJam widgets', 'Node.js / Express', 'MongoDB', 'Excel / XLSX', 'Python / Pandas'],
-    detailsTitle: 'Verified contribution & widget-system details',
-    detailsIntro: 'GitHub separates my direct work from the broader team library: 158 commits are attributed to me in the collaborator-owned repository, while six resources are published through Tech4Good’s shared Figma Community profile.',
-    bullets: ['Built and iterated chat, text-entry, polling, carousel, radar, Likert, tooltip, and Excel/XLSX modules using TypeScript, Figma APIs, esbuild, dynamic styling, and synchronized state.', 'Implemented threaded chat, edits, anonymous responses, bulk loading, voting, multi-select polls, vote changes, grouped widgets, admin controls, and Node/Express/MongoDB persistence and logs.', 'Analyzed 43K+ anonymized interaction records with Python/Pandas and contributed a responsive Angular top-paying-industries component for Tech4Good’s career-exploration product.'],
-    links: [['Chat widget', 'https://www.figma.com/community/widget/1338970910141331132/tech4good-chat-widget'], ['Text Entry widget', 'https://www.figma.com/community/widget/1391195703137776986/text-entry-widget'], ['Polling widget', 'https://www.figma.com/community/widget/1400160483063412580/polling-widget'], ['GIF widget', 'https://www.figma.com/community/widget/1445572433117139179/tech4good-gif-widget'], ['Quote widget', 'https://www.figma.com/community/widget/1445572123776858346/tech4good-quote-widget'], ['Wordcloud widget', 'https://www.figma.com/community/widget/1460800419684738181/tech4good-wordcloud-widget'], ['Collaborator-owned source', 'https://github.com/davmantor/FigJam-Widgets'], ['All Tech4Good resources', 'https://www.figma.com/@tech4good']],
-    sourceNote: 'The six Figma listings and their 12K+ aggregate usage are team-published outcomes. GitHub attributes 158 commits to me; the public repository remains owned by its collaborator.',
-    visual: '<div class="project-visual figjam-tools-visual" aria-hidden="true"><div class="figjam-tools-shell"><div class="figjam-tools-top"><b>FIGJAM TOOLKIT</b><span>research + classroom collaboration</span><i>158 commits · 12K+ uses</i></div><div class="figjam-tools-board"><section class="figjam-chat"><small>THREADED CHAT</small><p><i></i><span>Capture the idea</span></p><p><i></i><span>Reply or vote</span></p><p><i></i><span>Share the result</span></p></section><section class="figjam-poll"><small>POLL + LIKERT</small><b>Which direction?</b><p><span style="--vote:82%"></span></p><p><span style="--vote:58%"></span></p><div><i></i><i></i><i></i><i></i><i></i></div></section><section class="figjam-import"><small>STRUCTURED DATA</small><div><b>XLSX</b><span>Question</span><span>Response</span><span>Theme</span></div><p>import → canvas → analysis</p></section></div><div class="figjam-tools-foot"><span>Chat</span><span>Polling</span><span>Text</span><span>GIF</span><span>Quote</span><span>Wordcloud</span></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Research and classroom teams needed richer participation and structured data workflows inside a shared FigJam canvas."
+      ],
+      [
+        "Approach",
+        "Build focused widgets for conversation, polling, visual response, text entry, administration, and spreadsheet exchange."
+      ],
+      [
+        "Engineering",
+        "TypeScript, Figma APIs, esbuild, Node.js, Express, MongoDB, Excel/XLSX, Python, and Pandas."
+      ],
+      [
+        "Outcome",
+        "Persisted collaborative responses, structured exports and research analysis across 43,340 interaction rows and 2,805 sessions."
+      ]
+    ],
+    "tech": [
+      "TypeScript",
+      "Figma API",
+      "FigJam widgets",
+      "Node.js / Express",
+      "MongoDB",
+      "Excel / XLSX",
+      "Python / Pandas"
+    ],
+    "detailsTitle": "Verified contribution & widget-system details",
+    "detailsIntro": "I implemented scoped interfaces and backend integrations within the collaborative Tech4Good toolkit, alongside research analysis and dashboards.",
+    "bullets": [
+      "Built and iterated chat, text-entry, polling, carousel, radar, Likert, tooltip, and Excel/XLSX modules using TypeScript, Figma APIs, esbuild, dynamic styling, and synchronized state.",
+      "Implemented threaded chat, edits, anonymous responses, bulk loading, voting, multi-select polls, vote changes, grouped widgets, admin controls, and Node/Express/MongoDB persistence and logs.",
+      "Used MongoDB change streams and three logical databases to synchronize chat, text-entry and polling state.",
+      "Analyzed 43,340 anonymized interaction rows across 2,805 sessions with Python and Pandas.",
+      "Built Power BI and Tableau research dashboards and contributed a responsive Angular career-exploration component.",
+      "Coauthored the ICER 2024 paper and the accepted/upcoming ACM SIGCSE TS 2027 paper listed below."
+    ],
+    "links": [
+      [
+        "Chat widget",
+        "https://www.figma.com/community/widget/1338970910141331132/tech4good-chat-widget"
+      ],
+      [
+        "Text Entry widget",
+        "https://www.figma.com/community/widget/1391195703137776986/text-entry-widget"
+      ],
+      [
+        "Polling widget",
+        "https://www.figma.com/community/widget/1400160483063412580/polling-widget"
+      ],
+      [
+        "GIF widget",
+        "https://www.figma.com/community/widget/1445572433117139179/tech4good-gif-widget"
+      ],
+      [
+        "Quote widget",
+        "https://www.figma.com/community/widget/1445572123776858346/tech4good-quote-widget"
+      ],
+      [
+        "Wordcloud widget",
+        "https://www.figma.com/community/widget/1460800419684738181/tech4good-wordcloud-widget"
+      ],
+      [
+        "Collaborator-owned source",
+        "https://github.com/davmantor/FigJam-Widgets"
+      ],
+      [
+        "All Tech4Good resources",
+        "https://www.figma.com/@tech4good"
+      ]
+    ],
+    "sourceNote": "Collaborator-owned source and team-published resources. The six Community listings showed approximately 12.2K aggregate uses in July 2026; this is a team-library measure.",
+    "visual": "<div class=\"project-visual figjam-tools-visual\" aria-hidden=\"true\"><div class=\"figjam-tools-shell\"><div class=\"figjam-tools-top\"><b>FIGJAM TOOLKIT</b><span>research + classroom collaboration</span><i>158 commits · 12K+ uses</i></div><div class=\"figjam-tools-board\"><section class=\"figjam-chat\"><small>THREADED CHAT</small><p><i></i><span>Capture the idea</span></p><p><i></i><span>Reply or vote</span></p><p><i></i><span>Share the result</span></p></section><section class=\"figjam-poll\"><small>POLL + LIKERT</small><b>Which direction?</b><p><span style=\"--vote:82%\"></span></p><p><span style=\"--vote:58%\"></span></p><div><i></i><i></i><i></i><i></i><i></i></div></section><section class=\"figjam-import\"><small>STRUCTURED DATA</small><div><b>XLSX</b><span>Question</span><span>Response</span><span>Theme</span></div><p>import → canvas → analysis</p></section></div><div class=\"figjam-tools-foot\"><span>Chat</span><span>Polling</span><span>Text</span><span>GIF</span><span>Quote</span><span>Wordcloud</span></div></div></div>"
   },
-  automation: {
-    title: 'Human-in-the-Loop Job Operations',
-    category: 'Agentic automation / Quality engineering',
-    role: 'Private system · Generalized evidence only',
-    summaries: {
-      general: 'A privacy-aware operations system that maps job requirements to verified evidence, builds role-specific resumes, validates ATS and rendered output, and requires exact-document approval before submission.',
-      ai: 'An evidence-first agentic workflow that separates fact validation, content selection, generation, ATS verification, visual QA, human approval, and consequential action into independent gates.',
-      solutions: 'A requirements-to-delivery system with reproducible specifications, persistent state, duplicate prevention, truthful-answer validation, approval cards, and authoritative submission confirmation.',
+  "automation": {
+    "title": "Job Hub",
+    "category": "Full-stack / Workflow platform",
+    "role": "Independent product · Jul—Aug 2026",
+    "summaries": {
+      "general": "Workflow platform with a React/TypeScript interface, Cloudflare Worker API, D1 persistence, revision-aware updates, idempotent events and evidence-grounded AI interview feedback.",
+      "fullstack": "Workflow platform with a React/TypeScript interface, Cloudflare Worker API, D1 persistence, revision-aware updates, idempotent events and evidence-grounded AI interview feedback.",
+      "ai": "An evidence-grounded interview coach with structured AI feedback, progressive hints and source-aware review, integrated into a persistent workflow product.",
+      "backend": "Cloudflare Worker APIs and D1 persistence with revision-aware state updates, idempotent events, immutable artifact hashes and duplicate-safe retries.",
+      "solutions": "A typed workflow product connecting preparation, validation, exception handling, tracking and evidence-grounded coaching."
     },
-    flow: [['Problem', 'High-volume application work becomes inconsistent when evidence, documents, approvals, and status live in separate tools.'], ['Approach', 'Create a reproducible workflow with explicit quality gates and a persisted human decision before submission.'], ['Engineering', 'Node.js, Python/ReportLab, Gmail and Telegram integrations, Excel, JSONL event logs, and browser automation.'], ['Outcome', 'Job-specific specifications, one-page and ATS checks, rendered-PDF review, exact-document approval, and auditable state.']],
-    tech: ['Node.js', 'Python', 'JSONL', 'Excel', 'Telegram', 'PDF QA'],
-    detailsTitle: 'Orchestration, safeguards & validation',
-    detailsIntro: 'The private system treats evidence validation, document generation, approval, and submission as separate verifiable steps instead of one opaque automation.',
-    bullets: ['Designed a job-specific resume orchestration system that maps official role requirements to a verified evidence bank and creates reproducible JSON specifications.', 'Built a Python/ReportLab rendering pipeline with three-bullet enforcement, one-page overflow protection, ATS extraction checks, and PDF-to-image visual review.', 'Integrated dynamic resume generation with human-in-the-loop application automation, persistent request/decision/action logs, duplicate prevention, and exact-document verification before submission.'],
-    links: [],
-    sourceNote: 'Private system; application records, emails, approval data, credentials, and generated job-search artifacts are never published.',
-    visual: '<div class="project-visual automation-visual" aria-hidden="true"><div class="automation-shell"><div class="automation-top"><b>APPLICATION OPS</b><span>auditable workflow</span></div><div class="automation-flow"><section><small>01</small><b>Verified evidence</b><span>fact sheet · job map</span></section><i>→</i><section><small>02</small><b>Dynamic résumé</b><span>ATS · render QA</span></section><i>→</i><section class="approval"><small>03</small><b>Human approval</b><span>exact document</span></section></div><div class="automation-status"><span>✓ truthful answers</span><span>✓ persisted decision</span><span>✓ submission evidence</span></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Workflow state, evidence and generated artifacts need to stay coherent across devices."
+      ],
+      [
+        "Approach",
+        "Organize discovery and preparation in a typed interface."
+      ],
+      [
+        "Engineering",
+        "React, TypeScript, Cloudflare Workers, D1, revision checks and idempotent events."
+      ],
+      [
+        "Outcome",
+        "Coherent cross-device state, explicit exceptions and evidence-grounded coaching."
+      ]
+    ],
+    "tech": [
+      "React",
+      "TypeScript",
+      "Cloudflare Workers",
+      "D1",
+      "OpenAI Responses API"
+    ],
+    "detailsTitle": "State, evidence & reliable workflows",
+    "detailsIntro": "A full-stack workflow platform with private operational data kept outside the portfolio.",
+    "bullets": [
+      "Built a responsive React/TypeScript interface over a Cloudflare Worker API and D1 persistence.",
+      "Used revision-aware updates and idempotent actions to recover from stale saves and duplicate events.",
+      "Bound generated artifacts to immutable content hashes and explicit workflow states.",
+      "Integrated structured AI interview feedback, progressive hints and reproducible coding-practice journals."
+    ],
+    "links": [],
+    "sourceNote": "Architecture summary only; personal application records, recruiter data, journals and operational artifacts remain private.",
+    "visual": "<div class=\"project-visual automation-visual\" aria-hidden=\"true\"><div class=\"automation-shell\"><div class=\"automation-top\"><b>APPLICATION OPS</b><span>auditable workflow</span></div><div class=\"automation-flow\"><section><small>01</small><b>Verified evidence</b><span>fact sheet · job map</span></section><i>→</i><section><small>02</small><b>Dynamic résumé</b><span>ATS · render QA</span></section><i>→</i><section class=\"approval\"><small>03</small><b>Human approval</b><span>exact document</span></section></div><div class=\"automation-status\"><span>✓ truthful answers</span><span>✓ persisted decision</span><span>✓ submission evidence</span></div></div></div>"
   },
-  mdm: {
-    title: 'Healthcare Data Quality & MDM',
-    category: 'Data engineering / Entity resolution',
-    role: 'Anonymized employer case study · 327K+ / 67K+ records',
-    summaries: {
-      general: 'An anonymized healthcare-data case study covering Snowflake pipelines, layered ETL/MDM, provider and organization identifiers, entity resolution, reconciliation, and stewardship-ready evidence.',
-      data: 'Snowflake and MDM work spanning 327K+ records, 67K+ entity matching, layered ingestion and canonical models, deterministic and scored rules, exception datasets, and audit-ready outputs.',
-      solutions: 'A regulated-enterprise workflow that turns ambiguous data-quality questions into traceable matching rules, API-assisted lookups, review checkpoints, and business-readable evidence.',
-      salesforce: 'Healthcare reference-data and CRM-adjacent quality work covering identifier presence, affiliations, address/license profiling, duplicate resolution, stewardship review, and publication controls.',
+  "mdm": {
+    "title": "Healthcare Data Quality & MDM",
+    "category": "Data engineering / Entity resolution",
+    "role": "Anonymized employer case study · 327K+ / 67K+ records",
+    "summaries": {
+      "general": "An anonymized healthcare-data case study covering Snowflake pipelines, layered ETL/MDM, provider and organization identifiers, entity resolution, reconciliation, and stewardship-ready evidence.",
+      "data": "Snowflake and MDM work spanning 327K+ records, 67K+ entity matching, layered ingestion and canonical models, deterministic and scored rules, exception datasets, and audit-ready outputs.",
+      "solutions": "A regulated-enterprise workflow that turns ambiguous data-quality questions into traceable matching rules, API-assisted lookups, review checkpoints, and business-readable evidence.",
+      "salesforce": "Healthcare reference-data and CRM-adjacent quality work covering identifier presence, affiliations, address/license profiling, duplicate resolution, stewardship review, and publication controls."
     },
-    flow: [['Problem', 'Provider and organization records contained missing identifiers, duplicates, conflicting affiliations, and address or license inconsistencies.'], ['Approach', 'Layer ingestion, matching, canonicalization, exceptions, and stewardship review with traceable rules.'], ['Engineering', 'Snowflake SQL, NPI/DEA/HIN/340B/license signals, fuzzy matching, API lookups, manifests, and QC outputs.'], ['Outcome', 'Auditable input, canonical, exception, validation, and publication datasets across 327K+ and 67K+ record workflows.']],
-    tech: ['Snowflake', 'SQL', 'ETL / MDM', 'Entity resolution', 'API lookups', 'Data quality'],
-    detailsTitle: 'Matching, quality & stewardship details',
-    detailsIntro: 'Only generalized architecture and approved scale are shown; client identity, source data, screenshots, workbooks, SQL, and internal endpoints remain private.',
-    bullets: ['Profiled healthcare-provider and organization data to identify missing identifiers, duplicates, conflicting affiliations, and address or license quality issues.', 'Designed deterministic and scored rules for duplicate resolution, state and address selection, survivorship proposals, and stewardship review.', 'Built API-assisted lookup checkpoints and traceable input, output, exception, and validation datasets with business-readable summaries and review materials.'],
-    links: [],
-    sourceNote: 'Anonymized employer evidence; no client identity, private data, screenshots, SQL, or proprietary artifacts are published.',
-    visual: '<div class="project-visual mdm-visual" aria-hidden="true"><div class="mdm-shell"><div class="mdm-top"><b>DATA QUALITY WORKBENCH</b><span>synthetic view</span></div><div class="mdm-metrics"><div><small>Profiled</small><strong>327K+</strong><span>records</span></div><div><small>Entity review</small><strong>67K+</strong><span>records</span></div><div><small>Quality controls</small><strong>Layered</strong><span>traceable review</span></div></div><div class="mdm-pipeline"><span>Landing</span><i>→</i><span>Staging</span><i>→</i><span>Canonical</span><i>→</i><span>Publish</span></div><div class="mdm-review"><p><i class="pass"></i>NPI + address match <b>accepted</b></p><p><i class="review"></i>License conflict <b>steward review</b></p></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Provider and organization records contained missing identifiers, duplicates, conflicting affiliations, and address or license inconsistencies."
+      ],
+      [
+        "Approach",
+        "Layer ingestion, matching, canonicalization, exceptions, and stewardship review with traceable rules."
+      ],
+      [
+        "Engineering",
+        "Snowflake SQL, NPI/DEA/HIN/340B/license signals, fuzzy matching, API lookups, manifests, and QC outputs."
+      ],
+      [
+        "Outcome",
+        "Auditable input, canonical, exception, validation, and publication datasets across 327K+ and 67K+ record workflows."
+      ]
+    ],
+    "tech": [
+      "Snowflake",
+      "SQL",
+      "ETL / MDM",
+      "Entity resolution",
+      "API lookups",
+      "Data quality"
+    ],
+    "detailsTitle": "Matching, quality & stewardship details",
+    "detailsIntro": "Only generalized architecture and approved scale are shown; client identity, source data, screenshots, workbooks, SQL, and internal endpoints remain private.",
+    "bullets": [
+      "Profiled healthcare-provider and organization data to identify missing identifiers, duplicates, conflicting affiliations, and address or license quality issues.",
+      "Designed deterministic and scored rules for duplicate resolution, state and address selection, survivorship proposals, and stewardship review.",
+      "Built API-assisted lookup checkpoints and traceable input, output, exception, and validation datasets with business-readable summaries and review materials."
+    ],
+    "links": [],
+    "sourceNote": "Anonymized employer evidence; no client identity, private data, screenshots, SQL, or proprietary artifacts are published.",
+    "visual": "<div class=\"project-visual mdm-visual\" aria-hidden=\"true\"><div class=\"mdm-shell\"><div class=\"mdm-top\"><b>DATA QUALITY WORKBENCH</b><span>synthetic view</span></div><div class=\"mdm-metrics\"><div><small>Profiled</small><strong>327K+</strong><span>records</span></div><div><small>Entity review</small><strong>67K+</strong><span>records</span></div><div><small>Quality controls</small><strong>Layered</strong><span>traceable review</span></div></div><div class=\"mdm-pipeline\"><span>Landing</span><i>→</i><span>Staging</span><i>→</i><span>Canonical</span><i>→</i><span>Publish</span></div><div class=\"mdm-review\"><p><i class=\"pass\"></i>NPI + address match <b>accepted</b></p><p><i class=\"review\"></i>License conflict <b>steward review</b></p></div></div></div>"
   },
-  crm: {
-    title: 'CRM Workflow & UAT Delivery',
-    category: 'Business technology / Salesforce delivery',
-    role: 'Anonymized employer case study · Private artifacts',
-    summaries: {
-      general: 'An anonymized delivery case study turning stakeholder meetings, CRM metadata, live application behavior, and regulated workflows into requirements, UAT evidence, user guides, and implementation-ready backlogs.',
-      solutions: 'Requirements-to-delivery work spanning meeting synthesis, live-system validation, metadata inspection, acceptance criteria, UAT status, decision logs, executive communication, and technical handoffs.',
-      frontend: 'React/Vite business-workflow interfaces for hierarchical plan records, approval and read-only states, executive summaries, barriers, tactics, validation, and review without exposing CRM data.',
-      data: 'CRM and healthcare-data delivery connecting metadata, validation rules, source evidence, acceptance criteria, discrepancies, and traceable implementation status.',
-      salesforce: 'Salesforce and CRM delivery across metadata and live-workflow validation, UAT and enhancement tracking, acceptance evidence, approval states, user guides, and executive-ready artifacts.',
+  "crm": {
+    "title": "CRM Workflow & UAT Delivery",
+    "category": "Business technology / Salesforce delivery",
+    "role": "Anonymized employer case study · Private artifacts",
+    "summaries": {
+      "general": "An anonymized delivery case study turning stakeholder meetings, CRM metadata, live application behavior, and regulated workflows into requirements, UAT evidence, user guides, and implementation-ready backlogs.",
+      "solutions": "Requirements-to-delivery work spanning meeting synthesis, live-system validation, metadata inspection, acceptance criteria, UAT status, decision logs, executive communication, and technical handoffs.",
+      "frontend": "React/Vite business-workflow interfaces for hierarchical plan records, approval and read-only states, executive summaries, barriers, tactics, validation, and review without exposing CRM data.",
+      "data": "CRM and healthcare-data delivery connecting metadata, validation rules, source evidence, acceptance criteria, discrepancies, and traceable implementation status.",
+      "salesforce": "Salesforce and CRM delivery across metadata and live-workflow validation, UAT and enhancement tracking, acceptance evidence, approval states, user guides, and executive-ready artifacts."
     },
-    flow: [['Problem', 'Stakeholder feedback, CRM configuration, live behavior, and implementation gaps were spread across meetings and artifacts.'], ['Approach', 'Synthesize requirements, inspect metadata, validate live workflows, and track every issue with acceptance evidence.'], ['Engineering', 'CRM metadata checks, UAT trackers, React/Vite review interfaces, mock adapters, validation rules, and structured documentation.'], ['Outcome', 'Prioritized backlogs, explicit blockers, user guides, decision logs, and implementation-ready technical handoffs.']],
-    tech: ['CRM metadata', 'UAT', 'Acceptance criteria', 'React / Vite', 'Decision logs', 'User guides'],
-    detailsTitle: 'Validation, UAT & handoff details',
-    detailsIntro: 'This case study uses synthetic interface abstractions and generalized facts; it does not reproduce employer or client systems.',
-    bullets: ['Synthesized meeting recordings and stakeholder feedback into structured requirements, completed-work summaries, open issues, owners, and timelines.', 'Inspected CRM metadata and live application behavior to validate fields, layouts, approval and read-only workflows, and implementation gaps.', 'Maintained UAT and enhancement trackers with acceptance criteria, evidence, prioritization, implementation status, user guides, and executive-ready communication.'],
-    links: [],
-    sourceNote: 'Anonymized employer evidence; no client identity, screenshots, transcripts, credentials, or private CRM artifacts are published.',
-    visual: '<div class="project-visual crm-visual" aria-hidden="true"><div class="crm-shell"><div class="crm-top"><b>CRM DELIVERY</b><span>synthetic validation view</span></div><div class="crm-summary"><section><small>Approval state</small><strong>Ready for review</strong><span>read-only rules applied</span></section><section><small>UAT coverage</small><strong>Tracked</strong><span>acceptance evidence linked</span></section></div><div class="crm-board"><p><i class="done"></i><span>Field and layout validation</span><b>Verified</b></p><p><i class="active"></i><span>Workflow acceptance evidence</span><b>In review</b></p><p><i></i><span>User guide and handoff</span><b>Queued</b></p></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Stakeholder feedback, CRM configuration, live behavior, and implementation gaps were spread across meetings and artifacts."
+      ],
+      [
+        "Approach",
+        "Synthesize requirements, inspect metadata, validate live workflows, and track every issue with acceptance evidence."
+      ],
+      [
+        "Engineering",
+        "CRM metadata checks, UAT trackers, React/Vite review interfaces, mock adapters, validation rules, and structured documentation."
+      ],
+      [
+        "Outcome",
+        "Prioritized backlogs, explicit blockers, user guides, decision logs, and implementation-ready technical handoffs."
+      ]
+    ],
+    "tech": [
+      "CRM metadata",
+      "UAT",
+      "Acceptance criteria",
+      "React / Vite",
+      "Decision logs",
+      "User guides"
+    ],
+    "detailsTitle": "Validation, UAT & handoff details",
+    "detailsIntro": "This case study uses synthetic interface abstractions and generalized facts; it does not reproduce employer or client systems.",
+    "bullets": [
+      "Synthesized meeting recordings and stakeholder feedback into structured requirements, completed-work summaries, open issues, owners, and timelines.",
+      "Inspected CRM metadata and live application behavior to validate fields, layouts, approval and read-only workflows, and implementation gaps.",
+      "Maintained UAT and enhancement trackers with acceptance criteria, evidence, prioritization, implementation status, user guides, and executive-ready communication.",
+      "Implemented account-plan submission, manager review, approval history and timestamps in React/JavaScript workflows.",
+      "Added cached refresh recovery and explicit retry while rejecting obsolete responses and resetting readiness when the selected plan changes."
+    ],
+    "links": [],
+    "sourceNote": "Anonymized employer evidence; no client identity, screenshots, transcripts, credentials, or private CRM artifacts are published.",
+    "visual": "<div class=\"project-visual crm-visual\" aria-hidden=\"true\"><div class=\"crm-shell\"><div class=\"crm-top\"><b>CRM DELIVERY</b><span>synthetic validation view</span></div><div class=\"crm-summary\"><section><small>Approval state</small><strong>Ready for review</strong><span>read-only rules applied</span></section><section><small>UAT coverage</small><strong>Tracked</strong><span>acceptance evidence linked</span></section></div><div class=\"crm-board\"><p><i class=\"done\"></i><span>Field and layout validation</span><b>Verified</b></p><p><i class=\"active\"></i><span>Workflow acceptance evidence</span><b>In review</b></p><p><i></i><span>User guide and handoff</span><b>Queued</b></p></div></div></div>"
   },
-  filedrop: {
-    title: 'Private Filedrop',
-    category: 'Backend / AI-ready infrastructure',
-    role: 'Public repository · Deployed on Render · 2026',
-    summaries: {
-      general: 'A secure file-exchange service for moving files between computers and AI sessions through browser uploads, APIs, MCP tools, versioning, and messages.',
-      backend: 'A backend platform with authenticated REST and OpenAPI contracts, MCP tools, local and S3-compatible storage, migration tooling, version history, and signed webhooks.',
-      solutions: 'A concrete workflow problem turned into a deployable bridge across browsers, computers, and AI clients—with human control, auditable state, and documented handoffs.',
+  "filedrop": {
+    "title": "Private Filedrop",
+    "category": "Backend / AI-ready infrastructure",
+    "role": "Independent platform · Jun—Aug 2026",
+    "summaries": {
+      "general": "Secure cross-device file exchange with version history, local and S3-compatible storage, REST/OpenAPI/MCP integrations, shared mailboxes, and HMAC-signed webhooks.",
+      "backend": "A backend platform with authenticated REST and OpenAPI contracts, MCP tools, local and S3-compatible storage, migration tooling, version history, and signed webhooks.",
+      "solutions": "A concrete workflow problem turned into a deployable bridge across browsers, computers, and AI clients—with human control, auditable state, and documented handoffs."
     },
-    flow: [['Problem', 'Cross-device and AI-session file handoffs were slow and easy to lose.'], ['Approach', 'Unify browser uploads, APIs, MCP tools, versioning, and messages.'], ['Engineering', 'Node.js, Express, OpenAPI, S3-compatible storage, validation, and HMAC webhooks.'], ['Outcome', 'A durable handoff layer with explicit boundaries between automation and human control.']],
-    tech: ['Node.js', 'Express', 'AWS SDK', 'OpenAPI', 'MCP', 'HMAC'],
-    detailsTitle: 'Architecture & security details',
-    detailsIntro: 'The service exposes REST, OpenAPI, and MCP interfaces over local or S3-compatible storage, with shared mailboxes and channels for cross-session coordination.',
-    bullets: ['Implemented categories, tags, project paths, file metadata, version history, unguessable downloads, and storage migration tooling.', 'Added password and API-key access, timing-safe credential checks, upload validation, rate limiting, and HMAC-SHA256 signed webhooks.', 'Documented browser, API, AI-client, cloud-storage, ChatGPT Action, MCP, and Render deployment workflows without publishing secrets or user data.'],
-    links: [['View source', 'https://github.com/ashwinchembu/render-filedrop']],
-    visual: '<div class="project-visual filedrop-visual" aria-hidden="true"><div class="drop-console"><div class="drop-top"><span>PRIVATE FILEDROP</span><b>secure</b></div><div class="drop-file"><i>PDF</i><div><b>product-brief.pdf</b><small>v4 · project/design</small></div><em>✓</em></div><div class="drop-file"><i>CSV</i><div><b>research-data.csv</b><small>tagged · 2 versions</small></div><em>✓</em></div><div class="drop-channel"><span>REST / OpenAPI</span><span>MCP tools</span><span>Signed webhooks</span></div></div><div class="drop-lock"><span></span><b>HMAC</b><small>signed webhooks</small></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Cross-device and AI-session file handoffs were slow and easy to lose."
+      ],
+      [
+        "Approach",
+        "Unify browser uploads, APIs, MCP tools, versioning, and messages."
+      ],
+      [
+        "Engineering",
+        "Node.js, Express, OpenAPI, S3-compatible storage, validation, and HMAC webhooks."
+      ],
+      [
+        "Outcome",
+        "Versioned file exchange and durable cross-device work coordination with explicit ownership and completion records."
+      ]
+    ],
+    "tech": [
+      "Node.js",
+      "Express",
+      "AWS SDK",
+      "OpenAPI",
+      "MCP",
+      "HMAC"
+    ],
+    "detailsTitle": "Architecture & security details",
+    "detailsIntro": "The service exposes REST, OpenAPI, and MCP interfaces over local or S3-compatible storage, with shared mailboxes and channels for cross-session coordination.",
+    "bullets": [
+      "Implemented categories, tags, project paths, file metadata, version history, unguessable downloads, and storage migration tooling.",
+      "Added password and API-key access, timing-safe credential checks, upload validation, rate limiting, and HMAC-SHA256 signed webhooks.",
+      "Documented browser, API, AI-client, cloud-storage, ChatGPT Action, MCP, and Render deployment workflows without publishing secrets or user data.",
+      "Built durable coordination with deduplicated jobs, atomic claims, renewable leases, bounded retries and structured completion records."
+    ],
+    "links": [
+      [
+        "View source",
+        "https://github.com/ashwinchembu/render-filedrop"
+      ]
+    ],
+    "visual": "<div class=\"project-visual filedrop-visual\" aria-hidden=\"true\"><div class=\"drop-console\"><div class=\"drop-top\"><span>PRIVATE FILEDROP</span><b>secure</b></div><div class=\"drop-file\"><i>PDF</i><div><b>product-brief.pdf</b><small>v4 · project/design</small></div><em>✓</em></div><div class=\"drop-file\"><i>CSV</i><div><b>research-data.csv</b><small>tagged · 2 versions</small></div><em>✓</em></div><div class=\"drop-channel\"><span>REST / OpenAPI</span><span>MCP tools</span><span>Signed webhooks</span></div></div><div class=\"drop-lock\"><span></span><b>HMAC</b><small>signed webhooks</small></div></div>"
   },
-  lume: {
-    title: 'Lume',
-    category: 'AI meeting intelligence / Full-stack product',
-    role: 'Public repository · Dec 2025—Present',
-    summaries: {
-      general: 'A full-stack meeting intelligence platform for capturing, storing, searching, and querying meetings and uploaded project files with reusable context.',
-      fullstack: 'An end-to-end React and Node/Express product connecting MongoDB, AWS S3, WebSockets, transcription, search, task extraction, and responsive project workflows.',
-      ai: 'A retrieval-grounded product with vector embeddings, intent routing, evidence extraction, citations, transcript-aware search, and multi-pass generator/critic refinement.',
-      backend: 'A Node/Express, MongoDB, S3, and WebSocket system for durable meeting ingestion, real-time updates, project-scoped retrieval, and document-backed answers.',
-      frontend: 'A responsive React experience for transcripts, live updates, project context, task extraction, semantic search, and source-backed answer exploration.',
-      solutions: 'A product built around a common team failure mode: context disappearing across meetings and files, then recovered through reusable project memory and traceable answers.',
+  "lume": {
+    "title": "Lume",
+    "category": "AI meeting intelligence / Full-stack product",
+    "role": "Independent product · Dec 2025—Jan 2026",
+    "summaries": {
+      "general": "A full-stack meeting intelligence platform for capturing, storing, searching, and querying meetings and uploaded project files with reusable context.",
+      "fullstack": "An end-to-end React and Node/Express product connecting MongoDB, AWS S3, WebSockets, transcription, search, task extraction, and responsive project workflows.",
+      "ai": "A retrieval-grounded product with vector embeddings, intent routing, evidence extraction, citations, transcript-aware search, and multi-pass generator/critic refinement.",
+      "backend": "A Node/Express, MongoDB, S3, and WebSocket system for durable meeting ingestion, real-time updates, project-scoped retrieval, and document-backed answers.",
+      "frontend": "A responsive React experience for transcripts, live updates, project context, task extraction, semantic search, and source-backed answer exploration.",
+      "solutions": "A product built around a common team failure mode: context disappearing across meetings and files, then recovered through reusable project memory and traceable answers."
     },
-    flow: [['Problem', 'Decisions and context disappear across meetings and files.'], ['Approach', 'Build reusable Project Brain memory around retrieval and evidence.'], ['Engineering', 'React, Node/Express, MongoDB, S3, WebSockets, vector embeddings, and RAG.'], ['Outcome', 'Searchable context, extracted tasks, document-grounded responses, and cited answers.']],
-    tech: ['React', 'Node.js', 'MongoDB', 'AWS S3', 'WebSockets', 'RAG'],
-    detailsTitle: 'Architecture & product details',
-    detailsIntro: 'The React client and Node/Express services capture, store, and query meeting content through MongoDB, AWS S3, vector retrieval, and live WebSocket updates.',
-    bullets: ['Built a RAG question-answering flow with vector embeddings, intent routing, evidence extraction, and multi-pass generator/critic refinement.', 'Modeled reusable Project Brain knowledge bases that learn project-specific language and relationships from transcripts, files, and seeded context.', 'Designed transcript-aware search and citation-backed answers so useful outputs remain traceable to meetings and source documents.'],
-    links: [['Open preview', 'https://lume-app.onrender.com'], ['View source', 'https://github.com/ashwinchembu/work-helper']],
-    visual: '<div class="project-visual lume-visual" aria-hidden="true"><div class="product-window lume-window"><div class="product-topbar"><div><span></span><span></span><span></span></div><b>LUME</b><small>Project Brain · RAG</small></div><div class="lume-layout"><aside class="meeting-panel"><p>Design review</p><small>24:18 · 4 people</small><div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="speaker"><b>AC</b><span><i></i><i></i></span></div></aside><div class="brain-panel"><p class="brain-label">Ask across this project</p><h4>What decision did we make about onboarding?</h4><div class="context-map"><span>Meeting 12</span><i></i><span>Onboarding</span><i></i><span>Brief.pdf</span></div><div class="ai-answer"><span>✦</span><p>The team chose a guided setup with progressive disclosure, starting with document import.</p></div><div class="citation-row"><span>Transcript · 18:42</span><span>Brief.pdf · p.3</span></div></div></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Decisions and context disappear across meetings and files."
+      ],
+      [
+        "Approach",
+        "Build reusable Project Brain memory around retrieval and evidence."
+      ],
+      [
+        "Engineering",
+        "React, Node/Express, MongoDB, S3, WebSockets, vector embeddings, and RAG."
+      ],
+      [
+        "Outcome",
+        "Searchable context, extracted tasks, document-grounded responses, and cited answers."
+      ]
+    ],
+    "tech": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "AWS S3",
+      "WebSockets",
+      "RAG"
+    ],
+    "detailsTitle": "Architecture & product details",
+    "detailsIntro": "The React client and Node/Express services capture, store, and query meeting content through MongoDB, AWS S3, vector retrieval, and live WebSocket updates.",
+    "bullets": [
+      "Built a RAG question-answering flow with vector embeddings, intent routing, evidence extraction, and multi-pass generator/critic refinement.",
+      "Modeled reusable Project Brain knowledge bases that learn project-specific language and relationships from transcripts, files, and seeded context.",
+      "Designed transcript-aware search and citation-backed answers so useful outputs remain traceable to meetings and source documents."
+    ],
+    "links": [
+      [
+        "View source",
+        "https://github.com/ashwinchembu/work-helper"
+      ]
+    ],
+    "visual": "<div class=\"project-visual lume-visual\" aria-hidden=\"true\"><div class=\"product-window lume-window\"><div class=\"product-topbar\"><div><span></span><span></span><span></span></div><b>LUME</b><small>Project Brain · RAG</small></div><div class=\"lume-layout\"><aside class=\"meeting-panel\"><p>Design review</p><small>24:18 · 4 people</small><div class=\"waveform\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class=\"speaker\"><b>AC</b><span><i></i><i></i></span></div></aside><div class=\"brain-panel\"><p class=\"brain-label\">Ask across this project</p><h4>What decision did we make about onboarding?</h4><div class=\"context-map\"><span>Meeting 12</span><i></i><span>Onboarding</span><i></i><span>Brief.pdf</span></div><div class=\"ai-answer\"><span>✦</span><p>The team chose a guided setup with progressive disclosure, starting with document import.</p></div><div class=\"citation-row\"><span>Transcript · 18:42</span><span>Brief.pdf · p.3</span></div></div></div></div></div>"
   },
-  forge: {
-    title: 'Forge',
-    category: 'Data integration / Backend APIs',
-    role: 'Public repository · Personal fitness intelligence · 2026',
-    summaries: {
-      general: 'A personal fitness-intelligence backend that unifies strength training, nutrition, sleep, heart-rate, and recovery data into program-aware analysis.',
-      backend: 'A FastAPI and MongoDB Atlas service with Hevy and Oura integrations, Apple Health webhooks, six-hour scheduled synchronization, on-demand refresh, and CSV ingestion.',
-      data: 'A multi-source data pipeline that normalizes training, nutrition, sleep, heart-rate, and recovery signals before comparing them with a structured 12-week program.',
+  "forge": {
+    "title": "Forge",
+    "category": "Data integration / Backend APIs",
+    "role": "Public repository · Personal fitness intelligence · 2026",
+    "summaries": {
+      "general": "A personal fitness-intelligence backend that unifies strength training, nutrition, sleep, heart-rate, and recovery data into program-aware analysis.",
+      "backend": "A FastAPI and MongoDB service with scheduled Hevy/Oura API pulls, separate Apple Health webhooks, on-demand refresh and nutrition CSV ingestion.",
+      "data": "A multi-source data pipeline that normalizes training, nutrition, sleep, heart-rate, and recovery signals before comparing them with a structured 12-week program."
     },
-    flow: [['Problem', 'Training, nutrition, recovery, and health signals lived in separate systems.'], ['Approach', 'Normalize source data and compare it with a structured hypertrophy plan.'], ['Engineering', 'FastAPI, MongoDB Atlas, APIs, webhooks, scheduled sync, and CSV ingestion.'], ['Outcome', 'Daily and weekly views of adherence, nutrition compliance, recovery quality, and next actions.']],
-    tech: ['Python', 'FastAPI', 'MongoDB Atlas', 'Webhooks', 'Scheduled sync', 'Render'],
-    detailsTitle: 'Data pipeline & analysis details',
-    detailsIntro: 'Forge unifies Hevy, Oura, MyFitnessPal-derived Apple Health data, and Health Auto Export webhooks without publishing personal records or credentials.',
-    bullets: ['Implemented six-hour synchronization, on-demand refresh, health-data webhooks, and CSV ingestion workflows.', 'Modeled workouts, nutrition, sleep, heart-rate, recovery, and body metrics in MongoDB for daily and weekly analysis.', 'Built an analysis engine that compares actual performance with a 12-week hypertrophy plan and scores workout adherence, nutrition compliance, and recovery quality.'],
-    links: [['View source', 'https://github.com/ashwinchembu/forge']],
-    visual: '<div class="project-visual forge-visual" aria-hidden="true"><div class="forge-shell"><div class="forge-top"><b>FORGE</b><span>daily intelligence</span><i>synced</i></div><div class="forge-score"><span>Today</span><strong>84</strong><small>program alignment</small></div><div class="forge-signals"><div><span>Workout</span><b>hit</b><i style="--fill:88%"></i></div><div><span>Nutrition</span><b>close</b><i style="--fill:72%"></i></div><div><span>Recovery</span><b>ready</b><i style="--fill:81%"></i></div></div><div class="forge-flow"><span>Hevy</span><i>→</i><span>Apple Health</span><i>→</i><span>Oura</span><b>FastAPI + MongoDB</b></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Training, nutrition, recovery, and health signals lived in separate systems."
+      ],
+      [
+        "Approach",
+        "Normalize source data and compare it with a structured hypertrophy plan."
+      ],
+      [
+        "Engineering",
+        "FastAPI, MongoDB Atlas, APIs, webhooks, scheduled sync, and CSV ingestion."
+      ],
+      [
+        "Outcome",
+        "Daily and weekly views of adherence, nutrition compliance, recovery quality, and next actions."
+      ]
+    ],
+    "tech": [
+      "Python",
+      "FastAPI",
+      "MongoDB Atlas",
+      "Webhooks",
+      "Scheduled sync",
+      "Render"
+    ],
+    "detailsTitle": "Data pipeline & analysis details",
+    "detailsIntro": "Forge unifies Hevy, Oura, MyFitnessPal-derived Apple Health data, and Health Auto Export webhooks without publishing personal records or credentials.",
+    "bullets": [
+      "Implemented configurable Hevy/Oura API pulls with a 15-minute default, separate Health Auto Export pushes documented at six hours, on-demand refresh and CSV ingestion.",
+      "Modeled workouts, nutrition, sleep, heart-rate, recovery, and body metrics in MongoDB for daily and weekly analysis.",
+      "Built an analysis engine that compares actual performance with a 12-week hypertrophy plan and scores workout adherence, nutrition compliance, and recovery quality.",
+      "Preferred Oura recovery fields while filling missing values from Apple Health, keeping overlapping sources distinct."
+    ],
+    "links": [
+      [
+        "View source",
+        "https://github.com/ashwinchembu/forge"
+      ]
+    ],
+    "visual": "<div class=\"project-visual forge-visual\" aria-hidden=\"true\"><div class=\"forge-shell\"><div class=\"forge-top\"><b>FORGE</b><span>daily intelligence</span><i>synced</i></div><div class=\"forge-score\"><span>Today</span><strong>84</strong><small>program alignment</small></div><div class=\"forge-signals\"><div><span>Workout</span><b>hit</b><i style=\"--fill:88%\"></i></div><div><span>Nutrition</span><b>close</b><i style=\"--fill:72%\"></i></div><div><span>Recovery</span><b>ready</b><i style=\"--fill:81%\"></i></div></div><div class=\"forge-flow\"><span>Hevy</span><i>→</i><span>Apple Health</span><i>→</i><span>Oura</span><b>FastAPI + MongoDB</b></div></div></div>"
   },
-  educationai: {
-    title: 'Tallyrus + AbleGrade',
-    category: 'Education AI / Product engineering',
-    role: 'Tallyrus founder product · AbleGrade co-built at HackDavis 2024',
-    summaries: {
-      general: 'Two clearly attributed education-AI builds: the ongoing Tallyrus essay-feedback product and AbleGrade, a separate HackDavis collaboration for ESL writing support.',
-      fullstack: 'Two full-stack education workflows spanning React, TypeScript, Express, Flask, MongoDB, S3, OAuth, protected routes, PDF parsing, and educator-facing feedback interfaces.',
-      ai: 'Two practical writing-feedback systems combining educator-defined rubrics, retrieval-augmented grading, LangChain, Pinecone, OpenAI, GPT-4, PDF parsing, and human review.',
-      solutions: 'Product work shaped around educator and learner workflows, including user testing, rubric design, iterative feedback, fundraising, and a separately attributed hackathon collaboration.',
+  "educationai": {
+    "title": "Tallyrus",
+    "category": "Applied AI / Education product",
+    "role": "Founder & Lead Developer · Jun 2023—Sep 2025",
+    "summaries": {
+      "general": "Educator-facing essay feedback combining teacher rubrics, historical examples and retrieval-grounded AI outputs for review.",
+      "fullstack": "React educator workflows connected to Flask grading APIs, Express document uploads, S3 storage and MongoDB assignment records.",
+      "ai": "LangChain/OpenAI embeddings, NumPy normalization and FAISS retrieval combine historical essay context with rubrics and prompts; pretrained Transformers/PyTorch inference and LangSmith tracing support the AI workflow.",
+      "solutions": "Founder-led product planning, educator feedback, user testing, iterative delivery and five-figure fundraising for an essay-feedback platform."
     },
-    flow: [['Problem', 'Educators and language learners need timely feedback without losing rubric consistency.'], ['Approach', 'Build two distinct, clearly attributed tools around feedback, review, and progress.'], ['Engineering', 'Python, LangChain, Pinecone, Flask, MongoDB, S3, MERN, GPT-4, and PDF parsing.'], ['Outcome', 'Tallyrus raised five figures for continued development; AbleGrade demonstrated actionable ESL writing support.']],
-    tech: ['Python', 'LangChain', 'Pinecone', 'React', 'MongoDB', 'GPT-4'],
-    detailsTitle: 'Product, AI & attribution details',
-    detailsIntro: 'Tallyrus and AbleGrade address related education problems but are separate projects with different ownership and timelines.',
-    bullets: ['Founded and led Tallyrus, building RAG-style essay feedback, educator-defined rubric workflows, Flask and MongoDB services, S3 storage, React interfaces, and secure Express application flows.', 'Led Tallyrus product planning, educator feedback, user testing, iterative delivery, and fundraising, raising five figures for product development.', 'Co-built AbleGrade with Gautham Pandian at HackDavis 2024 using the MERN stack and GPT-4 for ESL feedback, progress tracking, PDF upload, and parsing.'],
-    links: [['Visit Tallyrus', 'https://tallyrus.com']],
-    sourceNote: 'Tallyrus and AbleGrade repositories are private; no GitHub source link is published.',
-    visual: '<div class="project-visual education-ai-visual" aria-hidden="true"><div class="education-split"><section><span>Founder product · Ongoing</span><b>Tallyrus</b><p>Rubric-grounded essay feedback</p><div><i>RAG</i><i>Pinecone</i><i>Review</i></div></section><section><span>Co-built · HackDavis 2024</span><b>AbleGrade</b><p>ESL writing support and progress</p><div><i>GPT-4</i><i>PDF</i><i>MERN</i></div></section></div><div class="education-loop"><span>Writing</span><i>→</i><span>Evidence + rubric</span><i>→</i><span>Actionable feedback</span></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Educators need detailed feedback that stays tied to their rubrics and examples."
+      ],
+      [
+        "Approach",
+        "Retrieve historical essay context and combine it with the current essay, rubric and prompt."
+      ],
+      [
+        "Engineering",
+        "Flask, LangChain/OpenAI embeddings, NumPy, FAISS, React, Express, S3, MongoDB and LangSmith tracing."
+      ],
+      [
+        "Outcome",
+        "Reviewable feedback and integrated educator workflows, supported by five-figure product funding."
+      ]
+    ],
+    "tech": [
+      "Python / Flask",
+      "LangChain",
+      "FAISS / NumPy",
+      "Transformers / PyTorch",
+      "LangSmith",
+      "React"
+    ],
+    "detailsTitle": "Grading, pretrained inference & product iteration",
+    "detailsIntro": "Tallyrus connects educator materials, retrieval and model outputs while preserving educator review.",
+    "bullets": [
+      "Built a Flask grading API using LangChain/OpenAI embeddings, normalized NumPy vectors and FAISS similarity search to retrieve historical essay context.",
+      "Combined retrieved examples, the essay, teacher rubric and prompt in GPT-4o requests returning reviewable feedback.",
+      "Integrated a pretrained Hugging Face Transformers classifier with PyTorch, sentence chunking and length-weighted prediction aggregation.",
+      "Integrated LangSmith tracing into the Tallyrus AI workflow.",
+      "Connected Express/Multer uploads to AWS S3 and MongoDB records and React educator interfaces.",
+      "Led product planning, educator feedback, user testing and iteration; raised five figures for product development."
+    ],
+    "links": [],
+    "sourceNote": "Collaborative founder product. Pretrained inference and tracing integration; no custom-training or classifier-accuracy claim.",
+    "visual": "<div class=\"project-visual education-ai-visual\" aria-hidden=\"true\"><div class=\"education-split\"><section><span>Founder product · Ongoing</span><b>Tallyrus</b><p>Rubric-grounded essay feedback</p><div><i>RAG</i><i>Pinecone</i><i>Review</i></div></section><section><span>Co-built · HackDavis 2024</span><b>AbleGrade</b><p>ESL writing support and progress</p><div><i>GPT-4</i><i>PDF</i><i>MERN</i></div></section></div><div class=\"education-loop\"><span>Writing</span><i>→</i><span>Evidence + rubric</span><i>→</i><span>Actionable feedback</span></div></div>"
   },
-  commerce: {
-    title: '3D Commerce Experience',
-    category: 'Frontend / Interactive product UI',
-    role: 'Public repository · Figma-originated UI prototype',
-    summaries: {
-      general: 'An interactive varsity-jacket storefront with product discovery, cart, checkout, account, search, content pages, and a responsive Three.js configurator.',
-      fullstack: 'A React and TypeScript commerce product connecting reusable components, navigation, cart and checkout flows, account pages, and a Three.js product builder.',
-      frontend: 'A responsive component system and GLB/Draco-powered Three.js configurator with independent garment, color, material, and placement controls.',
+  "commerce": {
+    "title": "3D Commerce Experience",
+    "category": "Frontend / Interactive product UI",
+    "role": "Public repository · Figma-originated UI prototype",
+    "summaries": {
+      "general": "An interactive varsity-jacket storefront with product discovery, cart, checkout, account, search, content pages, and a responsive Three.js configurator.",
+      "fullstack": "A React and TypeScript commerce product connecting reusable components, navigation, cart and checkout flows, account pages, and a Three.js product builder.",
+      "frontend": "A responsive component system and GLB/Draco-powered Three.js configurator with independent garment, color, material, and placement controls."
     },
-    flow: [['Problem', 'Static product pages cannot explain a highly configurable garment.'], ['Approach', 'Combine familiar commerce flows with an interactive 3D builder.'], ['Engineering', 'React, TypeScript, Three.js, GLB assets, Draco decoding, Tailwind, Radix UI, and Material UI.'], ['Outcome', 'A production-build-verified storefront with reusable responsive components and detailed configuration controls.']],
-    tech: ['React', 'TypeScript', 'Three.js', 'Vite', 'Tailwind', 'Radix UI'],
-    detailsTitle: '3D interaction & interface details',
-    detailsIntro: 'The prototype covers both the broader shopping journey and the specialized interaction needed to configure a varsity jacket.',
-    bullets: ['Built product discovery, cart, checkout, account, search, and content pages as reusable responsive flows.', 'Developed a Three.js product builder using GLB assets and Draco decoding.', 'Implemented independent garment customization, color configuration, placement adjustments, modals, product cards, navigation, and consent flows.'],
-    links: [['Open preview', 'https://ecommerce-website-design.onrender.com/jacket-builder'], ['View source', 'https://github.com/ashwinchembu/E-commerceWebsiteDesign']],
-    sourceNote: 'Interface concept originated in Figma; implementation and repository evidence are linked.',
-    visual: '<div class="project-visual commerce-visual" aria-hidden="true"><div class="commerce-window"><div class="commerce-top"><span>VARSITY LAB</span><b>3D BUILDER</b></div><div class="commerce-body"><div class="jacket-stage"><div class="jacket"><span class="sleeve left"></span><span class="sleeve right"></span><span class="jacket-body"></span><i>AC</i></div><small>Drag to rotate · GLB + Draco</small></div><div class="customizer"><p>Build your jacket</p><label>Body color</label><div class="swatches"><i></i><i></i><i></i><i></i></div><label>Sleeves</label><div class="swatches alt"><i></i><i></i><i></i></div><span class="config-button">Apply configuration</span></div></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Static product pages cannot explain a highly configurable garment."
+      ],
+      [
+        "Approach",
+        "Combine familiar commerce flows with an interactive 3D builder."
+      ],
+      [
+        "Engineering",
+        "React, TypeScript, Three.js, GLB assets, Draco decoding, Tailwind, Radix UI, and Material UI."
+      ],
+      [
+        "Outcome",
+        "A production-build-verified storefront with reusable responsive components and detailed configuration controls."
+      ]
+    ],
+    "tech": [
+      "React",
+      "TypeScript",
+      "Three.js",
+      "Vite",
+      "Tailwind",
+      "Radix UI"
+    ],
+    "detailsTitle": "3D interaction & interface details",
+    "detailsIntro": "The prototype covers both the broader shopping journey and the specialized interaction needed to configure a varsity jacket.",
+    "bullets": [
+      "Built product discovery, cart, checkout, account, search, and content pages as reusable responsive flows.",
+      "Developed a Three.js product builder using GLB assets and Draco decoding.",
+      "Implemented independent garment customization, color configuration, placement adjustments, modals, product cards, navigation, and consent flows.",
+      "Preloaded poster, GLB and DRACO assets, withheld the canvas until visible pixels rendered and restored a retryable poster after interrupted WebGL rendering.",
+      "Refined garment-attached artwork, sleeve masking, Safari alignment and responsive builder height."
+    ],
+    "links": [
+      [
+        "Open preview",
+        "https://ecommerce-website-design.onrender.com/jacket-builder"
+      ],
+      [
+        "View source",
+        "https://github.com/ashwinchembu/E-commerceWebsiteDesign"
+      ]
+    ],
+    "sourceNote": "Interface concept originated in Figma; implementation and repository evidence are linked.",
+    "visual": "<div class=\"project-visual commerce-visual\" aria-hidden=\"true\"><div class=\"commerce-window\"><div class=\"commerce-top\"><span>VARSITY LAB</span><b>3D BUILDER</b></div><div class=\"commerce-body\"><div class=\"jacket-stage\"><div class=\"jacket\"><span class=\"sleeve left\"></span><span class=\"sleeve right\"></span><span class=\"jacket-body\"></span><i>AC</i></div><small>Drag to rotate · GLB + Draco</small></div><div class=\"customizer\"><p>Build your jacket</p><label>Body color</label><div class=\"swatches\"><i></i><i></i><i></i><i></i></div><label>Sleeves</label><div class=\"swatches alt\"><i></i><i></i><i></i></div><span class=\"config-button\">Apply configuration</span></div></div></div></div>"
   },
-  dashboard: {
-    title: 'Enterprise Healthcare Dashboard',
-    category: 'Frontend / Healthcare workflow design',
-    role: 'Public repository · Figma-originated UI prototype',
-    summaries: {
-      general: 'A reusable dashboard prototype for healthcare account hierarchies, trial progress, follow-ups, barriers, site progression, tasks, and detail workflows.',
-      data: 'A data-dense review surface that translates account hierarchy, progress metrics, trials, follow-ups, barriers, and site progression into scannable operational context.',
-      frontend: 'A React/TypeScript and Vue interface system with metric cards, hierarchy views, progress steppers, follow-up queues, barrier summaries, and detail and edit modals.',
+  "dashboard": {
+    "title": "Enterprise Healthcare Dashboard",
+    "category": "Frontend / Healthcare workflow design",
+    "role": "Public repository · Figma-originated UI prototype",
+    "summaries": {
+      "general": "A reusable dashboard prototype for healthcare account hierarchies, trial progress, follow-ups, barriers, site progression, tasks, and detail workflows.",
+      "data": "A data-dense review surface that translates account hierarchy, progress metrics, trials, follow-ups, barriers, and site progression into scannable operational context.",
+      "frontend": "A React/TypeScript and Vue interface system with metric cards, hierarchy views, progress steppers, follow-up queues, barrier summaries, and detail and edit modals."
     },
-    flow: [['Problem', 'Complex healthcare account and trial workflows are difficult to scan and act on.'], ['Approach', 'Turn hierarchy, progress, follow-up, and barrier data into reusable interface patterns.'], ['Engineering', 'React, TypeScript, Vue, Vite, Tailwind, metric cards, steppers, queues, and modals.'], ['Outcome', 'A component-based prototype suitable for stakeholder demos and workflow validation.']],
-    tech: ['React', 'TypeScript', 'Vue', 'Vite', 'Tailwind', 'UI systems'],
-    detailsTitle: 'Workflow & component details',
-    detailsIntro: 'The prototype explores how dense healthcare operations data can become a coherent decision surface without publishing any private employer or client material.',
-    bullets: ['Designed account hierarchy, progress metrics, ongoing trial, pending follow-up, AI-barrier, and site-progression views.', 'Built reusable metric cards, progress steppers, task queues, barrier summaries, trial-detail modals, and editing patterns.', 'Implemented the design in both React/TypeScript and Vue to validate reusable component structure.'],
-    links: [['View source', 'https://github.com/ashwinchembu/Enterprisehealthcaredashboarddesign']],
-    sourceNote: 'Synthetic Figma-originated prototype; no employer/client data or screenshots are published.',
-    visual: '<div class="project-visual dashboard-visual" aria-hidden="true"><div class="dashboard-shell"><div class="dashboard-top"><b>ACCOUNT INTELLIGENCE</b><span>Trial portfolio · Q3</span></div><div class="dashboard-metrics"><div><small>Active sites</small><strong>18</strong></div><div><small>Follow-ups</small><strong>07</strong></div><div><small>Progress</small><strong>72%</strong></div></div><div class="dashboard-main"><div class="dashboard-steps"><span class="done">Account</span><span class="done">Trial</span><span class="active">Site</span><span>Review</span></div><div class="dashboard-queue"><p><i></i>Enrollment barrier review <b>Today</b></p><p><i></i>Site document follow-up <b>2d</b></p><p><i></i>Account hierarchy update <b>4d</b></p></div></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Complex healthcare account and trial workflows are difficult to scan and act on."
+      ],
+      [
+        "Approach",
+        "Turn hierarchy, progress, follow-up, and barrier data into reusable interface patterns."
+      ],
+      [
+        "Engineering",
+        "React, TypeScript, Vue, Vite, Tailwind, metric cards, steppers, queues, and modals."
+      ],
+      [
+        "Outcome",
+        "A component-based prototype suitable for stakeholder demos and workflow validation."
+      ]
+    ],
+    "tech": [
+      "React",
+      "TypeScript",
+      "Vue",
+      "Vite",
+      "Tailwind",
+      "UI systems"
+    ],
+    "detailsTitle": "Workflow & component details",
+    "detailsIntro": "The prototype explores how dense healthcare operations data can become a coherent decision surface without publishing any private employer or client material.",
+    "bullets": [
+      "Designed account hierarchy, progress metrics, ongoing trial, pending follow-up, AI-barrier, and site-progression views.",
+      "Built reusable metric cards, progress steppers, task queues, barrier summaries, trial-detail modals, and editing patterns.",
+      "Implemented the design in both React/TypeScript and Vue to validate reusable component structure."
+    ],
+    "links": [
+      [
+        "View source",
+        "https://github.com/ashwinchembu/Enterprisehealthcaredashboarddesign"
+      ]
+    ],
+    "sourceNote": "Synthetic Figma-originated prototype; no employer/client data or screenshots are published.",
+    "visual": "<div class=\"project-visual dashboard-visual\" aria-hidden=\"true\"><div class=\"dashboard-shell\"><div class=\"dashboard-top\"><b>ACCOUNT INTELLIGENCE</b><span>Trial portfolio · Q3</span></div><div class=\"dashboard-metrics\"><div><small>Active sites</small><strong>18</strong></div><div><small>Follow-ups</small><strong>07</strong></div><div><small>Progress</small><strong>72%</strong></div></div><div class=\"dashboard-main\"><div class=\"dashboard-steps\"><span class=\"done\">Account</span><span class=\"done\">Trial</span><span class=\"active\">Site</span><span>Review</span></div><div class=\"dashboard-queue\"><p><i></i>Enrollment barrier review <b>Today</b></p><p><i></i>Site document follow-up <b>2d</b></p><p><i></i>Account hierarchy update <b>4d</b></p></div></div></div></div>"
   },
-  ragpoc: {
-    title: 'Azure RAG Document Search',
-    category: 'Applied AI / Retrieval prototype',
-    role: 'Public repository · 30+ document corpus',
-    summaries: {
-      general: 'A document-search proof of concept with multi-format loading, chunking, Azure OpenAI embeddings, FAISS retrieval, source citation, and interactive Q&A.',
-      ai: 'A focused RAG implementation showing the complete path from PDF, TXT, and Markdown ingestion through chunking, embeddings, FAISS similarity search, retrieval, citations, and chat answers.',
+  "ragpoc": {
+    "title": "Azure RAG Document Search",
+    "category": "Applied AI / Retrieval prototype",
+    "role": "Public repository · 30+ document corpus",
+    "summaries": {
+      "general": "A document-search proof of concept with multi-format loading, chunking, Azure OpenAI embeddings, FAISS retrieval, source citation, and interactive Q&A.",
+      "ai": "A focused RAG implementation showing the complete path from PDF, TXT, and Markdown ingestion through chunking, embeddings, FAISS similarity search, retrieval, citations, and chat answers."
     },
-    flow: [['Problem', 'Teams need grounded answers across a mixed-format document corpus.'], ['Approach', 'Create a local vector index with retrievable chunks and cited sources.'], ['Engineering', 'Python, LangChain, Azure OpenAI embeddings and chat deployments, FAISS, and notebook workflows.'], ['Outcome', 'Interactive Q&A with source citation across a documented corpus of 30+ files.']],
-    tech: ['Python', 'Azure OpenAI', 'LangChain', 'FAISS', 'Embeddings', 'PDF ingestion'],
-    detailsTitle: 'Retrieval pipeline details',
-    detailsIntro: 'The proof of concept isolates the mechanics of a grounded document-search pipeline so each ingestion and retrieval step is visible and inspectable.',
-    bullets: ['Loaded PDF, TXT, and Markdown sources, then chunked text for embedding and retrieval.', 'Built a FAISS similarity index with Azure OpenAI embeddings and interactive Q&A.', 'Returned source citations and documented configuration for separate Azure embedding and chat-model deployments.'],
-    links: [['View source', 'https://github.com/ashwinchembu/RAGpoc']],
-    visual: '<div class="project-visual rag-visual" aria-hidden="true"><div class="rag-shell"><div class="rag-docs"><span>PDF</span><span>TXT</span><span>MD</span></div><i>→</i><div class="rag-stage"><b>CHUNKS</b><small>embed · index</small></div><i>→</i><div class="rag-stage accent"><b>FAISS</b><small>similarity search</small></div><i>→</i><div class="rag-answer"><span>Answer</span><p>Grounded in the retrieved document context.</p><small>Source · page 3</small></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Teams need grounded answers across a mixed-format document corpus."
+      ],
+      [
+        "Approach",
+        "Create a local vector index with retrievable chunks and cited sources."
+      ],
+      [
+        "Engineering",
+        "Python, LangChain, Azure OpenAI embeddings and chat deployments, FAISS, and notebook workflows."
+      ],
+      [
+        "Outcome",
+        "Interactive Q&A with source citation across a documented corpus of 30+ files."
+      ]
+    ],
+    "tech": [
+      "Python",
+      "Azure OpenAI",
+      "LangChain",
+      "FAISS",
+      "Embeddings",
+      "PDF ingestion"
+    ],
+    "detailsTitle": "Retrieval pipeline details",
+    "detailsIntro": "The proof of concept isolates the mechanics of a grounded document-search pipeline so each ingestion and retrieval step is visible and inspectable.",
+    "bullets": [
+      "Loaded PDF, TXT, and Markdown sources, then chunked text for embedding and retrieval.",
+      "Built a FAISS similarity index with Azure OpenAI embeddings and interactive Q&A.",
+      "Returned source citations and documented configuration for separate Azure embedding and chat-model deployments."
+    ],
+    "links": [
+      [
+        "View source",
+        "https://github.com/ashwinchembu/RAGpoc"
+      ]
+    ],
+    "visual": "<div class=\"project-visual rag-visual\" aria-hidden=\"true\"><div class=\"rag-shell\"><div class=\"rag-docs\"><span>PDF</span><span>TXT</span><span>MD</span></div><i>→</i><div class=\"rag-stage\"><b>CHUNKS</b><small>embed · index</small></div><i>→</i><div class=\"rag-stage accent\"><b>FAISS</b><small>similarity search</small></div><i>→</i><div class=\"rag-answer\"><span>Answer</span><p>Grounded in the retrieved document context.</p><small>Source · page 3</small></div></div></div>"
   },
-  novasonic: {
-    title: 'Nova Sonic Voice & Data Assistant',
-    category: 'Voice AI / AWS data integration',
-    role: 'Public repository · Real-time browser and iPad clients',
-    summaries: {
-      general: 'A real-time voice assistant integrating AWS Nova Sonic and Bedrock with WebSocket sessions, Vue interfaces, call analysis, cloud data tools, and mobile-browser recovery.',
-      data: 'A voice-and-data workflow connecting live sessions and structured tool use with S3 uploads, AWS Glue refreshes, Redshift-oriented adapters, Python data pipelines, and observable status interfaces.',
-      solutions: 'A customer-facing AI demo surface combining real-time audio, transcripts, tool logs, call history, database status, prompt and session management, deployment, and mobile recovery documentation.',
+  "novasonic": {
+    "title": "Nova Sonic Voice & Data Assistant",
+    "category": "Voice AI / AWS data integration",
+    "role": "ZS-associated implementation · Oct—Dec 2025",
+    "summaries": {
+      "general": "A real-time voice assistant integrating AWS Nova Sonic and Bedrock with WebSocket sessions, Vue interfaces, call analysis, cloud data tools, and mobile-browser recovery.",
+      "data": "A voice-and-data workflow connecting live sessions and structured tool use with S3 uploads, AWS Glue refreshes, Redshift-oriented adapters, Python data pipelines, and observable status interfaces.",
+      "solutions": "A customer-facing AI demo surface combining real-time audio, transcripts, tool logs, call history, database status, prompt and session management, deployment, and mobile recovery documentation."
     },
-    flow: [['Problem', 'Voice interactions need real-time feedback and dependable access to structured data tools.'], ['Approach', 'Join bidirectional audio sessions with visible transcripts, tool logs, history, and cloud refresh controls.'], ['Engineering', 'Node.js, Vue, WebSockets, AWS Bedrock/Nova Sonic, S3, Glue, Redshift, and Python pipelines.'], ['Outcome', 'A browser and iPad-ready assistant with observable voice, tool, and data workflows.']],
-    tech: ['Node.js', 'Vue', 'WebSockets', 'AWS Bedrock', 'S3', 'Glue'],
-    detailsTitle: 'Voice session & data workflow details',
-    detailsIntro: 'The public repository combines real-time voice interaction with data-oriented tooling and operational interfaces for demos and debugging.',
-    bullets: ['Built WebSocket session management and browser/iPad interfaces for AWS Nova Sonic and Bedrock voice interaction.', 'Created audio visualization, transcript, tool-log, call-history, database-status, and structured JSON inspection views.', 'Integrated call-recording analysis, prompt and session management, S3 upload, AWS Glue refresh, cloud adapters, deployment, and mobile-browser recovery documentation.'],
-    links: [['View source', 'https://github.com/ashwinchembu/wokring-novasonic-demo']],
-    sourceNote: 'Public demo repository; enterprise-oriented implementation context should be reviewed before reuse.',
-    visual: '<div class="project-visual voice-visual" aria-hidden="true"><div class="voice-shell"><div class="voice-top"><b>NOVA SONIC</b><span>live · websocket</span></div><div class="voice-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="voice-transcript"><span>USER</span><p>Show the latest account signals.</p><span>ASSISTANT</span><p>I found the data refresh and summarized the result.</p></div><div class="voice-tools"><span>S3 upload</span><span>Glue refresh</span><span>Database status</span></div></div></div>',
+    "flow": [
+      [
+        "Problem",
+        "Voice interactions need real-time feedback and dependable access to structured data tools."
+      ],
+      [
+        "Approach",
+        "Join bidirectional audio sessions with visible transcripts, tool logs, history, and cloud refresh controls."
+      ],
+      [
+        "Engineering",
+        "Node.js, Vue, WebSockets, AWS Bedrock/Nova Sonic, S3, Glue, Redshift, and Python pipelines."
+      ],
+      [
+        "Outcome",
+        "A browser and iPad-ready assistant with observable voice, tool, and data workflows."
+      ]
+    ],
+    "tech": [
+      "Node.js",
+      "Vue",
+      "WebSockets",
+      "AWS Bedrock",
+      "S3",
+      "Glue"
+    ],
+    "detailsTitle": "Voice session & data workflow details",
+    "detailsIntro": "The public repository combines real-time voice interaction with data-oriented tooling and operational interfaces for demos and debugging.",
+    "bullets": [
+      "Built WebSocket session management and browser/iPad interfaces for AWS Nova Sonic and Bedrock voice interaction.",
+      "Created audio visualization, transcript, tool-log, call-history, database-status, and structured JSON inspection views.",
+      "Integrated call-recording analysis, prompt and session management, S3 upload, AWS Glue refresh, cloud adapters, deployment, and mobile-browser recovery documentation.",
+      "Persisted Bedrock invocation history and recovered conversation state after reconnects and EKS pod restarts."
+    ],
+    "links": [],
+    "sourceNote": "Generalized professional implementation. The historical Render service is suspended; current live operation is not claimed.",
+    "visual": "<div class=\"project-visual voice-visual\" aria-hidden=\"true\"><div class=\"voice-shell\"><div class=\"voice-top\"><b>NOVA SONIC</b><span>live · websocket</span></div><div class=\"voice-wave\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class=\"voice-transcript\"><span>USER</span><p>Show the latest account signals.</p><span>ASSISTANT</span><p>I found the data refresh and summarized the result.</p></div><div class=\"voice-tools\"><span>S3 upload</span><span>Glue refresh</span><span>Database status</span></div></div></div>"
   },
+  "ablegrade": {
+    "title": "AbleGrade",
+    "category": "Education AI / Hackathon collaboration",
+    "role": "HackDavis 2024 · Co-built with Gautham Pandian",
+    "summaries": {
+      "general": "Co-built AI writing-support application for ESL learners with detailed feedback, progress tracking and PDF ingestion."
+    },
+    "flow": [
+      [
+        "Problem",
+        "A focused workflow needs a usable, maintainable implementation."
+      ],
+      [
+        "Approach",
+        "Connect the interface, service logic and persistent state."
+      ],
+      [
+        "Engineering",
+        "MongoDB, Express, React, Node.js, OpenAI."
+      ],
+      [
+        "Outcome",
+        "Co-built AI writing-support application for ESL learners with detailed feedback, progress tracking and PDF ingestion."
+      ]
+    ],
+    "tech": [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js",
+      "OpenAI"
+    ],
+    "detailsTitle": "Implementation & context",
+    "detailsIntro": "Co-built AI writing-support application for ESL learners with detailed feedback, progress tracking and PDF ingestion.",
+    "bullets": [
+      "Co-built ESL writing feedback using the MERN stack and OpenAI GPT-4.",
+      "Added PDF upload and parsing, detailed feedback and progress tracking."
+    ],
+    "links": [],
+    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">AbleGrade</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>"
+  },
+  "echo": {
+    "title": "Echo",
+    "category": "Identity verification / Research",
+    "role": "Collaborative research prototype · Sep 2023—Mar 2024",
+    "summaries": {
+      "general": "Collaborative identity-verification research prototype combining web interfaces, image handling and blockchain-backed verification."
+    },
+    "flow": [
+      [
+        "Problem",
+        "A focused workflow needs a usable, maintainable implementation."
+      ],
+      [
+        "Approach",
+        "Connect the interface, service logic and persistent state."
+      ],
+      [
+        "Engineering",
+        "React, Node.js, Express, Flask, MongoDB, AWS S3, ResilientDB integration."
+      ],
+      [
+        "Outcome",
+        "First place, Interactive Media Track at HackMIT 2023; team award."
+      ]
+    ],
+    "tech": [
+      "React",
+      "Node.js",
+      "Express",
+      "Flask",
+      "MongoDB",
+      "AWS S3",
+      "ResilientDB integration"
+    ],
+    "detailsTitle": "Implementation & context",
+    "detailsIntro": "Collaborative identity-verification research prototype combining web interfaces, image handling and blockchain-backed verification.",
+    "bullets": [
+      "Collaborated on web interfaces, image handling and blockchain-backed verification.",
+      "Integrated React, Express, Flask, MongoDB and AWS S3 workflows with ResilientDB.",
+      "Team award: first place, Interactive Media Track at HackMIT 2023."
+    ],
+    "links": [
+      [
+        "UC Davis coverage",
+        "https://engineering.ucdavis.edu/news/student-wins-hackmit"
+      ]
+    ],
+    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">Echo</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>"
+  },
+  "curtain": {
+    "title": "Agent Curtain",
+    "category": "Desktop tooling / Privacy",
+    "role": "Independent macOS utility · Aug 2026",
+    "summaries": {
+      "general": "macOS privacy utility using the operating system authentication boundary and a restricted local control interface."
+    },
+    "flow": [
+      [
+        "Problem",
+        "A focused workflow needs a usable, maintainable implementation."
+      ],
+      [
+        "Approach",
+        "Connect the interface, service logic and persistent state."
+      ],
+      [
+        "Engineering",
+        "Python, macOS APIs, Unix sockets."
+      ],
+      [
+        "Outcome",
+        "macOS privacy utility using the operating system authentication boundary and a restricted local control interface."
+      ]
+    ],
+    "tech": [
+      "Python",
+      "macOS APIs",
+      "Unix sockets"
+    ],
+    "detailsTitle": "Implementation & context",
+    "detailsIntro": "macOS privacy utility using the operating system authentication boundary and a restricted local control interface.",
+    "bullets": [
+      "Covered connected displays and handed authentication to the real macOS Lock Screen.",
+      "Restricted Unix-socket commands with input filtering, process identity checks and fail-closed behavior."
+    ],
+    "links": [
+      [
+        "View source",
+        "https://github.com/ashwinchembu/agent-curtain"
+      ]
+    ],
+    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">Agent Curtain</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>"
+  },
+  "systems": {
+    "title": "Systems Programming Projects",
+    "category": "Systems / C",
+    "role": "UC Davis coursework",
+    "summaries": {
+      "general": "Coursework implementations of a Unix-style shell, user-level threading and a FAT-style file system."
+    },
+    "flow": [
+      [
+        "Problem",
+        "A focused workflow needs a usable, maintainable implementation."
+      ],
+      [
+        "Approach",
+        "Connect the interface, service logic and persistent state."
+      ],
+      [
+        "Engineering",
+        "C, Unix process APIs, Semaphores, Virtual disks."
+      ],
+      [
+        "Outcome",
+        "Coursework implementations of a Unix-style shell, user-level threading and a FAT-style file system."
+      ]
+    ],
+    "tech": [
+      "C",
+      "Unix process APIs",
+      "Semaphores",
+      "Virtual disks"
+    ],
+    "detailsTitle": "Implementation & context",
+    "detailsIntro": "Coursework implementations of a Unix-style shell, user-level threading and a FAT-style file system.",
+    "bullets": [
+      "Implemented a Unix-style shell with process handling.",
+      "Built user-level threading with context switching, preemption and semaphores.",
+      "Implemented FAT-style virtual-disk persistence, allocation and boundary/error handling."
+    ],
+    "links": [
+      [
+        "Shell",
+        "https://github.com/ashwinchembu/cse150_p1"
+      ],
+      [
+        "Threads",
+        "https://github.com/ashwinchembu/ecs150_p2"
+      ],
+      [
+        "File system",
+        "https://github.com/ashwinchembu/cse150_p3"
+      ]
+    ],
+    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">Systems Programming Projects</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>"
+  },
+  "sixdegrees": {
+    "title": "Six Degrees Application",
+    "category": "Graph exploration / Full-stack",
+    "role": "Take-home project",
+    "summaries": {
+      "general": "Full-stack graph relationship explorer with a C++ backend and interactive frontend."
+    },
+    "flow": [
+      [
+        "Problem",
+        "A focused workflow needs a usable, maintainable implementation."
+      ],
+      [
+        "Approach",
+        "Connect the interface, service logic and persistent state."
+      ],
+      [
+        "Engineering",
+        "C++, Crow, React, TypeScript."
+      ],
+      [
+        "Outcome",
+        "Full-stack graph relationship explorer with a C++ backend and interactive frontend."
+      ]
+    ],
+    "tech": [
+      "C++",
+      "Crow",
+      "React",
+      "TypeScript"
+    ],
+    "detailsTitle": "Implementation & context",
+    "detailsIntro": "Full-stack graph relationship explorer with a C++ backend and interactive frontend.",
+    "bullets": [
+      "Built a C++ Crow backend with API routes and a React/TypeScript interface.",
+      "Added graph-style relationship exploration, error handling, logging and setup documentation."
+    ],
+    "links": [
+      [
+        "View source",
+        "https://github.com/ashwinchembu/AggieWorks-Take-Home"
+      ]
+    ],
+    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">Six Degrees Application</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>"
+  },
+  "wearable": {
+    "title": "Smart-glasses Audio Visualizer",
+    "category": "Wearables / Real-time audio",
+    "role": "Private implementation · Nov 2025",
+    "summaries": {
+      "general": "Customized wearable interface for audio visualization and live transcription."
+    },
+    "flow": [
+      [
+        "Problem",
+        "A focused workflow needs a usable, maintainable implementation."
+      ],
+      [
+        "Approach",
+        "Connect the interface, service logic and persistent state."
+      ],
+      [
+        "Engineering",
+        "TypeScript, React, MentraOS SDK."
+      ],
+      [
+        "Outcome",
+        "Customized wearable interface for audio visualization and live transcription."
+      ]
+    ],
+    "tech": [
+      "TypeScript",
+      "React",
+      "MentraOS SDK"
+    ],
+    "detailsTitle": "Implementation & context",
+    "detailsIntro": "Customized wearable interface for audio visualization and live transcription.",
+    "bullets": [
+      "Customized a TypeScript/React interface for audio visualization and live transcription with the MentraOS SDK.",
+      "Implemented audio-chunk handling, transcription modules and troubleshooting flows."
+    ],
+    "links": [],
+    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">Smart-glasses Audio Visualizer</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>",
+    "sourceNote": "Custom application built with MentraOS; private source. No ownership of the underlying platform is implied."
+  }
 });
 
 const preferenceGate = document.querySelector('#preference-gate');
@@ -592,7 +1315,7 @@ function renderProjectShowcase(role, audienceKey) {
   });
 
   if (supportingWorkHeading) {
-    supportingWorkHeading.textContent = `More verified work beyond the ${rolePresets[role]?.short || 'general'} view.`;
+    supportingWorkHeading.textContent = `Browse projects beyond the ${rolePresets[role]?.short || 'general'} view.`;
   }
 }
 
@@ -614,7 +1337,7 @@ function applyPreferences(preferences) {
   if (heroEyebrow) {
     const dot = document.createElement('span');
     dot.className = 'status-dot';
-    heroEyebrow.replaceChildren(dot, document.createTextNode(` ${audience.eyebrow} · Bay Area · ${preset.eyebrow}`));
+    heroEyebrow.replaceChildren(dot, document.createTextNode(` ${audience.eyebrow} · San Francisco · ${preset.eyebrow}`));
   }
   if (heroTitle) heroTitle.innerHTML = preset.title;
   if (heroLede) heroLede.textContent = preset.lede;
