@@ -56,3 +56,7 @@ Keep five selected projects per role view. The native project archive holds the 
 ## Content consistency across views
 
 Use the same verified chronology and claim boundaries in hero cards, project artwork, disclosures, the general view and every role view. Tallyrus ended September 2025; Tech4Good ended June 2025; Lume ended January 2026. Keep commit counts out of all public accomplishment labels, including decorative artwork. Job Hub uses routine exact-package validation and exception-only human review; its resume pipeline is version-5 Python-to-LaTeX compiled with Tectonic, with ATS and rendered-page checks. Keep the two publication statuses and dates from the publication checks above.
+
+## Systems coursework source mapping
+
+Repository contents verified October 23, 2026: `cse150_p1` contains the Unix shell (`sshell.c`); `ecs150_p2` contains the user-level thread library (`REPORT.md`, `libuthread/uthread.c`, `libuthread/sem.c`); `cse150_p3` contains the FAT file system (`libfs/fs.c`). Archive link labels name those implementations explicitly. The supplemental thread-library link describes only that repository.

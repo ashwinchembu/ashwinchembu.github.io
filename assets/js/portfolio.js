@@ -1084,11 +1084,11 @@ const projectCatalog = Object.freeze({
         "https://github.com/ashwinchembu/cse150_p1"
       ],
       [
-        "Threads",
+        "User-level threads",
         "https://github.com/ashwinchembu/ecs150_p2"
       ],
       [
-        "File system",
+        "FAT file system",
         "https://github.com/ashwinchembu/cse150_p3"
       ]
     ],
