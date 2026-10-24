@@ -167,6 +167,17 @@ const rolePresets = Object.freeze({
   },
 });
 
+const roleResumeFiles = Object.freeze({
+  general: 'Chembu_Ashwin_General.pdf',
+  fullstack: 'Chembu_Ashwin_Full-Stack.pdf',
+  ai: 'Chembu_Ashwin_Applied-AI.pdf',
+  backend: 'Chembu_Ashwin_Backend.pdf',
+  data: 'Chembu_Ashwin_Data-MDM.pdf',
+  frontend: 'Chembu_Ashwin_Frontend.pdf',
+  solutions: 'Chembu_Ashwin_Solutions-FDE.pdf',
+  salesforce: 'Chembu_Ashwin_Salesforce-CRM.pdf',
+});
+
 const roleProjectSelections = Object.freeze({
   general: ['filedrop', 'lume', 'sylk'],
   fullstack: ['sylk', 'lume', 'tech4good'],
@@ -621,6 +632,21 @@ function applyPreferences(preferences) {
   if (preferenceTriggerLabel) preferenceTriggerLabel.textContent = `View: ${preset.short}`;
   if (metaDescription) metaDescription.content = preset.lede;
   document.title = `Ashwin Chembu — ${preset.titlePlain}`;
+
+  const resumeFile = roleResumeFiles[preferences.role] || roleResumeFiles.general;
+  document.querySelectorAll('[data-resume-link]').forEach((link) => {
+    link.href = `resumes/${resumeFile}`;
+    link.setAttribute('aria-label', `Open ${preset.short} résumé (PDF)`);
+    const action = link.dataset.resumeLink;
+    const prefix = action === 'primary' ? 'View ' : action === 'experience' ? 'Open ' : '';
+    link.replaceChildren(document.createTextNode(`${prefix}${preset.short} résumé`));
+    if (action !== 'footer') {
+      const arrow = document.createElement('span');
+      arrow.textContent = '↗';
+      arrow.setAttribute('aria-hidden', 'true');
+      link.append(arrow);
+    }
+  });
 
   if (currentRoleChips) {
     currentRoleChips.replaceChildren(...preset.chips.map((chip) => {

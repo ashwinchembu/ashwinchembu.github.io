@@ -31,6 +31,8 @@ Hover: 150ms, up to 2px translation. Native scroll remains available. Project ca
 
 Personalization is optional and remains accessible from the header. It preserves the role-based project selection, local preferences, form validation, focus trap, and focus restoration. Light is the new default; a previously saved dark preference is honored.
 
+Each of the eight portfolio focus views has a separate one-page PDF résumé. The hero, experience, and footer résumé links update together and restore with saved preferences. The default and no-JavaScript experience link to the General résumé. Legacy `resume.pdf` remains available as the General version. Only the reviewed PDFs are published; evidence specifications, ATS sidecars, and review materials remain outside the public repository.
+
 Allowed patterns: oversized name typography, cobalt emphasis, hairline separators, aligned project rows, user-approved pausable skills scrolling, expanded illustrative project artwork, existing verified metrics and ownership notes, and the existing brand and employer logos. No additional runtime dependencies.
 
 ## Verification
