@@ -260,7 +260,6 @@ const projectCatalog = Object.freeze({
     ],
     "links": [],
     "sourceNote": "Private organization product. Android debug packaging is established; store releases and a shipped iOS application are not claimed.",
-    "visual": "<div class=\"project-visual sylk-visual\" aria-hidden=\"true\"><div class=\"sylk-shell\"><div class=\"sylk-top\"><b>SYLK</b><span>Capacitor Android app</span><i>phone ready</i></div><div class=\"sylk-body\"><aside><span class=\"active\">Retailer admin</span><span>Factory viewer</span><span>Staff</span></aside><section><div class=\"sylk-shipment\"><span>Mobile order</span><b>In fulfillment</b></div><div class=\"sylk-lines\"><p><i></i>Orders and inventory <b>Ready</b></p><p><i></i>Chat and files <b>Linked</b></p><p><i></i>Billing and team <b>Scoped</b></p></div><div class=\"sylk-flow\"><span>Onboard</span><i>→</i><span>Fulfill</span><i>→</i><span>Track</span></div></section></div></div></div>"
   },
   "tech4good": {
     "title": "Tech4Good FigJam Toolkit",
@@ -346,7 +345,6 @@ const projectCatalog = Object.freeze({
       ]
     ],
     "sourceNote": "Collaborator-owned source and team-published resources. The six Community listings showed approximately 12.2K aggregate uses in July 2026; this is a team-library measure.",
-    "visual": "<div class=\"project-visual figjam-tools-visual\" aria-hidden=\"true\"><div class=\"figjam-tools-shell\"><div class=\"figjam-tools-top\"><b>FIGJAM TOOLKIT</b><span>research + classroom collaboration</span><i>6 team-published resources</i></div><div class=\"figjam-tools-board\"><section class=\"figjam-chat\"><small>THREADED CHAT</small><p><i></i><span>Capture the idea</span></p><p><i></i><span>Reply or vote</span></p><p><i></i><span>Share the result</span></p></section><section class=\"figjam-poll\"><small>POLL + LIKERT</small><b>Which direction?</b><p><span style=\"--vote:82%\"></span></p><p><span style=\"--vote:58%\"></span></p><div><i></i><i></i><i></i><i></i><i></i></div></section><section class=\"figjam-import\"><small>STRUCTURED DATA</small><div><b>XLSX</b><span>Question</span><span>Response</span><span>Theme</span></div><p>import → canvas → analysis</p></section></div><div class=\"figjam-tools-foot\"><span>Chat</span><span>Polling</span><span>Text</span><span>GIF</span><span>Quote</span><span>Wordcloud</span></div></div></div>"
   },
   "automation": {
     "title": "Job Hub",
@@ -398,7 +396,6 @@ const projectCatalog = Object.freeze({
     ],
     "links": [],
     "sourceNote": "Architecture summary only; personal application records, recruiter data, journals and operational artifacts remain private.",
-    "visual": "<div class=\"project-visual automation-visual\" aria-hidden=\"true\"><div class=\"automation-shell\"><div class=\"automation-top\"><b>APPLICATION OPS</b><span>auditable workflow</span></div><div class=\"automation-flow\"><section><small>01</small><b>Verified evidence</b><span>fact sheet · job map</span></section><i>→</i><section><small>02</small><b>LaTeX résumé</b><span>V5 · ATS · render QA</span></section><i>→</i><section class=\"approval\"><small>03</small><b>Exception review</b><span>only when needed</span></section></div><div class=\"automation-status\"><span>✓ truthful answers</span><span>✓ persisted decision</span><span>✓ submission evidence</span></div></div></div>"
   },
   "mdm": {
     "title": "Healthcare Data Quality & MDM",
@@ -445,7 +442,6 @@ const projectCatalog = Object.freeze({
     ],
     "links": [],
     "sourceNote": "Anonymized employer evidence; no client identity, private data, screenshots, SQL, or proprietary artifacts are published.",
-    "visual": "<div class=\"project-visual mdm-visual\" aria-hidden=\"true\"><div class=\"mdm-shell\"><div class=\"mdm-top\"><b>DATA QUALITY WORKBENCH</b><span>synthetic view</span></div><div class=\"mdm-metrics\"><div><small>Profiled</small><strong>327K+</strong><span>records</span></div><div><small>Entity review</small><strong>67K+</strong><span>records</span></div><div><small>Quality controls</small><strong>Layered</strong><span>traceable review</span></div></div><div class=\"mdm-pipeline\"><span>Landing</span><i>→</i><span>Staging</span><i>→</i><span>Canonical</span><i>→</i><span>Publish</span></div><div class=\"mdm-review\"><p><i class=\"pass\"></i>NPI + address match <b>accepted</b></p><p><i class=\"review\"></i>License conflict <b>steward review</b></p></div></div></div>"
   },
   "crm": {
     "title": "CRM Workflow & UAT Delivery",
@@ -495,7 +491,6 @@ const projectCatalog = Object.freeze({
     ],
     "links": [],
     "sourceNote": "Anonymized employer evidence; no client identity, screenshots, transcripts, credentials, or private CRM artifacts are published.",
-    "visual": "<div class=\"project-visual crm-visual\" aria-hidden=\"true\"><div class=\"crm-shell\"><div class=\"crm-top\"><b>CRM DELIVERY</b><span>synthetic validation view</span></div><div class=\"crm-summary\"><section><small>Approval state</small><strong>Ready for review</strong><span>read-only rules applied</span></section><section><small>UAT coverage</small><strong>Tracked</strong><span>acceptance evidence linked</span></section></div><div class=\"crm-board\"><p><i class=\"done\"></i><span>Field and layout validation</span><b>Verified</b></p><p><i class=\"active\"></i><span>Workflow acceptance evidence</span><b>In review</b></p><p><i></i><span>User guide and handoff</span><b>Queued</b></p></div></div></div>"
   },
   "filedrop": {
     "title": "Private Filedrop",
@@ -546,7 +541,6 @@ const projectCatalog = Object.freeze({
         "https://github.com/ashwinchembu/render-filedrop"
       ]
     ],
-    "visual": "<div class=\"project-visual filedrop-visual\" aria-hidden=\"true\"><div class=\"drop-console\"><div class=\"drop-top\"><span>PRIVATE FILEDROP</span><b>secure</b></div><div class=\"drop-file\"><i>PDF</i><div><b>product-brief.pdf</b><small>v4 · project/design</small></div><em>✓</em></div><div class=\"drop-file\"><i>CSV</i><div><b>research-data.csv</b><small>tagged · 2 versions</small></div><em>✓</em></div><div class=\"drop-channel\"><span>REST / OpenAPI</span><span>MCP tools</span><span>Signed webhooks</span></div></div><div class=\"drop-lock\"><span></span><b>HMAC</b><small>signed webhooks</small></div></div>"
   },
   "lume": {
     "title": "Lume",
@@ -599,7 +593,6 @@ const projectCatalog = Object.freeze({
         "https://github.com/ashwinchembu/work-helper"
       ]
     ],
-    "visual": "<div class=\"project-visual lume-visual\" aria-hidden=\"true\"><div class=\"product-window lume-window\"><div class=\"product-topbar\"><div><span></span><span></span><span></span></div><b>LUME</b><small>Project Brain · RAG</small></div><div class=\"lume-layout\"><aside class=\"meeting-panel\"><p>Design review</p><small>24:18 · 4 people</small><div class=\"waveform\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class=\"speaker\"><b>AC</b><span><i></i><i></i></span></div></aside><div class=\"brain-panel\"><p class=\"brain-label\">Ask across this project</p><h4>What decision did we make about onboarding?</h4><div class=\"context-map\"><span>Meeting 12</span><i></i><span>Onboarding</span><i></i><span>Brief.pdf</span></div><div class=\"ai-answer\"><span>✦</span><p>The team chose a guided setup with progressive disclosure, starting with document import.</p></div><div class=\"citation-row\"><span>Transcript · 18:42</span><span>Brief.pdf · p.3</span></div></div></div></div></div>"
   },
   "forge": {
     "title": "Forge",
@@ -650,7 +643,6 @@ const projectCatalog = Object.freeze({
         "https://github.com/ashwinchembu/forge"
       ]
     ],
-    "visual": "<div class=\"project-visual forge-visual\" aria-hidden=\"true\"><div class=\"forge-shell\"><div class=\"forge-top\"><b>FORGE</b><span>daily intelligence</span><i>synced</i></div><div class=\"forge-score\"><span>Today</span><strong>84</strong><small>program alignment</small></div><div class=\"forge-signals\"><div><span>Workout</span><b>hit</b><i style=\"--fill:88%\"></i></div><div><span>Nutrition</span><b>close</b><i style=\"--fill:72%\"></i></div><div><span>Recovery</span><b>ready</b><i style=\"--fill:81%\"></i></div></div><div class=\"forge-flow\"><span>Hevy</span><i>→</i><span>Apple Health</span><i>→</i><span>Oura</span><b>FastAPI + MongoDB</b></div></div></div>"
   },
   "educationai": {
     "title": "Tallyrus",
@@ -700,7 +692,6 @@ const projectCatalog = Object.freeze({
     ],
     "links": [],
     "sourceNote": "Collaborative founder product. Pretrained inference and tracing integration; no custom-training or classifier-accuracy claim.",
-    "visual": "<div class=\"project-visual education-ai-visual\" aria-hidden=\"true\"><div class=\"education-split\"><section><span>Founder product · Jun 2023—Sep 2025</span><b>Tallyrus</b><p>Rubric-grounded essay feedback</p><div><i>RAG</i><i>FAISS</i><i>Review</i></div></section><section><span>Co-built · HackDavis 2024</span><b>AbleGrade</b><p>ESL writing support and progress</p><div><i>GPT-4</i><i>PDF</i><i>MERN</i></div></section></div><div class=\"education-loop\"><span>Writing</span><i>→</i><span>Evidence + rubric</span><i>→</i><span>Actionable feedback</span></div></div>"
   },
   "commerce": {
     "title": "3D Commerce Experience",
@@ -757,7 +748,6 @@ const projectCatalog = Object.freeze({
       ]
     ],
     "sourceNote": "Interface concept originated in Figma; implementation and repository evidence are linked.",
-    "visual": "<div class=\"project-visual commerce-visual\" aria-hidden=\"true\"><div class=\"commerce-window\"><div class=\"commerce-top\"><span>VARSITY LAB</span><b>3D BUILDER</b></div><div class=\"commerce-body\"><div class=\"jacket-stage\"><div class=\"jacket\"><span class=\"sleeve left\"></span><span class=\"sleeve right\"></span><span class=\"jacket-body\"></span><i>AC</i></div><small>Drag to rotate · GLB + Draco</small></div><div class=\"customizer\"><p>Build your jacket</p><label>Body color</label><div class=\"swatches\"><i></i><i></i><i></i><i></i></div><label>Sleeves</label><div class=\"swatches alt\"><i></i><i></i><i></i></div><span class=\"config-button\">Apply configuration</span></div></div></div></div>"
   },
   "dashboard": {
     "title": "Enterprise Healthcare Dashboard",
@@ -808,7 +798,6 @@ const projectCatalog = Object.freeze({
       ]
     ],
     "sourceNote": "Synthetic Figma-originated prototype; no employer/client data or screenshots are published.",
-    "visual": "<div class=\"project-visual dashboard-visual\" aria-hidden=\"true\"><div class=\"dashboard-shell\"><div class=\"dashboard-top\"><b>ACCOUNT INTELLIGENCE</b><span>Trial portfolio · Q3</span></div><div class=\"dashboard-metrics\"><div><small>Active sites</small><strong>18</strong></div><div><small>Follow-ups</small><strong>07</strong></div><div><small>Progress</small><strong>72%</strong></div></div><div class=\"dashboard-main\"><div class=\"dashboard-steps\"><span class=\"done\">Account</span><span class=\"done\">Trial</span><span class=\"active\">Site</span><span>Review</span></div><div class=\"dashboard-queue\"><p><i></i>Enrollment barrier review <b>Today</b></p><p><i></i>Site document follow-up <b>2d</b></p><p><i></i>Account hierarchy update <b>4d</b></p></div></div></div></div>"
   },
   "ragpoc": {
     "title": "Azure RAG Document Search",
@@ -857,7 +846,6 @@ const projectCatalog = Object.freeze({
         "https://github.com/ashwinchembu/RAGpoc"
       ]
     ],
-    "visual": "<div class=\"project-visual rag-visual\" aria-hidden=\"true\"><div class=\"rag-shell\"><div class=\"rag-docs\"><span>PDF</span><span>TXT</span><span>MD</span></div><i>→</i><div class=\"rag-stage\"><b>CHUNKS</b><small>embed · index</small></div><i>→</i><div class=\"rag-stage accent\"><b>FAISS</b><small>similarity search</small></div><i>→</i><div class=\"rag-answer\"><span>Answer</span><p>Grounded in the retrieved document context.</p><small>Source · page 3</small></div></div></div>"
   },
   "novasonic": {
     "title": "Nova Sonic Voice & Data Assistant",
@@ -904,7 +892,6 @@ const projectCatalog = Object.freeze({
     ],
     "links": [],
     "sourceNote": "Generalized professional implementation. The historical Render service is suspended; current live operation is not claimed.",
-    "visual": "<div class=\"project-visual voice-visual\" aria-hidden=\"true\"><div class=\"voice-shell\"><div class=\"voice-top\"><b>NOVA SONIC</b><span>live · websocket</span></div><div class=\"voice-wave\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class=\"voice-transcript\"><span>USER</span><p>Show the latest account signals.</p><span>ASSISTANT</span><p>I found the data refresh and summarized the result.</p></div><div class=\"voice-tools\"><span>S3 upload</span><span>Glue refresh</span><span>Database status</span></div></div></div>"
   },
   "ablegrade": {
     "title": "AbleGrade",
@@ -945,7 +932,6 @@ const projectCatalog = Object.freeze({
       "Added PDF upload and parsing, detailed feedback and progress tracking."
     ],
     "links": [],
-    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">AbleGrade</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>"
   },
   "echo": {
     "title": "Echo",
@@ -994,7 +980,6 @@ const projectCatalog = Object.freeze({
         "https://engineering.ucdavis.edu/news/student-wins-hackmit"
       ]
     ],
-    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">Echo</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>"
   },
   "curtain": {
     "title": "Agent Curtain",
@@ -1038,7 +1023,6 @@ const projectCatalog = Object.freeze({
         "https://github.com/ashwinchembu/agent-curtain"
       ]
     ],
-    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">Agent Curtain</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>"
   },
   "systems": {
     "title": "Systems Programming Projects",
@@ -1092,7 +1076,6 @@ const projectCatalog = Object.freeze({
         "https://github.com/ashwinchembu/cse150_p3"
       ]
     ],
-    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">Systems Programming Projects</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>"
   },
   "sixdegrees": {
     "title": "Six Degrees Application",
@@ -1137,7 +1120,6 @@ const projectCatalog = Object.freeze({
         "https://github.com/ashwinchembu/AggieWorks-Take-Home"
       ]
     ],
-    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">Six Degrees Application</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>"
   },
   "wearable": {
     "title": "Smart-glasses Audio Visualizer",
@@ -1176,7 +1158,6 @@ const projectCatalog = Object.freeze({
       "Implemented audio-chunk handling, transcription modules and troubleshooting flows."
     ],
     "links": [],
-    "visual": "<div class=\"project-visual retrieval-art\" aria-hidden=\"true\"><p class=\"art-heading\">Smart-glasses Audio Visualizer</p><div class=\"retrieval-flow\"><span>Input</span><i>→</i><span>Workflow</span><i>→</i><span>Result</span></div><p class=\"art-footnote\">Architecture sketch</p></div>",
     "sourceNote": "Custom application built with MentraOS; private source. No ownership of the underlying platform is implied."
   }
 });
@@ -1254,14 +1235,37 @@ function syncPreferenceForm(preferences) {
   updatePreferenceButton();
 }
 
-function renderProjectVisual(projectKey, project) {
-  if (projectKey === 'filedrop') {
-    return '<div class="project-visual handoff-art" aria-hidden="true"><p class="art-heading">Private Filedrop / Developer tools</p><div class="handoff-files"><span></span><span></span><span>↗</span></div><p class="art-footnote">Browser uploads. APIs. MCP tools.</p></div>';
-  }
-  if (projectKey === 'lume') {
-    return '<div class="project-visual retrieval-art" aria-hidden="true"><p class="art-heading">Lume / Meeting intelligence</p><div class="retrieval-flow"><span>Meetings<br />&amp; files</span><i>→</i><span>Searchable<br />context</span><i>→</i><span>Cited<br />answers</span></div><p class="art-footnote">Architecture sketch</p></div>';
-  }
-  return project.visual;
+const projectScreenshots = Object.freeze({
+  commerce: {
+    src: 'assets/screenshots/commerce-builder.jpg',
+    width: 1470, height: 750,
+    alt: 'The actual Manoir Kits jacket builder with its Three.js garment and material color controls.',
+    caption: 'Manoir Kits · Local capture of the public 3D configurator.',
+  },
+  dashboard: {
+    src: 'assets/screenshots/healthcare-dashboard.jpg',
+    width: 1470, height: 694,
+    alt: 'The healthcare dashboard prototype showing site progression, trial metrics and a potential-barriers panel with synthetic data.',
+    caption: 'React prototype · Existing synthetic demonstration data.',
+  },
+  forge: {
+    src: 'assets/screenshots/forge-preview.jpg',
+    width: 1470, height: 694,
+    alt: 'Forge’s actual web interface running in preview mode with synthetic training and recovery data.',
+    caption: 'Forge preview mode · Synthetic data, no personal health records.',
+  },
+  filedrop: {
+    src: 'assets/screenshots/filedrop-preview.jpg',
+    width: 1470, height: 694,
+    alt: 'Private Filedrop’s actual file-management interface running in an isolated local demo.',
+    caption: 'Local demo · Sample files in isolated storage.',
+  },
+});
+
+function renderProjectVisual(projectKey) {
+  const screenshot = projectScreenshots[projectKey];
+  if (!screenshot) return '';
+  return `<figure class="project-visual project-screenshot"><img src="${screenshot.src}" alt="${screenshot.alt}" width="${screenshot.width}" height="${screenshot.height}" loading="lazy" decoding="async" /><figcaption><span>Actual interface</span>${screenshot.caption}</figcaption></figure>`;
 }
 
 function renderProjectShowcase(role, audienceKey) {
@@ -1292,6 +1296,7 @@ function renderProjectShowcase(role, audienceKey) {
 
     slot.id = `${projectKey}-case-study`;
     slot.dataset.project = projectKey;
+    slot.classList.toggle('project-text', !projectScreenshots[projectKey]);
     slot.setAttribute('aria-labelledby', `${projectKey}-title`);
     slot.innerHTML = `${renderProjectVisual(projectKey, project)}<div class="project-copy"><p class="project-index">${project.category} <span class="role-match-badge">${badge}</span></p><h3 id="${projectKey}-title">${project.title}</h3><p class="project-role">${project.role}</p><p class="project-summary">${summary}</p><div class="${flowClass}" aria-label="${project.title} case study summary">${flow}</div><div class="tech-list">${tech}</div><details class="project-more"><summary>${project.detailsTitle}</summary><div class="project-more-body"><p>${project.detailsIntro}</p><ul>${bullets}</ul></div></details><div class="project-links">${links}</div>${sourceNote}</div>`;
     const visual = slot.querySelector('.project-visual');
@@ -1303,8 +1308,8 @@ function renderProjectShowcase(role, audienceKey) {
       const expand = document.createElement('button');
       expand.className = 'expand-visual';
       expand.type = 'button';
-      expand.textContent = 'Expand ↗';
-      expand.setAttribute('aria-label', `Expand ${project.title} illustration`);
+      expand.textContent = 'View screenshot ↗';
+      expand.setAttribute('aria-label', `Expand ${project.title} screenshot`);
       expand.dataset.projectKey = projectKey;
       frame.append(expand);
     }
@@ -1553,8 +1558,18 @@ projectShowcase?.addEventListener('click', (event) => {
   const project = projectCatalog[expand.dataset.projectKey];
   if (!visual || !project) return;
   visualDialog.querySelector('#visual-dialog-title').textContent = project.title;
+  visualDialog.querySelector('#visual-dialog-description').textContent = projectScreenshots[expand.dataset.projectKey]?.caption || '';
+  visualDialog.querySelector('.visual-original').href = projectScreenshots[expand.dataset.projectKey]?.src || '#';
+  visualDialog.classList.remove('zoomed');
+  visualDialog.querySelector('.visual-zoom').setAttribute('aria-pressed', 'false');
+  visualDialog.querySelector('.visual-zoom').textContent = 'Zoom in';
   visualDialog.querySelector('.visual-dialog-content').replaceChildren(visual.cloneNode(true));
   visualDialog.showModal();
+});
+document.querySelector('.visual-zoom')?.addEventListener('click', (event) => {
+  const zoomed = visualDialog.classList.toggle('zoomed');
+  event.currentTarget.setAttribute('aria-pressed', String(zoomed));
+  event.currentTarget.textContent = zoomed ? 'Fit to screen' : 'Zoom in';
 });
 document.querySelector('.visual-dialog-close')?.addEventListener('click', () => visualDialog.close());
 visualDialog?.addEventListener('click', (event) => {

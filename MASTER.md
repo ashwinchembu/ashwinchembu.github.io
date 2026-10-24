@@ -2,9 +2,9 @@
 
 Approved direction: colorful editorial portfolio with cream, coral, mint, lilac, violet, and forest green. Ashwin requested a complete visual overhaul and San Francisco location on October 23, 2026, with prior authorization for Genjutsu implementation and publication. The implementation retains the existing AC mark, navigation, URLs, tailored résumés, project evidence, personalization, and theme control. `assets/css/color.css` is the final visual layer over the existing component styles.
 
-Visual thesis: a warm, expressive introduction pairs oversized stacked name typography on coral with a mint San Francisco panel and a simple native SVG bridge illustration. Calm reading surfaces frame the project work; lavender organizes capabilities and the scrolling skill strip; forest green separates professional experience. All new color roles are defined below.
+Visual thesis: a warm introduction uses oversized name typography on coral and a compact mint San Francisco location strip. Actual project screenshots carry the visual evidence. Projects without safe interface captures remain text-only; no mock interfaces, cartoons, decorative architecture sketches, bridge artwork or fabricated charts. Lavender organizes capabilities and the scrolling skill strip; forest green separates professional experience. All new color roles are defined below.
 
-Interaction thesis: retain aligned project rows with no stagger or entrance delays, large expandable illustrations, pausable skills scrolling, native page scrolling, keyboard access, and eight focus-specific résumé links. Hover states use the existing 150ms easing; reduced motion remains fully supported. No runtime dependencies added.
+Interaction thesis: retain aligned project rows with no stagger or entrance delays, large expandable screenshots, pausable skills scrolling, native page scrolling, keyboard access, and eight focus-specific résumé links. Hover states use the existing 150ms easing; reduced motion remains fully supported. No runtime dependencies added.
 
 ## Evidence and design choices
 
@@ -25,7 +25,7 @@ Dembrandt extracted the existing portfolio's color, typography, spacing, compone
 | Control outline | #857B6C | #8A9B90 |
 | Surface | #FFFDF7 | #29332E |
 
-Both themes share fixed decorative panels: coral #FF936F, mint #CCEADE, lilac #E1D7F5, lime #DFEC9B, gold #F1C96B, with panel ink #25231F and panel secondary text #514D44. Forest #173E37 uses cream text, muted #C1D6C9, line #5C8071, and surface #234D42. Bridge structure uses #A93C27; file-handoff artwork uses fixed purple #41227F in both themes. These panel colors keep readable dark text in both themes. Existing public token names remain available; `--orange` is coral and `--lime` is lime. Project illustrations retain their own colors and are illustrative, not production screenshots.
+Both themes share fixed decorative panels: coral #FF936F, mint #CCEADE, lilac #E1D7F5, lime #DFEC9B, gold #F1C96B, with panel ink #25231F and panel secondary text #514D44. Forest #173E37 uses cream text, muted #C1D6C9, line #5C8071, and surface #234D42. These panel colors keep readable dark text in both themes. Existing public token names remain available; `--orange` is coral and `--lime` is lime. Screenshot colors are unchanged from the actual applications, with visible captions distinguishing local captures and synthetic preview data.
 
 Manrope 400/500/600/700/800 is retained from the existing Google Fonts connection, with Arial/system-ui fallbacks. Body: 16px, line height 1.65, maximum reading measure 70ch. Secondary metadata: 14px minimum. Display hierarchy uses a 1.25 scale: 16, 20, 25, 31, 39, 49, 61px. Name typography is fluid and reflows on phones.
 
@@ -33,13 +33,13 @@ Spacing uses a 4px base with 8, 12, 16, 20, 24, 28, 32, 36, 40, 48, 56, 64, 80, 
 
 ## Interaction and accessibility
 
-Hover: 150ms, up to 2px translation. Native scroll remains available. Project cards align without staggered placement or entrance delays. Five project case studies are shown per view, with larger illustrations and keyboard-accessible expansion in a native dialog. The skills strip contains eight engineering areas and scrolls over 42 seconds, with a pause/resume button and pause on hover or keyboard focus. Reduced motion disables automatic scrolling and supports manual horizontal scrolling. Content is visible without JavaScript. Focus uses a 3px accent outline with a 4px offset. Buttons, summary controls, and navigation targets have at least 44px height. Disabled buttons remain visibly disabled.
+Hover: 150ms, up to 2px translation. Native scroll remains available. Project cards align without staggered placement or entrance delays. Five project case studies are shown per view in a single aligned column. Actual screenshots use their natural aspect ratio without decorative framing, with captions and keyboard-accessible expansion in a native dialog. The dialog starts fitted to the screen, offers an explicit Zoom in / Fit to screen toggle and the original image, and supports horizontal panning at full image size. The skills strip contains eight engineering areas and scrolls over 42 seconds, with a pause/resume button and pause on hover or keyboard focus. Reduced motion disables automatic scrolling and supports manual horizontal scrolling. Content is visible without JavaScript. Focus uses a 3px accent outline with a 4px offset. Buttons, summary controls, and navigation targets have at least 44px height. Disabled buttons remain visibly disabled.
 
 Personalization is optional and remains accessible from the header. It preserves the role-based project selection, local preferences, form validation, focus trap, and focus restoration. Light is the new default; a previously saved dark preference is honored.
 
 Each of the eight portfolio focus views has a separate one-page PDF résumé. The hero, experience, and footer résumé links update together and restore with saved preferences. The default and no-JavaScript experience link to the General résumé. Legacy `resume.pdf` remains available as the General version. Only the reviewed PDFs are published; evidence specifications, ATS sidecars, and review materials remain outside the public repository.
 
-Allowed patterns: oversized stacked name typography, flat colored panels, decorative native SVG location illustration, hairline separators, aligned project rows, user-approved pausable skills scrolling, expanded illustrative project artwork, existing verified metrics and ownership notes, and the existing brand and employer logos. San Francisco is the user-supplied location for the hero, About copy, footer, metadata, and all eight résumé downloads. Employer South San Francisco location remains accurate and distinct.
+Allowed patterns: oversized name typography, flat colored panels, hairline separators, aligned project rows, user-approved pausable skills scrolling, authentic screenshots with provenance, existing verified metrics and ownership notes, and the existing brand and employer logos. San Francisco is the user-supplied location for the hero, About copy, footer, metadata, and all eight résumé downloads. Employer South San Francisco location remains accurate and distinct.
 
 ## Verification
 
@@ -60,3 +60,7 @@ Use the same verified chronology and claim boundaries in hero cards, project art
 ## Systems coursework source mapping
 
 Repository contents verified October 23, 2026: `cse150_p1` contains the Unix shell (`sshell.c`); `ecs150_p2` contains the user-level thread library (`REPORT.md`, `libuthread/uthread.c`, `libuthread/sem.c`); `cse150_p3` contains the FAT file system (`libfs/fs.c`). Archive link labels name those implementations explicitly. The supplemental thread-library link describes only that repository.
+
+## Real project captures
+
+Ashwin explicitly rejected all illustrative project graphics on October 23, 2026. All 19 mock project visuals and the decorative hero artwork were removed. `assets/css/project-visuals.css` is now the final screenshot and layout layer. Public screenshots are documented in `assets/screenshots/README.md`; preserve the synthetic-data captions and the Forge preview indicator. Four captures total about 260 KB, load lazily, and have intrinsic dimensions to reserve layout space. Keep original screenshot pixels unchanged. Do not replace absent screenshots with generic graphic placeholders.
