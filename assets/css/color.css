@@ -63,8 +63,8 @@ html[data-theme="dark"] {
 .bridge-structure { stroke: var(--bridge); }
 .bridge-water { stroke: var(--forest); }
 .location-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; padding-top: 12px; font: 500 12px/1.5 "DM Mono", monospace; }
-.hero-copy { grid-column: 1 / -1; background: var(--surface); border-radius: var(--radius-panel); padding: var(--space-4); gap: 0 var(--space-8); grid-template-columns: 1fr 1fr; }
-.hero-copy #hero-title { font-size: clamp(31px, 3.1vw, 45px); max-width: 600px; }
+.hero-copy { grid-column: 1 / -1; min-width: 0; background: var(--surface); border-radius: var(--radius-panel); padding: var(--space-4); gap: 0 var(--space-8); grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.hero-copy #hero-title { min-width: 0; overflow-wrap: anywhere; font-size: clamp(31px, 3.1vw, 45px); max-width: 600px; }
 .hero-lede, html[data-theme="dark"] .hero-lede { color: var(--ink); }
 .hero-actions { gap: 12px; }
 .button { gap: 20px; padding: 12px 16px; font-size: 14px; }
@@ -169,21 +169,22 @@ html[data-theme="dark"] .contact-link, html[data-theme="dark"] .footer-row, html
   .about-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 650px) {
-  .hero { grid-template-columns: 1fr; gap: 16px; padding-top: 0; }
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-top: 0; }
   .hero-topline { display: flex; gap: 8px; }
   .hero-topline p { font-size: 12px; max-width: 230px; }
   .hero-topline > a { font-size: 0; gap: 0; }
   .hero-topline > a span { font-size: 24px; }
   .hero-identity { padding: 28px 24px; }
+  .hero-jump { top: 24px; right: 24px; bottom: auto; }
   .hero .nameplate { font-size: clamp(66px, 20vw, 112px); margin-block: 24px 32px; }
-  .hero-disciplines { max-width: none; padding-right: 40px; }
+  .hero-disciplines { max-width: none; padding-right: 0; }
   .hero-disciplines span { font-size: 12px; }
   .location-card { min-height: 270px; padding: 24px; }
   .location-name { font-size: 39px; margin-top: 12px; position: relative; z-index: 1; }
   .bridge-art { position: absolute; width: 64%; min-height: 0; bottom: 44px; right: 0; margin: 0; }
   .location-footer { margin-top: auto; padding-top: 24px; position: relative; }
   .location-footer span:last-child { font-size: 10px; }
-  .hero-copy { grid-template-columns: 1fr; padding: 24px; gap: 20px; }
+  .hero-copy { grid-template-columns: minmax(0, 1fr); padding: 24px; gap: 20px; }
   .hero-copy #hero-title { font-size: 31px; }
   .hero-lede, .personalization-note, .hero-actions { grid-column: 1; }
   .hero-actions .button { width: 100%; }
