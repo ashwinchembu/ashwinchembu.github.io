@@ -196,7 +196,7 @@ const roleStackPresets = Object.freeze({
   backend: ['Typed clients · Admin workflows', 'Python · FastAPI · Node.js · Express', 'MongoDB · Redis · S3-compatible storage', 'AI-ready services · Retrieval APIs', 'REST · OpenAPI · MCP · Signed webhooks', 'Validation · Auth · Rate limiting · pytest'],
   data: ['React · Vue · Review dashboards', 'Python · SQL · FastAPI · PySpark', 'Snowflake · MongoDB · AWS Glue · Redshift', 'Entity resolution · Fuzzy matching', 'ETL layers · Figma imports · Scheduled ingestion', 'Pandas · Power BI · Tableau · Data quality'],
   frontend: ['React 18/19 · TypeScript · Three.js', 'Node.js · Express · Figma API integration', 'MongoDB · Firebase · Client state', 'Real-time widgets · Collaborative UI', 'Responsive systems · Forms · Auto-layout', 'Testing Library · Vitest · Playwright'],
-  solutions: ['React · Vue · Workflow interfaces', 'Python · FastAPI · Node.js', 'Snowflake · MongoDB · AWS', 'RAG · Bedrock · Evidence extraction', 'Requirements · APIs · UAT · Handoffs', 'Decision logs · Human approval · Deployment'],
+  solutions: ['React · Vue · Workflow interfaces', 'Python · FastAPI · Node.js', 'Snowflake · MongoDB · AWS', 'RAG · Bedrock · Evidence extraction', 'Requirements · APIs · UAT · Handoffs', 'Decision logs · Exception review · Deployment'],
   salesforce: ['React/Vite · CRM workflow UI', 'Metadata inspection · Mock adapters', 'Snowflake · Healthcare reference data', 'Data quality · Entity resolution', 'UAT · Acceptance criteria · Backlogs', 'User guides · Decision logs · Executive decks'],
 });
 
@@ -346,7 +346,7 @@ const projectCatalog = Object.freeze({
       ]
     ],
     "sourceNote": "Collaborator-owned source and team-published resources. The six Community listings showed approximately 12.2K aggregate uses in July 2026; this is a team-library measure.",
-    "visual": "<div class=\"project-visual figjam-tools-visual\" aria-hidden=\"true\"><div class=\"figjam-tools-shell\"><div class=\"figjam-tools-top\"><b>FIGJAM TOOLKIT</b><span>research + classroom collaboration</span><i>158 commits · 12K+ uses</i></div><div class=\"figjam-tools-board\"><section class=\"figjam-chat\"><small>THREADED CHAT</small><p><i></i><span>Capture the idea</span></p><p><i></i><span>Reply or vote</span></p><p><i></i><span>Share the result</span></p></section><section class=\"figjam-poll\"><small>POLL + LIKERT</small><b>Which direction?</b><p><span style=\"--vote:82%\"></span></p><p><span style=\"--vote:58%\"></span></p><div><i></i><i></i><i></i><i></i><i></i></div></section><section class=\"figjam-import\"><small>STRUCTURED DATA</small><div><b>XLSX</b><span>Question</span><span>Response</span><span>Theme</span></div><p>import → canvas → analysis</p></section></div><div class=\"figjam-tools-foot\"><span>Chat</span><span>Polling</span><span>Text</span><span>GIF</span><span>Quote</span><span>Wordcloud</span></div></div></div>"
+    "visual": "<div class=\"project-visual figjam-tools-visual\" aria-hidden=\"true\"><div class=\"figjam-tools-shell\"><div class=\"figjam-tools-top\"><b>FIGJAM TOOLKIT</b><span>research + classroom collaboration</span><i>6 team-published resources</i></div><div class=\"figjam-tools-board\"><section class=\"figjam-chat\"><small>THREADED CHAT</small><p><i></i><span>Capture the idea</span></p><p><i></i><span>Reply or vote</span></p><p><i></i><span>Share the result</span></p></section><section class=\"figjam-poll\"><small>POLL + LIKERT</small><b>Which direction?</b><p><span style=\"--vote:82%\"></span></p><p><span style=\"--vote:58%\"></span></p><div><i></i><i></i><i></i><i></i><i></i></div></section><section class=\"figjam-import\"><small>STRUCTURED DATA</small><div><b>XLSX</b><span>Question</span><span>Response</span><span>Theme</span></div><p>import → canvas → analysis</p></section></div><div class=\"figjam-tools-foot\"><span>Chat</span><span>Polling</span><span>Text</span><span>GIF</span><span>Quote</span><span>Wordcloud</span></div></div></div>"
   },
   "automation": {
     "title": "Job Hub",
@@ -382,19 +382,23 @@ const projectCatalog = Object.freeze({
       "TypeScript",
       "Cloudflare Workers",
       "D1",
-      "OpenAI Responses API"
+      "OpenAI Responses API",
+      "Python",
+      "LaTeX / Tectonic"
     ],
-    "detailsTitle": "State, evidence & reliable workflows",
-    "detailsIntro": "A full-stack workflow platform with private operational data kept outside the portfolio.",
+    "detailsTitle": "Validation, rendering & exception review",
+    "detailsIntro": "A full-stack workflow platform combining routine package validation, exception-only review and reproducible resume generation.",
     "bullets": [
       "Built a responsive React/TypeScript interface over a Cloudflare Worker API and D1 persistence.",
       "Used revision-aware updates and idempotent actions to recover from stale saves and duplicate events.",
       "Bound generated artifacts to immutable content hashes and explicit workflow states.",
+      "Validated routine application packages against evidence, source and exact-artifact checks; routed only genuine exceptions to human review.",
+      "Built a version-5 Python-to-LaTeX resume pipeline with Tectonic, source fingerprints, ATS extraction and rendered-page quality checks.",
       "Integrated structured AI interview feedback, progressive hints and reproducible coding-practice journals."
     ],
     "links": [],
     "sourceNote": "Architecture summary only; personal application records, recruiter data, journals and operational artifacts remain private.",
-    "visual": "<div class=\"project-visual automation-visual\" aria-hidden=\"true\"><div class=\"automation-shell\"><div class=\"automation-top\"><b>APPLICATION OPS</b><span>auditable workflow</span></div><div class=\"automation-flow\"><section><small>01</small><b>Verified evidence</b><span>fact sheet · job map</span></section><i>→</i><section><small>02</small><b>Dynamic résumé</b><span>ATS · render QA</span></section><i>→</i><section class=\"approval\"><small>03</small><b>Human approval</b><span>exact document</span></section></div><div class=\"automation-status\"><span>✓ truthful answers</span><span>✓ persisted decision</span><span>✓ submission evidence</span></div></div></div>"
+    "visual": "<div class=\"project-visual automation-visual\" aria-hidden=\"true\"><div class=\"automation-shell\"><div class=\"automation-top\"><b>APPLICATION OPS</b><span>auditable workflow</span></div><div class=\"automation-flow\"><section><small>01</small><b>Verified evidence</b><span>fact sheet · job map</span></section><i>→</i><section><small>02</small><b>LaTeX résumé</b><span>V5 · ATS · render QA</span></section><i>→</i><section class=\"approval\"><small>03</small><b>Exception review</b><span>only when needed</span></section></div><div class=\"automation-status\"><span>✓ truthful answers</span><span>✓ persisted decision</span><span>✓ submission evidence</span></div></div></div>"
   },
   "mdm": {
     "title": "Healthcare Data Quality & MDM",
@@ -696,7 +700,7 @@ const projectCatalog = Object.freeze({
     ],
     "links": [],
     "sourceNote": "Collaborative founder product. Pretrained inference and tracing integration; no custom-training or classifier-accuracy claim.",
-    "visual": "<div class=\"project-visual education-ai-visual\" aria-hidden=\"true\"><div class=\"education-split\"><section><span>Founder product · Ongoing</span><b>Tallyrus</b><p>Rubric-grounded essay feedback</p><div><i>RAG</i><i>Pinecone</i><i>Review</i></div></section><section><span>Co-built · HackDavis 2024</span><b>AbleGrade</b><p>ESL writing support and progress</p><div><i>GPT-4</i><i>PDF</i><i>MERN</i></div></section></div><div class=\"education-loop\"><span>Writing</span><i>→</i><span>Evidence + rubric</span><i>→</i><span>Actionable feedback</span></div></div>"
+    "visual": "<div class=\"project-visual education-ai-visual\" aria-hidden=\"true\"><div class=\"education-split\"><section><span>Founder product · Jun 2023—Sep 2025</span><b>Tallyrus</b><p>Rubric-grounded essay feedback</p><div><i>RAG</i><i>FAISS</i><i>Review</i></div></section><section><span>Co-built · HackDavis 2024</span><b>AbleGrade</b><p>ESL writing support and progress</p><div><i>GPT-4</i><i>PDF</i><i>MERN</i></div></section></div><div class=\"education-loop\"><span>Writing</span><i>→</i><span>Evidence + rubric</span><i>→</i><span>Actionable feedback</span></div></div>"
   },
   "commerce": {
     "title": "3D Commerce Experience",

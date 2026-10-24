@@ -52,3 +52,7 @@ Keep two distinct, visible publication entries in every role view and without Ja
 ## Expanded content refresh
 
 Keep five selected projects per role view. The native project archive holds the broader catalog and implementation disclosures. Tallyrus and AbleGrade remain separate; Job Hub exposes architecture without personal records or a source link. Keep awards and university coverage separate from the two research publications. Role dates, Android delivery versus iOS scaffold, pretrained inference and distinct Forge synchronization schedules must retain their current factual boundaries.
+
+## Content consistency across views
+
+Use the same verified chronology and claim boundaries in hero cards, project artwork, disclosures, the general view and every role view. Tallyrus ended September 2025; Tech4Good ended June 2025; Lume ended January 2026. Keep commit counts out of all public accomplishment labels, including decorative artwork. Job Hub uses routine exact-package validation and exception-only human review; its resume pipeline is version-5 Python-to-LaTeX compiled with Tectonic, with ATS and rendered-page checks. Keep the two publication statuses and dates from the publication checks above.
