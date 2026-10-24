@@ -1320,6 +1320,9 @@ function renderProjectShowcase(role, audienceKey) {
   document.querySelectorAll('#support-grid [data-project]').forEach((card) => {
     const isFeatured = selected.includes(card.dataset.project);
     card.hidden = isFeatured;
+    // Keep one stable destination per project as the selected view changes.
+    if (isFeatured) card.removeAttribute('id');
+    else card.id = `${card.dataset.project}-case-study`;
     card.classList.toggle('role-match', !isFeatured && (rolePresets[role]?.matches || []).includes(card.dataset.project));
   });
 
@@ -1580,9 +1583,41 @@ const skillsStrip = document.querySelector('.practice-strip');
 const skillsTrack = document.querySelector('.practice-track');
 const skillsGroup = document.querySelector('.practice-group');
 const skillsToggle = document.querySelector('.skills-toggle');
+
+function openProjectFromHash(hash, { focus = false, animate = false } = {}) {
+  if (!/^#[a-z0-9-]+-case-study$/.test(hash)) return;
+  const project = document.getElementById(hash.slice(1));
+  if (!project?.matches('article[data-project]') || project.hidden) return;
+  for (let ancestor = project.parentElement; ancestor; ancestor = ancestor.parentElement) {
+    if (ancestor.matches('details')) ancestor.open = true;
+  }
+  const details = project.querySelector('.project-more');
+  if (details) details.open = true;
+  project.classList.add('visible');
+  if (focus) {
+    const heading = project.querySelector('h3, h4');
+    heading?.setAttribute('tabindex', '-1');
+    heading?.focus({ preventScroll: true });
+  }
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  project.scrollIntoView({ block: 'start', behavior: animate && !reducedMotion ? 'smooth' : 'instant' });
+}
+
+skillsStrip?.addEventListener('click', (event) => {
+  const link = event.target.closest('a[data-stack-project]');
+  if (!link || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  event.preventDefault();
+  if (window.location.hash !== link.hash) window.history.pushState(null, '', link.hash);
+  openProjectFromHash(link.hash, { focus: true, animate: true });
+});
+
+window.addEventListener('hashchange', () => openProjectFromHash(window.location.hash));
+window.requestAnimationFrame(() => openProjectFromHash(window.location.hash));
+
 if (skillsGroup && skillsTrack && skillsStrip) {
   const duplicate = skillsGroup.cloneNode(true);
   duplicate.setAttribute('aria-hidden', 'true');
+  duplicate.querySelectorAll('a').forEach((link) => { link.tabIndex = -1; });
   skillsTrack.append(duplicate);
   skillsStrip.classList.add('scrolling');
 }
