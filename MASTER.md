@@ -39,6 +39,8 @@ Personalization is optional and remains accessible from the header. It preserves
 
 Each of the eight portfolio focus views has a separate one-page PDF résumé. The hero, experience, and footer résumé links update together and restore with saved preferences. The default and no-JavaScript experience link to the General résumé. Legacy `resume.pdf` remains available as the General version. Only the reviewed PDFs are published; evidence specifications, ATS sidecars, and review materials remain outside the public repository.
 
+The downloadable résumés follow the user-supplied Notion résumé reference: US Letter, embedded Times New Roman, a centered blue name, thin black section rules, compact title/date rows, and uniform 9.5-point evidence bullets. Each view retains its own profile, skills order, evidence emphasis, and project selection, with five/five/four Experience bullets and three bullets per project. The section order is Profile, Technical Skills, Experience, Projects, Education, and Links. San Francisco remains the current contact location; the portfolio URL is visible, clickable, and ATS-readable. All pages require text extraction and rendered review before publishing.
+
 Allowed patterns: oversized name typography, flat colored panels, hairline separators, aligned project rows, user-approved pausable skills scrolling, authentic screenshots with provenance, existing verified metrics and ownership notes, and the existing brand and employer logos. San Francisco is the user-supplied location for the hero, About copy, footer, metadata, and all eight résumé downloads. Employer South San Francisco location remains accurate and distinct.
 
 ## Verification
